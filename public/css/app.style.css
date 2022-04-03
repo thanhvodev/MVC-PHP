@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.banner {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.awesome-thing {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 800px) {
+    .awesome-thing {
+      flex-direction: column;
+    }
+
+    .awesome-thing > .thing {
+        margin-top: 20px;
+    }
+  }
+
+.thing {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 25%;
+}
+
+.thing-image {
+    width: 50px;
+    height: 50px;
+}
