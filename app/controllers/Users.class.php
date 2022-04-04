@@ -28,36 +28,21 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 $data = [
-                    'username' => trim($_POST['username']),
+                    'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
-                    'usernameError' => '',
-                    'passwordError' => ''
                 ];
 
-                if(empty($data['username'])){
-                    $data['usernameError'] = 'Veuillez entrer un username';
-                }
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
-                if(empty($data['password'])){
-                    $data['passwordError'] = 'Veuillez entrer un password';
-                }
-
-                if(empty($data['usernameError']) && empty($data['passwordError'])){
-                    $loggedInUser = $this->userModel->login($data['username'], $data['password']);
-
-                    if($loggedInUser){
-                        $this->createUserSession($loggedInUser);
-                    } else {
-                        $data['passwordError'] = 'Username ou password incorrect. Ressayez !!!';
-                        $this->render('/users/login', $data);
-                    }
+                if($loggedInUser){
+                    $this->createUserSession($loggedInUser);
+                } else {
+                    $this->render('/users/login', $data);
                 }
             } else {
                 $data = [
                     'username' => '',
                     'password' => '',
-                    'usernameError' => '',
-                    'passwordError' => ''
                 ];
             }
             $this->render('users/login', $data);
@@ -83,7 +68,7 @@
                     'password' => trim($_POST['password']),
                     'confirmPassword' => trim($_POST['confirmPassword']),
                 ];
-
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                 if($this->userModel->register($data)){
                     header("Location: ".URL_ROOT."/users/login");
                 } else {
