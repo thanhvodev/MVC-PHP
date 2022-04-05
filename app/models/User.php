@@ -67,6 +67,18 @@ class User
         }
     }
 
+    public function updateProfilePic($data)
+    {
+        $this->db->query('UPDATE user SET IMAGE=:image WHERE ID=:id ');
+        $this->db->bind(':image', $data['image']);
+        $this->db->bind(':id', $_SESSION['user_id']);
+
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function findUserByEmail($email)
     {

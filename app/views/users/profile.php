@@ -10,6 +10,7 @@ require APP_ROOT . '/views/inc/head.php';
             <a class="nav-link" href="#" target="__blank">Đơn hàng</a>
             <a class="nav-link" href="#" target="__blank">Địa chỉ</a>
             <a class="nav-link" href="#" target="__blank">Thông báo</a>
+            <a class="nav-link" href="#" target="__blank">Đăng xuất</a>
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
@@ -20,11 +21,16 @@ require APP_ROOT . '/views/inc/head.php';
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <img class="img-fluid img-account-profile rounded-circle mb-2"
-                            src="<?php echo $_SESSION['image'] ?>" alt="">
+                            src=<?php echo ' data:image/png;base64,' . base64_encode(file_get_contents($_SERVER["DOCUMENT_ROOT"]. "/uploads/" .$_SESSION['image'])) ; ?>
+                            alt="">
                         <!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                         <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
+                        <form action="<?php echo URL_ROOT; ?>/users/uploadImage" method="post"
+                            enctype="multipart/form-data">
+                            <button class="btn btn-primary" type="submit" name="submit">Upload new image</button>
+                            <input class="mt-4" type="file" name="fileToUpload" id="fileToUpload">
+                        </form>
                     </div>
                 </div>
             </div>
