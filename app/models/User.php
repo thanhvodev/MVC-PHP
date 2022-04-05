@@ -39,11 +39,26 @@ class User
 
     public function updateData($data)
     {
-        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL) VALUES (:username, :password, :email)');
+        $this->db->query('UPDATE user SET USERNAME=:username, EMAIL=:email, ADDRESS=:address, PHONENUM=:phonenum WHERE ID=:id ');
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':address', $data['address']);
         $this->db->bind(':phonenum', $data['phonenum']);
+        $this->db->bind(':id', $_SESSION['user_id']);
+
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function updatePassword($data)
+    {
+        $this->db->query('UPDATE user SET PASSWORD=:password WHERE ID=:id ');
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':id', $_SESSION['user_id']);
 
         if($this->db->execute()){
             return true;

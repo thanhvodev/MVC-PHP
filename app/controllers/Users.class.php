@@ -104,7 +104,7 @@
             header('Location: '.URL_ROOT.'/users/login');
         }
 
-        public function profile() {
+        public function updateData() {
 
             $data = [
                 'username' => '',
@@ -114,9 +114,10 @@
                 'address' => '',
             ];
 
+
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                    
                 $data = [
                     'username' => trim($_POST['username']),
                     'email' => trim($_POST['email']),
@@ -124,6 +125,11 @@
                     'phonenum' => trim($_POST['phonenum']),
                     'address' => trim($_POST['address']),
                 ];
+                $_SESSION['username'] =trim($_POST['username']);
+                $_SESSION['email'] = trim($_POST['email']);
+                $_SESSION['phonenum'] = trim($_POST['phonenum']);
+                $_SESSION['address'] = trim($_POST['address']);
+                
                 if($this->userModel->updateData($data)){
                     header("Location: ".URL_ROOT."/users/profile");
                 } else {
@@ -131,6 +137,44 @@
                 }
             }
 
-            $this->render('/users/profile',  $data);
+            // $this->render('/users/profile',  $data);
+        }
+
+        public function updatePassword() {
+
+            $data = [
+                'password' => '',
+                'newpass' => '',
+                'confirmpassword' => '',
+            ];
+
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                    
+                $data = [
+                    'password' => trim($_POST['password']),
+                    'newpass' => trim($_POST['newpass']),
+                    'confirmpassword' => trim($_POST['confirmpassword']),
+                ];
+                if ( $data['newpass'] == $data['confirmpassword'] && password_verify($data['password'], $_SESSION['password'])) 
+                {
+                    $data['password'] = password_hash($data['newpass'], PASSWORD_DEFAULT);
+                    if($this->userModel->updatePassword($data)){
+                        $_SESSION['password'] = $data['password'];
+                        header("Location: ".URL_ROOT."/users/profile");
+                    } else {
+                        die('Something went wrong');
+                    }
+                }
+            }
+
+            // header("Location: ".URL_ROOT."/users/profile");
+        }
+
+
+        public function profile() {
+
+            $this->render('/users/profile',  []);
         }
     }
