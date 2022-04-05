@@ -16,7 +16,6 @@ class User
         $this->db->bind(':email', $email);
         $row = $this->db->fetch();
         $hashedPassword = $row->PASSWORD;
-        echo strlen($hashedPassword);
         if(password_verify($password, $hashedPassword)){
             return $row;
         } else {
@@ -37,6 +36,22 @@ class User
             return false;
         }
     }
+
+    public function updateData($data)
+    {
+        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL) VALUES (:username, :password, :email)');
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':address', $data['address']);
+        $this->db->bind(':phonenum', $data['phonenum']);
+
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function findUserByEmail($email)
     {
