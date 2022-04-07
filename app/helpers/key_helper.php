@@ -26,7 +26,7 @@
 
     // Fonction qui permet d'optenir, ajouter ou supprimer une valeur dans le tableau $_POST
 
-    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    $_POST = filter_input_array(INPUT_POST);
 
     function post($key, $default=false) {
       return array_key_exists($key, $_POST) ? $_POST[$key] : $default;

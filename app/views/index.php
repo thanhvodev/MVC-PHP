@@ -24,5 +24,8 @@
     <a href="./users/register">Register</a>
     <!-- require APP_ROOT . '/views/inc/footer.php'; -->
     <footer>
+        <?php 
+            require APP_ROOT . '/views/inc/footer.php';
+        ?>
     </footer>
 </body>

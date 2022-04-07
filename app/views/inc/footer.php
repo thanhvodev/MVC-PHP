@@ -1,6 +1,18 @@
-<footer>
-    <p>Template by Loule <img src="https://avatars.githubusercontent.com/u/35641311" alt="Loule95450 Profile" width="24px"> <a class="github-button" href="https://github.com/Loule95450/PHP-MVC-Template" data-color-scheme="no-preference: light; light: dark_dimmed; dark: dark_dimmed;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Loule95450/PHP-MVC-Template on GitHub">Star</a></p>
-</footer>
+<h1 style="color: red;">FOOTER</h1>
+
+<script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src= "<?=URL_ROOT?>/public/js/blog.js"></script>
 
 <?php
     require APP_ROOT . '/views/inc/script.php';
