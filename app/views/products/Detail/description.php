@@ -4,7 +4,14 @@
             echo $data["Name"];
         ?>
     </div>
-    <div class="extra-info">11 đánh giá | 22 đã bán</div>
+    <div class="extra-info"><?php echo count($data["Feedbacks"]);?> đánh giá | Điểm đánh giá: <span class="badge" style='background: #ff871d;'>
+    <?php 
+        if ($data["Point"] > 0)
+            echo round($data["Point"], 1);
+        else    
+            echo "*";
+    ?>
+    </span></div>
     <div class='divider mt-3'></div>
     <div class="description pt-3">
         <?php
@@ -23,7 +30,7 @@
     <div class='divider'></div>
     <div class="row pt-3">
         <h6 class="col-md-3 d-flex">Giá sản phẩm: </h6>
-        <div class="col-md-6 text-center" id="price" style="color: #ff871d; font-weight: 600; font-size: 20px;"><?php echo $data["Category"][0]->price." đ";?></div>
+        <div class="col-md-6 text-center" id="price" style="color: #ff871d; font-weight: 600; font-size: 20px;"><?php echo $data["Category"][0]->PRICE." đ";?></div>
     </div>
     <div class='divider mt-3'></div>
     <div class="quantity row pt-3">
@@ -33,7 +40,7 @@
                 require_once APP_ROOT . '/views/products/Detail/inputSpinner.php';
             ?>
         </div>
-        <div class="col-md-4 num text-center" id="quantity"><?php echo $data["Category"][0]->quantity." sản phẩm có sẵn";?></div>
+        <div class="col-md-4 num text-center" id="quantity"><?php echo $data["Category"][0]->QUANTITY." sản phẩm có sẵn";?></div>
     </div>
     <div class="action mt-4 text-center">
         <button type="button" class="btn btn-choose">Thêm vào giỏ hàng</button>

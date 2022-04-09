@@ -1,9 +1,9 @@
 <div id="category">
     <?php
-        echo "<button class='cate clicked' id='0'>".$data["Category"][0]->category."</button>";
+        echo "<button class='cate clicked' id='0'>".$data["Category"][0]->CATEGORY."</button>";
         $i = 1;
         while ($i < count($data["Category"])){
-            echo "<button class='cate' id='".$i."'>".$data["Category"][$i]->category."</button>";
+            echo "<button class='cate' id='".$i."'>".$data["Category"][$i]->CATEGORY."</button>";
             $i++;
         }
     ?>
@@ -13,7 +13,7 @@
     $price = array();
     $i = 0;
     while ($i < count($data["Category"])){
-        array_push($price, $data["Category"][$i]->price);
+        array_push($price, $data["Category"][$i]->PRICE);
         $i++;
     }
     echo '["' . implode('", "', $price) . '"]';
@@ -22,7 +22,7 @@
     $quantity = array();
     $i = 0;
     while ($i < count($data["Category"])){
-        array_push($quantity, $data["Category"][$i]->quantity);
+        array_push($quantity, $data["Category"][$i]->QUANTITY);
         $i++;
     }
     echo '["' . implode('", "', $quantity) . '"]';

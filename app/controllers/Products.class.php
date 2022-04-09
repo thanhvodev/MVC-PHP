@@ -29,7 +29,8 @@
                         "Description" => $res->DESCRIPTION,
                         "Images" => $this->productModel->getImage($option),
                         "Category" => $this->productModel->getCategory($option),
-                        "Feedbacks" => $this->productModel->getFeedback($option)
+                        "Feedbacks" => $this->productModel->getFeedback($option),
+                        "Point" => $this->productModel->getRatingPoint($option)
                     ]);
                 else 
                     die('Something went wrong');
