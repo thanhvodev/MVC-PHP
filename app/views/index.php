@@ -22,6 +22,7 @@
         ?>
     </main>
     <a href="./users/register">Register</a>
+    <a href="./products/detail/1">Product Detail</a>
     <!-- require APP_ROOT . '/views/inc/footer.php'; -->
     <footer>
         <?php 
