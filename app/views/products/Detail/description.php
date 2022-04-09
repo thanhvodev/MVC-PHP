@@ -1,3 +1,6 @@
+<?php
+    require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
+?>
 <div class="detail">
     <div class="title">
         <?php
@@ -30,7 +33,7 @@
     <div class='divider'></div>
     <div class="row pt-3">
         <h6 class="col-md-3 d-flex">Giá sản phẩm: </h6>
-        <div class="col-md-6 text-center" id="price" style="color: #ff871d; font-weight: 600; font-size: 20px;"><?php echo $data["Category"][0]->PRICE." đ";?></div>
+        <div class="col-md-6 text-center" id="price" style="color: #ff871d; font-weight: 600; font-size: 20px;"><?php echo currency_format($data["Category"][0]->PRICE);?></div>
     </div>
     <div class='divider mt-3'></div>
     <div class="quantity row pt-3">

@@ -1,3 +1,6 @@
+<?php
+    require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
+?>
 <div class="image-slider">
     <?php
         $i = 0;
@@ -15,7 +18,7 @@
             echo "
             </span></a>
                 <div class='image-hr'></div>
-                <div class='product-price text-center'>".$data['fooddeals'][$i]["Price"]." đ</div>
+                <div class='product-price text-center'>".currency_format($data['fooddeals'][$i]["Price"])."</div>
             </div>
             ";
             $i++;

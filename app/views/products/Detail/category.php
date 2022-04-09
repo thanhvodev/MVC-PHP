@@ -35,7 +35,9 @@
             current[0].className = current[0].className.replace(" clicked", "");
             this.className += " clicked";
             var x = document.getElementById("price");
-            x.innerHTML = price[parseInt(current[0].id)] + " đ";
+            var a = parseInt(price[parseInt(current[0].id)]);
+            // x.innerHTML = price[parseInt(current[0].id)].toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+            x.innerHTML = a.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
             var y = document.getElementById("quantity");
             y.innerHTML = quantity[parseInt(current[0].id)] + " sản phẩm có sẵn";
         });

@@ -15,7 +15,7 @@
             echo "
             </span></a>
                 <div class='image-hr'></div>
-                <div class='product-price text-center'>".$data['equipmentdeals'][$i]["Price"]." đ</div>
+                <div class='product-price text-center'>".currency_format($data['equipmentdeals'][$i]["Price"])."</div>
             </div>
             ";
             $i++;
