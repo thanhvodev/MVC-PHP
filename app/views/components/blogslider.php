@@ -1,7 +1,11 @@
 <div class="image-slider">
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323" alt="Hinh1">
+        <div class="image-grid__item">
+            <a href="<?php echo URL_ROOT ?>/blog/detail" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description">
@@ -13,8 +17,12 @@
         </div>
     </div>
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog5_1024x1024.png?v=1639709301" alt="Hinh2">
+        <div class="image-grid__item">
+            <a href="#" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog5_1024x1024.png?v=1639709301)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description">
@@ -26,8 +34,12 @@
         </div>
     </div>
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog3_553c7cb8-982a-4e28-a694-2d2a42e9adb0_1024x1024.png?v=1639709275" alt="Hinh4">
+        <div class="image-grid__item">
+            <a href="#" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog3_553c7cb8-982a-4e28-a694-2d2a42e9adb0_1024x1024.png?v=1639709275)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description">
@@ -39,8 +51,12 @@
         </div>
     </div>
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog4_b28dfcca-2a30-4325-824a-02c86a38381f_1024x1024.png?v=1639709240" alt="Hinh4">
+        <div class="image-grid__item">
+            <a href="#" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog4_b28dfcca-2a30-4325-824a-02c86a38381f_1024x1024.png?v=1639709240)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description image-description__short">
@@ -52,8 +68,12 @@
         </div>
     </div>
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog2_f0c4728c-b443-49dd-9abd-44773eb908d4_1024x1024.png?v=1639709221" alt="Hinh5">
+        <div class="image-grid__item">
+            <a href="#" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog2_f0c4728c-b443-49dd-9abd-44773eb908d4_1024x1024.png?v=1639709221)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description">
@@ -65,8 +85,12 @@
         </div>
     </div>
     <div class="image-item">
-        <div class="image">
-            <img src="https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165" alt="Hinh6">
+        <div class="image-grid__item">
+            <a href="#" class="grid-item">
+            <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165)"></div>
+            <div class="grid-item__hover"></div>
+            <div class="grid-item__name">Read more</div>
+            </a>
         </div>
         <h4 class="image-title">NEWS</h4>
         <div class="image-description">
