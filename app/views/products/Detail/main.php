@@ -10,10 +10,10 @@
                 <li class="breadcrumb-item">
                 <?php
                     if ($data["Type"] == 1){
-                        echo "<a href='". URL_ROOT."/products/food' class='backtohome'>Thực phẩm dinh dưỡng</a></li>";
+                        echo "<a href='". URL_ROOT."/products/detail/food' class='backtohome'>Thực phẩm dinh dưỡng</a></li>";
                     }
                     else {
-                        echo "<a href='". URL_ROOT."/products/equipment' class='backtohome'>Dụng cụ tập luyện</a></li>";
+                        echo "<a href='". URL_ROOT."/products/detail/equipment' class='backtohome'>Dụng cụ tập luyện</a></li>";
                     }
                 ?>    
                 <li class="breadcrumb-item active" aria-current="page">

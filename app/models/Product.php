@@ -10,14 +10,32 @@ class Product
 
     public function getProductList($type)
     {
-        $this->db->query("SELECT name, image, price FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY WHERE PRODUCT.ID = PRODUCTIMAGE.ID 
-        and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name");
+        $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
+        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name");
         $this->db->bind(':ptype', $type);
-        $json_array = array();
-        while($row = $this->db->fetch()) {
-            $json_array[] = $row;
+        $row = $this->db->fetchAll();
+        $i = 0;
+        $res = array();
+        $pointList = array();
+        while ($i < count($row)){
+            $element = [
+                "ID" => $row[$i]->ID,
+                "Name" => $row[$i]->NAME,
+                "Image" => $row[$i]->IMAGE,
+                "Price" => $row[$i]->PRICE,
+                "Point" => round($this->getRatingPoint($row[$i]->ID), 1)
+            ];
+            array_push($pointList, round($this->getRatingPoint($row[$i]->ID), 1));
+            array_push($res, $element);
+            $i++;
         }
-        echo json_encode($json_array);
+        rsort($pointList);
+        usort($res, function ($a, $b) use ($pointList) {
+            $pos_a = array_search($a["Point"], $pointList);
+            $pos_b = array_search($b["Point"], $pointList);
+            return $pos_a - $pos_b;
+        });
+        return $res;
     }
 
     public function getNameTypeDes($id)
