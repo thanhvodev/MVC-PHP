@@ -4,8 +4,12 @@
         while ($i < count($data['equipmentdeals'])){
             echo "
             <div class='image-item'>
-                <div class='image'>
-                    <img src='".$data['equipmentdeals'][$i]["Image"]."'alt=''>
+                <div class='image-grid__item'>
+                    <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]." class='grid-item'>
+                    <div class='grid-item__image' style='background-image: url(".$data['equipmentdeals'][$i]["Image"].")'></div>
+                    <div class='grid-item__hover'></div>
+                    <div class='grid-item__name'>Read more</div>
+                    </a>
                 </div>
                 <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]."'>".$data['equipmentdeals'][$i]["Name"]." <span class='badge' style='background: #ff871d;'>";
             if ($data['equipmentdeals'][$i]["Point"] > 0)

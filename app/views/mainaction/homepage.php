@@ -1,3 +1,6 @@
+<?php
+    require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
+?>
 <!-- Banner -->
 <?php
     require_once APP_ROOT . '/views/components/banner.php';
