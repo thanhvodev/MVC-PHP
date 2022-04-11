@@ -7,11 +7,11 @@
         require APP_ROOT . '/views/inc/nav.php';
     ?>
 
-    <!-- <header>
-        <h1>Welcome to <?= SITE_NAME ?> !</h1>
-        <h1>Go to 'app/views/index.php' to edit your site</h1>
-        <h1>Generate you files on https://mvc-generator.herokuapp.com/</h1>
-    </header> -->
+    <div>
+        <?php 
+            require APP_ROOT . '/views/inc/header.php';
+        ?>
+    </div>
 
     <main>
         <!-- Carousel -->
@@ -21,8 +21,6 @@
             }
         ?>
     </main>
-    <a href="./users/register">Register</a>
-    <!-- require APP_ROOT . '/views/inc/footer.php'; -->
     <footer>
         <?php 
             require APP_ROOT . '/views/inc/footer.php';
