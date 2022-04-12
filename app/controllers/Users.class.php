@@ -25,14 +25,12 @@
 
             // Vérifie si méthode POST est utilisé
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
                 $data = [
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                 ];
 
-                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+                $loggedInUser = @$this->userModel->login($data['email'], $data['password']);
 
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
