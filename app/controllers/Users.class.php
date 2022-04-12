@@ -12,6 +12,12 @@
             header("Location: ".URL_ROOT."/users/login");
         }
 
+        public function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
 
         public function login()
         {
@@ -37,7 +43,7 @@
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $this->render('/users/login', $data);
+                    header("Location: ".URL_ROOT."/users/register");
                 }
             } else {
                 $data = [
@@ -50,30 +56,61 @@
 
         public function register()
         { 
+            $usernameErr = $emailErr = $passwordErr = $confirmPasswordErr = "";
+            $username = $email = $password = $confirmPassword = "";
+            if (empty($_POST["username"])) {
+                $usernameErr = "Name is required";
+            } else {
+                $username = $this->test_input($_POST["username"]);
+            }
 
+            if (empty($_POST["email"])) {
+                $usernameErr = "Email is required";
+            } else {
+                $username =  $this->test_input($_POST["email"]);
+            }
+
+            if (empty($_POST["password"])) {
+                $usernameErr = "password is required";
+            } else {
+                $username =  $this->test_input($_POST["password"]);
+            }
+
+            if (empty($_POST["confirmPassword"])) {
+                $usernameErr = "Name is required";
+            } else {
+                $username =  $this->test_input($_POST["confirmPassword"]);
+            }
             $data = [
-                'username' => '',
-                'email' => '',
-                'password' => '',
-                'confirmPassword' => '',
-
+                'username' => $username,
+                'email' => $email,
+                'password' => $password,
+                'confirmPassword' => $confirmPassword,
+                'usernameErr' => $usernameErr,
+                'emailErr' => $emailErr,
+                'passwordErr' => $passwordErr,
+                'confirmPasswordErr' => $confirmPasswordErr,
             ];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $data = [
-                    'username' => trim($_POST['username']),
-                    'email' => trim($_POST['email']),
-                    'password' => trim($_POST['password']),
-                    'confirmPassword' => trim($_POST['confirmPassword']),
-                ];
+                // $data = [
+                //     'username' => trim($_POST['username']),
+                //     'email' => trim($_POST['email']),
+                //     'password' => trim($_POST['password']),
+                //     'confirmPassword' => trim($_POST['confirmPassword']),
+                // ];
+
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-                if($this->userModel->register($data)){
-                    header("Location: ".URL_ROOT."/users/login");
-                } else {
-                    die('Something went wrong');
+                if ($username != "" && $email != "" && $password != "" && $confirmPassword != "") {
+                    if($this->userModel->register($data)){
+                        header("Location: ".URL_ROOT."/users/login");
+                    } else {
+                        die('Something went wrong');
+                    }
                 }
+
             }
             $this->render('/users/register', $data);
         }
