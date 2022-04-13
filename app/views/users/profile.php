@@ -3,6 +3,18 @@ require APP_ROOT . '/views/inc/head.php';
 ?>
 
 <body>
+
+    <script>
+    $(document).ready(function() {
+        $("#upLoadButton").hide();
+        // $("#fileToUpload").click(function() {
+        //     $("#upLoadButton").show();
+        // });
+        $(document).on('change', '#fileToUpload', function() {
+            $("#upLoadButton").show();
+        })
+    });
+    </script>
     <div class="container-xl px-4 mt-4">
         <!-- Account page navigation-->
         <nav class="nav nav-borders">
@@ -10,7 +22,7 @@ require APP_ROOT . '/views/inc/head.php';
             <a class="nav-link" href="#" target="__blank">Đơn hàng</a>
             <a class="nav-link" href="#" target="__blank">Địa chỉ</a>
             <a class="nav-link" href="#" target="__blank">Thông báo</a>
-            <a class="nav-link" href="#" target="__blank">Đăng xuất</a>
+            <a class="nav-link" href="./users/logout" target="__blank">Đăng xuất</a>
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
@@ -21,14 +33,15 @@ require APP_ROOT . '/views/inc/head.php';
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <img class="img-fluid img-account-profile rounded-circle mb-2"
-                            src=<?php echo ' data:image/png;base64,' . base64_encode(file_get_contents($_SERVER["DOCUMENT_ROOT"]. "/uploads/" .$_SESSION['image'])) ; ?>
+                            src=<?php echo ' data:image/png;base64,' . base64_encode(file_get_contents($_SERVER["DOCUMENT_ROOT"]. "/uploads/" . $_SESSION['image'])) ; ?>
                             alt="">
                         <!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                         <!-- Profile picture upload button-->
                         <form action="<?php echo URL_ROOT; ?>/users/uploadImage" method="post"
                             enctype="multipart/form-data">
-                            <button class="btn btn-primary" type="submit" name="submit">Upload new image</button>
+                            <button class="btn btn-primary" type="submit" name="submit" id="upLoadButton">Upload new
+                                image</button>
                             <input class="mt-4" type="file" name="fileToUpload" id="fileToUpload">
                         </form>
                     </div>

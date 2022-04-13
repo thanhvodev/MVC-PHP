@@ -18,6 +18,12 @@
         <?php
             if ($data['page'] == 'homepage') {
                 require_once APP_ROOT . '/views/mainaction/homepage.php';
+            } elseif ($data['page'] == 'login') {
+                require_once APP_ROOT . '/views/users/login.php';
+            } elseif ($data['page'] == 'register') {
+                require_once APP_ROOT . '/views/users/register.php';
+            } elseif ($data['page'] == 'profile') {
+                require_once APP_ROOT . '/views/users/profile.php';
             }
         ?>
     </main>

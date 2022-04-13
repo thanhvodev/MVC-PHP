@@ -20,7 +20,8 @@
                 'username' => '',
                 'password' => '',
                 'usernameError' => '',
-                'passwordError' => ''
+                'passwordError' => '',
+                'page' => 'login'
             ];
 
             // Vérifie si méthode POST est utilisé
@@ -28,6 +29,7 @@
                 $data = [
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
+                    'page' => 'login'
                 ];
 
                 $loggedInUser = @$this->userModel->login($data['email'], $data['password']);
@@ -35,15 +37,17 @@
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $this->render('/users/login', $data);
+                    // $this->render('/users/login', $data);
+                    $this->render('index', $data);
                 }
             } else {
                 $data = [
                     'username' => '',
                     'password' => '',
+                    'page' => 'login'
                 ];
             }
-            $this->render('users/login', $data);
+            $this->render('index', $data);
         }
 
         public function register()
@@ -54,7 +58,7 @@
                 'email' => '',
                 'password' => '',
                 'confirmPassword' => '',
-
+                'page' => 'register'
             ];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -65,6 +69,7 @@
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                     'confirmPassword' => trim($_POST['confirmPassword']),
+                    'page' => 'register'
                 ];
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                 if($this->userModel->register($data)){
@@ -73,7 +78,9 @@
                     die('Something went wrong');
                 }
             }
-            $this->render('/users/register', $data);
+            // $this->render('/users/register', $data);
+            $this->render('index', $data);
+
         }
 
         public function createUserSession($loggedInUser)
@@ -172,7 +179,7 @@
 
 
         public function profile() {
-            $this->render('/users/profile',  []);
+            $this->render('index',  ['page'=>'profile']);
         }
 
         public function uploadImage() {
