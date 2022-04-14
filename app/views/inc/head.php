@@ -46,10 +46,15 @@
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/header.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/footer.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/app.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/grid.style.css">
+    
 
     <!-- Load FontAwsome and Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+
 </head>

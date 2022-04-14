@@ -1,7 +1,7 @@
 <div class="grid wide container">
     <div class="row">
         <div class="col l-12 m-12">
-            <div class="main__path" style="margin-bottom:32px; padding: 0; width: 100%;">
+            <div class="main__path" style="margin-bottom:32px; padding: 0; width: 100%; margin-top: 16px;">
                 Home &nbsp > &nbsp News  > &nbsp Fitness is not about being better than someone else
             </div>
         </div>
@@ -53,8 +53,13 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col l-12 m-12 c-12 line" style="margin-bottom: 32px;"></div>
-    </div>
 </div>
+
+<div class="line"></div>
+
+<div class="ourblog mt-5">R E L A T E D P O S T</div>
+<div class="horizontalline"></div>
+
+<?php
+    include APP_ROOT . '/views/components/blogslider.php';
+?>
