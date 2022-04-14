@@ -1,14 +1,16 @@
 <div class="usergroup">
-    <a to="/profile">
+    <a href=<?php if(array_key_exists("user_id", $_SESSION)) echo "./users/profile"; else echo "./users/login";  ?>>
         <button type="button" class="hidden-btn normal-circle-btn">
             <i class="far fa-user"></i>
         </button>
     </a>
-    <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas" data-bs-target="#cartRight" aria-controls="offcanvasRight">
+    <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas" data-bs-target="#cartRight"
+        aria-controls="offcanvasRight">
         <i class="fas fa-shopping-cart"></i>
     </button>
 
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="cartRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="cartRight"
+        aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <p></p>
             <h5 id="offcanvasRightLabel">

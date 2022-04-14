@@ -1,6 +1,16 @@
 <?php
     require APP_ROOT . '/views/inc/head.php';
+
+    function alert($msg) {
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+    }
+    if ($data['error'] == 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!') {
+        alert($data['error']);
+    }
 ?>
+
+
+
 
 <body>
     <section style="background-color: #eee;" class="vh-100">
@@ -35,11 +45,8 @@
                                         </div>
 
                                         <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                id="form2Example3c" required />
-                                            <label class="form-check-label" for="form2Example3">
-                                                I agree all statements in <a href="#!">Terms of service</a>
-                                            </label>
+                                            <a href="./register" class="link-dark">Don't have an account? Register
+                                                now</a>
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
