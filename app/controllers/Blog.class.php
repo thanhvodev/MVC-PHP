@@ -6,7 +6,10 @@
         }
         public function detail()
         {
-            return 1;
+            $this->render('inc/head');
+            $this->render('inc/header');
+            $this->render('components/blogdetail');
+            $this->render('inc/footer');
         }
     }
 ?>

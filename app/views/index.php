@@ -7,22 +7,28 @@
         require APP_ROOT . '/views/inc/nav.php';
     ?>
 
-    <!-- <header>
-        <h1>Welcome to <?= SITE_NAME ?> !</h1>
-        <h1>Go to 'app/views/index.php' to edit your site</h1>
-        <h1>Generate you files on https://mvc-generator.herokuapp.com/</h1>
-    </header> -->
+    <div>
+        <?php 
+            require APP_ROOT . '/views/inc/header.php';
+        ?>
+    </div>
 
     <main>
         <!-- Carousel -->
         <?php
             if ($data['page'] == 'homepage') {
                 require_once APP_ROOT . '/views/mainaction/homepage.php';
+            } elseif ($data['page'] == 'login') {
+                require_once APP_ROOT . '/views/users/login.php';
+            } elseif ($data['page'] == 'register') {
+                require_once APP_ROOT . '/views/users/register.php';
+            } elseif ($data['page'] == 'profile') {
+                require_once APP_ROOT . '/views/users/profile.php';
+            }elseif ($data['page'] == 'orders') {
+                require_once APP_ROOT . '/views/users/orders.php';
             }
         ?>
     </main>
-    <a href="./users/register">Register</a>
-    <!-- require APP_ROOT . '/views/inc/footer.php'; -->
     <footer>
         <?php 
             require APP_ROOT . '/views/inc/footer.php';

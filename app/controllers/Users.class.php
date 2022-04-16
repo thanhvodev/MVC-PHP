@@ -20,32 +20,38 @@
                 'username' => '',
                 'password' => '',
                 'usernameError' => '',
-                'passwordError' => ''
+                'passwordError' => '',
+                'page' => 'login',
+                'error' => ''
             ];
 
             // Vérifie si méthode POST est utilisé
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
                 $data = [
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
+                    'page' => 'login',
+                    'error' => 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!'
                 ];
 
-                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+                $loggedInUser = @$this->userModel->login($data['email'], $data['password']);
 
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $this->render('/users/login', $data);
+                    // $this->render('/users/login', $data);
+                    $this->render('index', $data);
                 }
             } else {
                 $data = [
                     'username' => '',
                     'password' => '',
+                    'page' => 'login',
+                    'error' => ''
+
                 ];
             }
-            $this->render('users/login', $data);
+            $this->render('index', $data);
         }
 
         public function register()
@@ -56,7 +62,7 @@
                 'email' => '',
                 'password' => '',
                 'confirmPassword' => '',
-
+                'page' => 'register',
             ];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -67,6 +73,7 @@
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                     'confirmPassword' => trim($_POST['confirmPassword']),
+                    'page' => 'register',
                 ];
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                 if($this->userModel->register($data)){
@@ -75,7 +82,20 @@
                     die('Something went wrong');
                 }
             }
-            $this->render('/users/register', $data);
+            // $this->render('/users/register', $data);
+            $this->render('index', $data);
+
+        }
+
+        public function seeOrders() {
+            $ordersData =  $this->userModel->getOrders($_SESSION['user_id']);
+            
+            $data = [
+                'page' => 'orders',
+                'cssFile' => 'orders',
+                'ordersData' => $ordersData
+            ];
+            $this->render('index', $data);
         }
 
         public function createUserSession($loggedInUser)
@@ -101,7 +121,7 @@
             unset($_SESSION['image']);
             unset($_SESSION['address']);
             unset($_SESSION['permission']);
-            header('Location: '.URL_ROOT.'/users/login');
+            header('Location: '.URL_ROOT.'/index');
         }
 
         public function updateData() {
@@ -174,7 +194,7 @@
 
 
         public function profile() {
-            $this->render('/users/profile',  []);
+            $this->render('index',  ['page'=>'profile']);
         }
 
         public function uploadImage() {

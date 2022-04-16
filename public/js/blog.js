@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.image-slider').slick({
-      centerMode: true,
+      // centerMode: true,
       centerPadding: '40px',
       slidesToShow: 3,
       infinite: true,
