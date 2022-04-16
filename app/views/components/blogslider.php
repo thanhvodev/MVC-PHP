@@ -1,7 +1,7 @@
-<div class="image-slider">
+<!-- <div class="image-slider">
     <div class="image-item">
         <div class="image-grid__item">
-            <a href="<?php echo URL_ROOT ?>/blog/detail" class="grid-item">
+            <a href="<?php echo URL_ROOT ?>/blogs/detail" class="grid-item">
             <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323)"></div>
             <div class="grid-item__hover"></div>
             <div class="grid-item__name">Read more</div>
@@ -86,6 +86,7 @@
     </div>
     <div class="image-item">
         <div class="image-grid__item">
+            <a href='<?php echo URL_ROOT . '/blogs/detail' . $data['blogs'][$id]->ID; ?>'></a>
             <a href="#" class="grid-item">
             <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165)"></div>
             <div class="grid-item__hover"></div>
@@ -101,4 +102,36 @@
             Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Etiam ut purus mattis mauris sodales...
         </div>
     </div>
-</div>
+</div> -->
+
+<?php 
+    $i = 0;
+    echo "<div class='image-slider'>";
+    while ($i<count($data['blogs'])) {
+        $hreflink = "./blogs/detail/".$data['blogs'][$i]->ID;
+        $bgurl = $data['blogs'][$i]->IMAGE;
+        $title = $data['blogs'][$i]->TITLE;
+        $content = $data['blogs'][$i]->CONTENT;
+        echo "
+        <div class='image-item'>
+            <div class='image-grid__item'>
+                <a href='$hreflink' class='grid-item'>
+                <div class='grid-item__image' style='background-image: url($bgurl)'></div>
+                <div class='grid-item__hover'></div>
+                <div class='grid-item__name'>Read more</div>
+                </a>
+            </div>
+            <h4 class='image-title'>NEWS</h4>
+            <div class='image-description'>
+                $title
+            </div>
+            <div class='image-hr'></div>
+            <div class='image-detail'>
+                Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Etiam ut purus mattis mauris sodales...
+            </div>
+        </div>
+        ";
+        $i++;
+    }
+    echo "</div>"
+?>

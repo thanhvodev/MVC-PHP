@@ -11,6 +11,7 @@
 		    // Import SQL commands
 
 			$this->productModel = $this->loadmodel('Product');
+			$this->blogModel = $this->loadModel('Blog');
 		}
 		
 		/**
@@ -21,6 +22,7 @@
                 'page' => 'homepage',
 				'fooddeals' => $this->productModel->getDealList(1),
 				'equipmentdeals' => $this->productModel->getDealList(2),
+				'blogs' => $this->blogModel->getBlogList(),
 			];
 			
 			$this->render('index', $data);
