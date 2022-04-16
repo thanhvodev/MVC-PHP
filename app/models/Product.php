@@ -124,4 +124,20 @@ class Product
         }
         return $res;
     }
+
+    public function addFeedback($data){
+        $this->db->query('INSERT INTO feedback (userid, productid, username, timestamp, rating, content) VALUES (:userid, :productid, :username, :timestamp, :rating, :content)');
+        $this->db->bind(':userid', $data['userid']);
+        $this->db->bind(':productid', $data['productid']);
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':timestamp', $data['timestamp']);
+        $this->db->bind(':rating', $data['rating']);
+        $this->db->bind(':content', $data['content']);
+
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

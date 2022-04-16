@@ -16,9 +16,6 @@
         public function detail($option)
         {
             if ($option == 'food'){
-                // $this->render('products/All/main', 
-                // ["Type" => 1, 
-                // "List" => $this->productModel->getProductList(1)]);
                 $data = [
                     "page" => "allproducts",
                     "Type" => 1,
@@ -27,9 +24,6 @@
                 $this->render('index', $data);
             }
             else if ($option == 'equipment'){
-                // $this->render('products/All/main', 
-                // ["Type" => 2, 
-                // "List" => $this->productModel->getProductList(2)]);
                 $data = [
                     "page" => "allproducts",
                     "Type" => 2,
@@ -51,22 +45,30 @@
                         "Point" => $this->productModel->getRatingPoint($option)
                     ];
                     $this->render('index', $data);
+                    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                        date_default_timezone_set("Asia/Ho_Chi_Minh");
+                        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                        $data = [
+                            'userid' => trim($_SESSION['user_id']),
+                            'productid' => $option,
+                            'username' => trim($_SESSION['username']),
+                            'timestamp' => date("Y-m-d H:i:s"),
+                            'rating' => trim($_POST['rating']),
+                            'content' => trim($_POST['content']),
+                        ];
+                        if($this->productModel->addFeedback($data)){
+                            echo "<script>
+                              alert('Gửi đánh giá thành công!');
+                              window.location.href ='".URL_ROOT."/products/detail/".$option."';
+                              </script>";
+                        }
+                        else {
+                            die('Something went wrong');
+                        }
+                    }
                 }
                 else 
                     die('Something went wrong');
-                // if ($res)
-                //     $this->render('products/Detail/main', 
-                //     [
-                //         "Name" => $res->NAME,
-                //         "Type" => $res->TYPE,
-                //         "Description" => $res->DESCRIPTION,
-                //         "Images" => $this->productModel->getImage($option),
-                //         "Category" => $this->productModel->getCategory($option),
-                //         "Feedbacks" => $this->productModel->getFeedback($option),
-                //         "Point" => $this->productModel->getRatingPoint($option)
-                //     ]);
-                // else 
-                //     die('Something went wrong');
             }
         }
     }

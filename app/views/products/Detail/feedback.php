@@ -9,12 +9,12 @@
         echo "<div class='col-2 all-star'>";
         $i = 1;
         while ($i <= $data["Feedbacks"][$count]->RATING){
-            echo "<i class='fa fa-star checked'></i>";
+            echo "<i class='ratingstar fas fa-star'></i>";
             $i++;
         }
         $i = 1;
         while ($i <= 5 - $data["Feedbacks"][$count]->RATING){
-            echo "<i class='fa fa-star'></i>";
+            echo "<i class='ratingstar far fa-star'></i>";
             $i++;
         }
         echo "</div>
@@ -42,12 +42,12 @@
         echo "<div class='col-2 all-star'>";
         $i = 1;
         while ($i <= $data["Feedbacks"][$count]->RATING){
-            echo "<i class='fa fa-star checked'></i>";
+            echo "<i class='ratingstar fas fa-star'></i>";
             $i++;
         }
         $i = 1;
         while ($i <= 5 - $data["Feedbacks"][$count]->RATING){
-            echo "<i class='fa fa-star'></i>";
+            echo "<i class='ratingstar far fa-star'></i>";
             $i++;
         }
         echo "</div>
