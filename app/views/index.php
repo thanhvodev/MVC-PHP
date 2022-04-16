@@ -24,9 +24,14 @@
                 require_once APP_ROOT . '/views/users/register.php';
             } elseif ($data['page'] == 'profile') {
                 require_once APP_ROOT . '/views/users/profile.php';
-            }elseif ($data['page'] == 'orders') {
+            } elseif ($data['page'] == 'orders') {
                 require_once APP_ROOT . '/views/users/orders.php';
+            } elseif ($data['page'] == 'allproducts') {
+                require_once APP_ROOT . '/views/products/All/main.php';
+            } elseif ($data['page'] == 'productdetail') {
+                require_once APP_ROOT . '/views/products/Detail/main.php';
             }
+
         ?>
     </main>
     <footer>

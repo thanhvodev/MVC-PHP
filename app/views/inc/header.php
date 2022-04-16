@@ -5,10 +5,10 @@
                 <div class="col-5 left">
                     <div class="list-item">
                         <div class="item active">
-                            <a href="/">Home</a>
+                            <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a href="/">Products</a>
+                            <a href=<?= URL_ROOT."/products/detail/food" ?>>Products</a>
                         </div>
                         <div class="item">
                             <a href="/">About Us</a>
