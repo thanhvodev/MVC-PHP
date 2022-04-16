@@ -536,22 +536,19 @@
 .rating {
     position: relative;
     width: 180px;
-    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: .3em;
-    padding: 5px;
+    margin: auto;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 0 2px #b3acac;
 }
 
 
 .rating__star {
     font-size: 1.3em;
     cursor: pointer;
-    color: #dabd18b2;
+    color: #ff871d;
     transition: filter linear .3s;
 }
 
@@ -569,8 +566,10 @@
     overflow: hidden;
 }
 
-.checked {
+.ratingstar {
+    font-size: 1.3em;
     color: #ff871d;
+    transition: filter linear .3s;
 }
 
 .pagination > li > a {

@@ -1,5 +1,5 @@
 <div class="usergroup">
-    <a href=<?php if(array_key_exists("user_id", $_SESSION)) echo "./users/profile"; else echo "./users/login";  ?>>
+    <a href=<?php if(array_key_exists("user_id", $_SESSION)) echo  URL_ROOT."/users/profile"; else echo  URL_ROOT."/users/login";  ?>>
         <button type="button" class="hidden-btn normal-circle-btn">
             <i class="far fa-user"></i>
         </button>

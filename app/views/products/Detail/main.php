@@ -45,8 +45,78 @@
                 ?>
             </div>
             <div class="rate text-center mt-5">
-                <button type="button" class="btn btn-choose">Thêm đánh giá</button>
+                <button type="button" class="btn btn-choose" data-bs-toggle="modal" data-bs-target="#addFeedback">Thêm đánh giá</button>
+                <div class="modal fade" id="addFeedback" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addFeedbackLabel"><?php echo "Đánh giá cho ".$data["Name"];?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <?php
+                                if(!array_key_exists("user_id", $_SESSION)){
+                                    echo "<div style='color: #fd7e14'>Vui lòng đăng nhập để đánh giá sản phẩm!</div>";
+                                } else {
+                                    echo "
+                                        <div class='row d-flex justify-content-center align-items-center'>
+                                        <i class='col-1 bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
+                                        <h5 class='col-2'>".$_SESSION['username']."</h5>";
+                                    echo "
+                                    <form method='POST'>
+                                        <label for=\"exampleFormControlTextarea1\" class=\"form-label\" style='color: #fd7e14'>Vui lòng chọn sao và điền nội dung đánh giá dưới đây!</label>
+                                        <div class='rating'>
+                                            <input type='hidden' name='rating' class='rating__result' value='1'></input>
+                                            <i class='rating__star fas fa-star'></i>
+                                            <i class='rating__star fas fa-star'></i>
+                                            <i class='rating__star fas fa-star'></i>
+                                            <i class='rating__star fas fa-star'></i>
+                                            <i class='rating__star fas fa-star'></i>
+                                        </div>";
+                                    echo "
+                                        <textarea class=\"form-control mt-3\" name='content' rows=\"3\" required></textarea>
+                                        <button type='button' class='btn btn-secondary mt-3' data-bs-dismiss='modal'>Hủy</button>
+                                        <button type='submit' class='btn btn-choose mt-3' name='feedback'>Lưu đánh giá</button>
+                                    </form></div>";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    const ratingStars = [...document.getElementsByClassName("rating__star")];
+    const ratingResult = document.querySelector(".rating__result");
+
+    function executeRating(stars, result) {
+    const starClassActive = "rating__star fas fa-star";
+    const starClassUnactive = "rating__star far fa-star";
+    const starsLength = stars.length;
+    let i;
+    result.setAttribute('value', 5)
+    stars.map((star) => {
+        star.onclick = () => {
+            i = stars.indexOf(star);
+
+            if (star.className.indexOf(starClassUnactive) !== -1) {
+                result.setAttribute('value', i+1)
+                for (i; i >= 0; --i){
+                    stars[i].className = starClassActive;
+                }
+            } else {
+                result.setAttribute('value', i)
+                for (i; i < starsLength; ++i){
+                    stars[i].className = starClassUnactive;
+                }
+            }
+        };
+    });
+    result.setAttribute('value', rating)
+    }
+
+    executeRating(ratingStars, ratingResult);
+</script>
