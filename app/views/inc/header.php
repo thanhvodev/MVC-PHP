@@ -5,7 +5,7 @@
                 <div class="col-5 left">
                     <div class="list-item">
                         <div class="item active">
-                            <a href="/">Home</a>
+                            <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
                             <a class="dropdown-toggle" href="#" id="productDropDown" role="button" data-bs-toggle="dropdown">Products</a>

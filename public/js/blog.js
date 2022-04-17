@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $(".image-slider").slick({
         // centerMode: true,
