@@ -8,7 +8,12 @@
                             <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a href=<?= URL_ROOT."/products/detail/food" ?>>Products</a>
+                            <a class="dropdown-toggle" href="#" id="productDropDown" role="button" data-bs-toggle="dropdown">Products</a>
+
+                            <ul class="dropdown-menu" aria-labelledby="productDropDown">
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Equipments</a></li>
+                            </ul>
                         </div>
                         <div class="item">
                             <a href="/">About Us</a>
@@ -22,8 +27,8 @@
                     </div>
                 </div>
 
-                <?php 
-                    require APP_ROOT . "/views/components/responsiveheader.php";
+                <?php
+                require APP_ROOT . "/views/components/responsiveheader.php";
                 ?>
 
                 <div class="col-2 mid">
@@ -64,7 +69,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <!-- <div class="usergroup">
                         <button data-bs-toggle="modal" data-bs-target="#LoginModal" type="button" class="hidden-btn normal-circle-btn">
@@ -73,7 +78,7 @@
                     </div> -->
 
                     <?php
-                        require APP_ROOT . '/views/components/userheader.php';
+                    require APP_ROOT . '/views/components/userheader.php';
                     ?>
 
                 </div>
@@ -82,9 +87,9 @@
     </div>
 
     <?php
-        require APP_ROOT . '/views/components/signin.php';
-        require APP_ROOT . '/views/components/signup.php';
-        require APP_ROOT . '/views/components/forgot.php';
+    require APP_ROOT . '/views/components/signin.php';
+    require APP_ROOT . '/views/components/signup.php';
+    require APP_ROOT . '/views/components/forgot.php';
     ?>
 
 </div>

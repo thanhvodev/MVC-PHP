@@ -19,11 +19,41 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <!-- <CartItem01 />
-            <CartItem01 />
-            <CartItem01 />
-            <CartItem01 />
-            <CartItem01 /> -->
+            <div class='rootCartItem01'>
+                <div class="content">
+                    <div class='imgItem'>
+                        <img src='https://cdn.shopify.com/s/files/1/0554/5784/1199/products/8.png?v=1639708148' />
+                    </div>
+                    <div class='inforItem'>
+                        <h3>Sport Suit Fitness 4</h3>
+                        <h4>QTY : 1</h4>
+                        <p>$50.00</p>
+                    </div>
+                    <div class='delete'>
+                        <button type="button">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class='rootCartItem01'>
+                <div class="content">
+                    <div class='imgItem'>
+                        <img src='https://cdn.shopify.com/s/files/1/0554/5784/1199/products/8.png?v=1639708148' />
+                    </div>
+                    <div class='inforItem'>
+                        <h3>Sport Suit Fitness 4</h3>
+                        <h4>QTY : 1</h4>
+                        <p>$50.00</p>
+                    </div>
+                    <div class='delete'>
+                        <button type="button">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="offcanvas-footer">
             <div class="totalcart">
