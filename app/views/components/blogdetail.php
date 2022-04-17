@@ -12,7 +12,7 @@
             <div class="grid">
                 <div class="row">
                     <div class="col l-12 m-12 c-12">
-                        <img src="<?php echo $data['image']; ?>" alt="" class="main__image1">
+                        <img src="<?php echo $data['blogs'][$data['id']-1]->IMAGE; ?>" alt="" class="main__image1">
                     </div>
                     <div class="col l-12 m-12 c-12 author" style="display: flex; justify-content: center; align-items: center;">
                         <i class="fa-solid fa-user-tie"></i> &nbsp Tran Nhat Huy &nbsp &nbsp
@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="col l-6 m-12 c-12 item__info">
-            <div class="item__name"><?php echo $data['title']; ?></div>
-            <div class="item__desc"><?php echo $data['content']; ?></div>
-            <div class="item__desc" style="width: 100%; text-align: end; margin-top: 16px;"><?php echo $data['writer'] ?></div> 
+            <div class="item__name"><?php echo $data['blogs'][$data['id']-1]->TITLE; ?></div>
+            <div class="item__desc"><?php echo $data['blogs'][$data['id']-1]->CONTENT; ?></div>
+            <div class="item__desc" style="width: 100%; text-align: end; margin-top: 16px;"><?php echo $data['blogs'][$data['id']-1]->WRITER; ?></div> 
         </div>
     </div>
 
@@ -41,13 +41,13 @@
         </div>
         <div class="col l-6 m-6 c-6 margintopdefault" style="display: flex; justify-content: end; align-items: center;">
             <div class="tags__icons">
-                <i class="fa-brands fa-twitter"></i>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
             </div>
             <div class="tags__icons">
-                <i class="fa-brands fa-facebook"></i>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
             </div>
             <div class="tags__icons">
-                <i class="fa-brands fa-pinterest"></i>
+                <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest"></i></a>
             </div>
         </div>
     </div>
@@ -63,4 +63,7 @@
 
     // echo $data['title'];
     include APP_ROOT . '/views/components/blogslider.php';
+
+
+    print_r($data['blogs'][$data['id']-1]->ID);
 ?>

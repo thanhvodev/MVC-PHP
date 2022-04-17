@@ -1,7 +1,7 @@
 <!-- <div class="image-slider">
     <div class="image-item">
         <div class="image-grid__item">
-            <a href="<?php echo URL_ROOT ?>/blogs/detail" class="grid-item">
+            <a href="/blogs/detail" class="grid-item">
             <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323)"></div>
             <div class="grid-item__hover"></div>
             <div class="grid-item__name">Read more</div>
@@ -108,7 +108,7 @@
     $i = 0;
     echo "<div class='image-slider'>";
     while ($i<count($data['blogs'])) {
-        $hreflink = "./blogs/detail/".$data['blogs'][$i]->ID;
+        $hreflink =  URL_ROOT . "/blogs/detail/".$data['blogs'][$i]->ID;
         $bgurl = $data['blogs'][$i]->IMAGE;
         $title = $data['blogs'][$i]->TITLE;
         $content = $data['blogs'][$i]->CONTENT;
@@ -132,6 +132,7 @@
         </div>
         ";
         $i++;
+        $hreflink = "";
     }
     echo "</div>"
 ?>
