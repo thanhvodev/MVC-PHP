@@ -8,6 +8,20 @@
             $this->blogModel = $this->loadModel('Blog');
         }
 
+        public function index() 
+        {
+            $this->render('inc/head');
+            $this->render('inc/header');
+
+            $res = $this->blogModel->getBlogList();
+
+            $this->render('components/blogpage', [
+                "blogs" => $this->blogModel->getBlogList(),
+            ]);
+
+            $this->render('inc/footer');
+        }
+
         public function detail($id)
         {
             $this->render('inc/head');

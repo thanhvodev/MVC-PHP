@@ -4,7 +4,7 @@
             <div class="main__path" style="margin-bottom:32px; padding: 0; width: 100%; margin-top: 32px; display:flex;">
                 <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100);">Home</a>
                 &nbsp > &nbsp
-                <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100);">News & Events</a>
+                <a class="detail__home__href" href="<?php echo URL_ROOT . "/blogs";?>" style="text-decoration: none; color: rgb(100,100,100);">News & Events</a>
                 &nbsp > &nbsp
                 <div style="color:orange;"><?php echo $data['blogs'][$data['id']-1]->TITLE; ?></div>
             </div>
