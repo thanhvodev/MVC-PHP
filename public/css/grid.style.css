@@ -682,3 +682,8 @@ p+p {
 .tags__icons + .tags__icons {
     margin-left: 16px;
 }
+
+/* Blog details */
+.detail__home__href:hover {
+    color: #fd7e14;
+}

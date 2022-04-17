@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".image-slider").slick({
         // centerMode: true,
         centerPadding: "40px",
-        slidesToShow: 4,
+        slidesToShow: 3,
         infinite: true,
         arrows: true,
         autoplay: true,

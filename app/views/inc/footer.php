@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="item item1 col-xl-3 col-md-12">
                     <div class="box">
-                        <img src="http://localhost/MVC-PHP/public/imgs/logo.png"/>
+                        <img src="<?php echo URL_ROOT;?>/public/imgs/logo.png"/>
                         <p class="p1">
                             Sophisticated simplicity for the independent
                             mind.

@@ -106,7 +106,7 @@
 
 <?php 
     $i = 0;
-    echo "<div class='image-slider'>";
+    echo "<div class='container image-slider'>";
     while ($i<count($data['blogs'])) {
         $hreflink =  URL_ROOT . "/blogs/detail/".$data['blogs'][$i]->ID;
         $bgurl = $data['blogs'][$i]->IMAGE;
