@@ -1,4 +1,4 @@
-<div class="container image-slider">
+<!-- <div class="container image-slider">
     <div class="image-item">
         <div class="image-grid__item">
             <a href="/blogs/detail" class="grid-item">
@@ -86,7 +86,7 @@
     </div>
     <div class="image-item">
         <div class="image-grid__item">
-            <a href='<?php echo URL_ROOT . '/blogs/detail' . $data['blogs'][$id]->ID; ?>'></a>
+            <a href=''></a>
             <a href="#" class="grid-item">
             <div class="grid-item__image" style="background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165)"></div>
             <div class="grid-item__hover"></div>
