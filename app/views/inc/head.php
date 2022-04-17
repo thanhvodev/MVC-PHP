@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/header.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/footer.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/app.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/productSlick.style.css">
 
     <!-- Load FontAwsome and Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

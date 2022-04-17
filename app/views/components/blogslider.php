@@ -1,4 +1,4 @@
-<div class="image-slider">
+<div class="container image-slider">
     <div class="image-item">
         <div class="image-grid__item">
             <a href="<?php echo URL_ROOT ?>/blog/detail" class="grid-item">

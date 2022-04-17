@@ -24,6 +24,8 @@
                 require_once APP_ROOT . '/views/users/register.php';
             } elseif ($data['page'] == 'profile') {
                 require_once APP_ROOT . '/views/users/profile.php';
+            } elseif ($data['page'] == 'cart') {
+                require_once APP_ROOT . '/views/cart/cartpage.php';
             }
         ?>
     </main>

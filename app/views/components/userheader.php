@@ -17,11 +17,11 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <!-- <CartItem01 />
-            <CartItem01 />
-            <CartItem01 />
-            <CartItem01 />
-            <CartItem01 /> -->
+            <?php
+                if (isset($_SESSION['cart'])) {
+                    echo json_encode($_SESSION['cart']);
+                }
+            ?>
         </div>
         <div class="offcanvas-footer">
             <div class="totalcart">
