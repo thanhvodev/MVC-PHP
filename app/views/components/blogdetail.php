@@ -65,5 +65,5 @@
     include APP_ROOT . '/views/components/blogslider.php';
 
 
-    print_r($data['blogs'][$data['id']-1]->ID);
+    // print_r($data['blogs'][$data['id']-1]->ID);
 ?>
