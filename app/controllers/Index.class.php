@@ -1,4 +1,8 @@
 <?php
+
+	// session_start();
+	// $_SESSION['cart'] = [];
+
 	/**
 	 * Class Index
 	 */
@@ -20,6 +24,7 @@
 		public function index() {
 			$data = [
                 'page' => 'homepage',
+				// 'cart' => $_SESSION['cart'],
 				'fooddeals' => $this->productModel->getDealList(1),
 				'equipmentdeals' => $this->productModel->getDealList(2),
 				'blogs' => $this->blogModel->getBlogList(),

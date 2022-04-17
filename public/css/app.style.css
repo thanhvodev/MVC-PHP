@@ -43,12 +43,8 @@
 
 /* Blog slider */
 .image-slider {
-    /* display: grid; */
-    width: 80vw;
     margin: auto;
-    /* grid-template-columns: repeat(3,1fr);
-    grid-gap: 10px; */
-    padding-bottom: 20px;
+    margin-bottom: 100px;
 }
 .image-item {
     display: flex;
@@ -88,11 +84,11 @@
     text-align: justify;
 }
 .slick-prev {
-    left: 0;
+    left: -50px;
     z-index: 500;
 }
 .slick-next {
-    right: 0;
+    right: -50px;
     z-index: 500;
 }
 .slick-arrow {
@@ -119,7 +115,9 @@
 }
 .slick-dots {
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
+    padding: 0px;
+    margin: 0px;
     left: 50%;
     transform: translateX(-50%);
     display: flex !important;
@@ -229,6 +227,7 @@
     visibility: hidden;
     display: block;
     position: absolute;
+    border-radius: 20px;
     top: 0;
     left: 0;
     right: 0;
@@ -247,6 +246,7 @@
     flex-grow: 1;
     flex-shrink: 1;
     align-items: center;
+    border-radius: 20px;
     font-size: 2rem;
     font-weight: 300;
     text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4), 2px 2px 6px rgba(0, 0, 0, 0.3);
@@ -349,14 +349,22 @@
     background-color: white; 
     border: none;
     border-radius: 50%; 
-    padding: 10px 14px; 
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: 0.4s;
+    font-size: 20px;
+    color: #666;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .circular-btn:hover {
     background-color: #ff871d;
     color: white;
+    opacity: 0.9;
 }
 /****************************/
 /*-------------ProductDetail---------------*/
