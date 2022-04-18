@@ -69,16 +69,18 @@
                         </div>
                     </div>
 
-
-
-                    <!-- <div class="usergroup">
-                        <button data-bs-toggle="modal" data-bs-target="#LoginModal" type="button" class="hidden-btn normal-circle-btn">
-                            <i style="font-size: 20px;" class="far fa-sign-in-alt"></i>
-                        </button>
-                    </div> -->
-
                     <?php
-                    require APP_ROOT . '/views/components/userheader.php';
+                        if(!isset($_SESSION['user_id'])) {
+                            echo "
+                                <div class='usergroup'>
+                                    <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button' class='hidden-btn normal-circle-btn'>
+                                        <i style='font-size: 20px;' class='fas fa-sign-in'></i>
+                                    </button>
+                                </div>
+                            ";
+                        } else {
+                                require APP_ROOT . '/views/components/userheader.php';    
+                        }
                     ?>
 
                 </div>
@@ -87,9 +89,9 @@
     </div>
 
     <?php
-    require APP_ROOT . '/views/components/signin.php';
-    require APP_ROOT . '/views/components/signup.php';
-    require APP_ROOT . '/views/components/forgot.php';
+        require APP_ROOT . '/views/components/signin.php';
+        require APP_ROOT . '/views/components/signup.php';
+        require APP_ROOT . '/views/components/forgot.php';
     ?>
 
 </div>

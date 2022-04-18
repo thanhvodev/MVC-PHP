@@ -9,7 +9,7 @@
     height: 80px;
     width: 100%;
     background-color: white;
-    z-index: 2000;
+    z-index: 1000;
     border-bottom: 1px solid #ff871d;
 }
 
@@ -551,7 +551,7 @@
     padding: 0px 50px 30px;
 }
 
-.LoginModal form input {
+.LoginModal form > input {
     height: 50px;
     margin-bottom: 20px;
 }
