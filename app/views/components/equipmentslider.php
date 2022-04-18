@@ -13,14 +13,14 @@
                                     </a>
                                 </div>
                                 <div class='groupbtnProduct'>
-                                    <form method='post' action='Cart.class.php'>
+                                    <form method='post' action=''>
                                         <input type='hidden' name='Id' value='". $data['equipmentdeals'][$i]["Id"] ."'/>
                                         <input type='hidden' name='Name' value='". $data['equipmentdeals'][$i]["Name"] ."'/>
                                         <input type='hidden' name='Price' value='". $data['equipmentdeals'][$i]["Price"] ."'/>
                                         <input type='hidden' name='Image' value='". $data['equipmentdeals'][$i]["Image"] ."'/>
                                         <input type='hidden' name='Point' value='". $data['equipmentdeals'][$i]["Point"] ."'/>
                                         <button type='submit' name='addcart' class='circular-btn'>
-                                            <i class='far fa-cart-plus'></i>
+                                            <i class='fas fa-cart-plus'></i>
                                         </button>
                                     </form>
 
@@ -28,7 +28,7 @@
                                     <form>
                                         <input type='hidden' value='none'/>
                                         <button type='button' class='circular-btn'>
-                                        <i class='far fa-search'></i>
+                                        <i class='fas fa-search'></i>
                                         </button>
                                     </form>
                                 </div>

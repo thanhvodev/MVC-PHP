@@ -14,13 +14,13 @@
                     <h3 style="text-align: center; font-size: 20px; letter-spacing: 1px; margin-bottom: 20px;">Great to have you back!</h3>
                 </div>
                 <div>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Email Address" />
-                        <input class="form-control" type="password" placeholder="Password" />
+                    <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/login">
+                        <input class="form-control" type="email" placeholder="Email Address" name="email" required/>
+                        <input class="form-control" type="password" placeholder="Password" name="password" required/>
                         <div sytle="margin-bottom: 20px;">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#ForgotPassModal" class="linkbtn">Forgot your password ?</button>
                         </div>
-                        <button type="button" class="loginbtn">LOG IN</button>
+                        <button type="submit" class="loginbtn" value="Sign In" name="signin">LOG IN</button>
                     </form>
                 </div>
                 <div>

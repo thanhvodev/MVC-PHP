@@ -74,8 +74,9 @@
             </div>
         </div>
     </div>
-
-    <button type="button" class="hidden-btn normal-circle-btn">
-        <i style="font-size: 20px;" class="far fa-sign-out-alt"></i>
-    </button>
+    <form action="<?php echo URL_ROOT; ?>/users/logout" method="post">
+        <button type="submit" class="hidden-btn normal-circle-btn" value="Đăng xuất">
+            <i style="font-size: 20px;" class="fas fa-sign-out"></i>
+        </button>
+    </form>
 </div>

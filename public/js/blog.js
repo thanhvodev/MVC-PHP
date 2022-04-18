@@ -1,9 +1,8 @@
-
 $(document).ready(function () {
     $(".image-slider").slick({
         // centerMode: true,
         centerPadding: "40px",
-        slidesToShow: 3,
+        slidesToShow: 4,
         infinite: true,
         arrows: true,
         autoplay: true,
