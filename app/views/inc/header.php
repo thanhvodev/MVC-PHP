@@ -8,11 +8,11 @@
                             <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a class="dropdown-toggle" href="#" id="productDropDown" role="button" data-bs-toggle="dropdown">Products</a>
+                            <a class="dropdown-toggle" href="#" role="button" id="productDropDown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
 
-                            <ul class="dropdown-menu" aria-labelledby="productDropDown">
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Foods</a></li>
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Equipments</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
                             </ul>
                         </div>
                         <div class="item">
@@ -95,7 +95,3 @@
     ?>
 
 </div>
-
-<?php
-require APP_ROOT . '/views/inc/script.php';
-?>

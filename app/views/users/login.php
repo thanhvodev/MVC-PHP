@@ -1,5 +1,5 @@
 <?php
-    require APP_ROOT . '/views/inc/head.php';
+    // require APP_ROOT . '/views/inc/head.php';
 
     function alert($msg) {
         echo "<script type='text/javascript'>alert('$msg');</script>";

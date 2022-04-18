@@ -1,5 +1,4 @@
 <?php
-    require APP_ROOT . '/views/inc/head.php';
     require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
 ?>
 <body>

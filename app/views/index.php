@@ -3,9 +3,7 @@
 ?>
 
 <body>
-    <?php
-        require APP_ROOT . '/views/inc/nav.php';
-    ?>
+    
 
     <div>
         <?php 
