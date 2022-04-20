@@ -95,3 +95,17 @@
     ?>
 
 </div>
+
+<?php 
+    function isContainCart($Id) {
+        if (!isset($_SESSION['cart'])) {
+            return false;
+        }
+        for($i = 0; $i < count($_SESSION['cart']); $i++) {
+            if ($_SESSION['cart'][$i]['Id'] == $Id) {
+                return true;
+            }
+        }
+        return false;
+    }
+?>

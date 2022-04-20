@@ -20,74 +20,91 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
     $i++;
 }
 ?>
-<div class="row all-products d-flex justify-content-center">
-    <?php
-    $i = 0;
-    while ($i < count($res)) { ?>
-        <div class="col-3">
-            <div class="rootProduct">
-                <div class="wrapProduct">
-                    <div class="boxImg">
-                        <div>
-                            <a href='<?php echo URL_ROOT ?>/products/detail/<?php echo $res[$i]["ID"]; ?>'>
-                                <img src="<?php echo $res[$i]["Image"]; ?>" />
-                            </a>
+
+<div class="container">
+    <div class="row all-products d-flex justify-content-center">
+        <?php
+        $i = 0;
+        while ($i < count($res)) { ?>
+            <div class="col-3">
+                <div class="rootProduct">
+                    <div class="wrapProduct">
+                        <div class="boxImg">
+                            <div>
+                                <a href='<?php echo URL_ROOT ?>/products/detail/<?php echo $res[$i]["ID"]; ?>'>
+                                    <img src="<?php echo $res[$i]["Image"]; ?>" />
+                                </a>
+                            </div>
+
+                            <div class="groupbtnProduct">
+                                <form role='form' method='post' action="<?php echo URL_ROOT; ?>/cart/shoppingcart">
+                                    <input type='hidden' name='Id' required value="<?php echo $res[$i]["ID"]; ?>" />
+                                    <input type='hidden' name='Name' required value="<?php echo $res[$i]["Name"]; ?>" />
+                                    <input type='hidden' name='Price' required value="<?php echo $res[$i]["Price"]; ?>" />
+                                    <input type='hidden' name='Image' required value="<?php echo $res[$i]["Image"]; ?>" />
+                                    <input type='hidden' name='Point' required value="<?php echo $res[$i]["Point"]; ?>" />
+                                    <?php
+                                    if (isContainCart($res[$i]["ID"])) {
+                                        echo "
+                                        <button type='button' name='' class='circular-btn'>
+                                            <i class='far fa-check-circle'></i>
+                                        </button>
+                                        ";
+                                    } else {
+                                        echo "
+                                        <button type='submit' name='addcart' class='circular-btn'>
+                                            <i class='fas fa-cart-plus'></i>
+                                        </button>
+                                        ";
+                                    }
+                                    ?>
+                                </form>
+
+                                <iframe name='addToCart' style='display:none;'></iframe>
+
+                                <form>
+                                    <input type='hidden' value='none' />
+                                    <button type='button' class='circular-btn'>
+                                        <i class='fas fa-search'></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
 
-                        <div class="groupbtnProduct">
-                            <form role='form' method='post' action="">
-                                <input type='hidden' name='Id' required />
-                                <input type='hidden' name='Name' required />
-                                <input type='hidden' name='Price' required />
-                                <input type='hidden' name='Image' required />
-                                <input type='hidden' name='Point' required />
-                                <button type='submit' name='addcart' class='circular-btn'>
-                                    <i class='fas fa-cart-plus'></i>
-                                </button>
-                            </form>
+                        <div class='content'>
+                            <div>
+                                <a href="<?php echo URL_ROOT ?>/products/detail/<?php echo $res[$i]["ID"]; ?>">
+                                    <?php echo $res[$i]["Name"]; ?>
+                                    <span class='badge' style='background-color: #ff871d; color: #fff; margin-left: 5px;'>
 
-                            <form>
-                                <input type='hidden' value='none' />
-                                <button type='button' class='circular-btn'>
-                                    <i class='fas fa-search'></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                                        <?php
+                                        if ($res[$i]["Point"] > 0)
+                                            echo $res[$i]["Point"];
+                                        else
+                                            echo "0";
+                                        ?>
 
-                    <div class='content'>
-                        <div>
-                            <a href="<?php echo URL_ROOT ?>/products/detail/<?php echo $res[$i]["ID"]; ?>">
-                                <?php echo $res[$i]["Name"]; ?>
-                                <span class='badge' style='background-color: #ff871d; color: #fff; margin-left: 5px;'>
-
-                                <?php
-                                    if ($res[$i]["Point"] > 0)
-                                        echo $res[$i]["Point"];
-                                    else    
-                                        echo "0";
-                                ?>
-
-                                </span>
-                            </a>
-                        </div>
-                        <div style='margin-top: 10px;'>
-                            <p>
-                                <span>
-                                <?php
-                                    echo currency_format($res[$i]["Price"]);
-                                ?>
-                                </span>
-                            </p>
+                                    </span>
+                                </a>
+                            </div>
+                            <div style='margin-top: 10px;'>
+                                <p>
+                                    <span>
+                                        <?php
+                                        echo currency_format($res[$i]["Price"]);
+                                        ?>
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php
-        $i++;
-    }
-    ?>
+        <?php
+            $i++;
+        }
+        ?>
+    </div>
 </div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center mt-5">

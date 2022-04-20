@@ -48,7 +48,9 @@
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/app.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/grid.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/productSlick.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cart.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cartItem01.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cartItem02.style.css">
 
     <!-- Load FontAwsome and Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -1,16 +1,31 @@
+<?php
+    require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
+
+    function getTotalCart() {
+        $total = 0;
+        if (isset($_SESSION['cart'])) {
+            $res = $_SESSION['cart'];
+            for ($i = 0; $i < count($res); $i++) {
+                $total += $res[$i]['Price'] * $res[$i]['QTY'];
+            }
+        }
+        return $total;
+    }
+
+?>
+
 <div class="usergroup">
-    <a href=<?php if(array_key_exists("user_id", $_SESSION)) echo  URL_ROOT."/users/profile"; else echo  URL_ROOT."/users/login";  ?>>
+    <a href=<?php if (array_key_exists("user_id", $_SESSION)) echo  URL_ROOT . "/users/profile";
+            else echo  URL_ROOT . "/users/login";  ?>>
         <button type="button" class="hidden-btn normal-circle-btn">
             <i class="far fa-user"></i>
         </button>
     </a>
-    <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas" data-bs-target="#cartRight"
-        aria-controls="offcanvasRight">
+    <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas" data-bs-target="#cartRight" aria-controls="offcanvasRight">
         <i class="fas fa-shopping-cart"></i>
     </button>
 
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="cartRight"
-        aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="cartRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <p></p>
             <h5 id="offcanvasRightLabel">
@@ -18,61 +33,77 @@
             </h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <div class='rootCartItem01'>
-                <div class="content">
-                    <div class='imgItem'>
-                        <img src='https://cdn.shopify.com/s/files/1/0554/5784/1199/products/8.png?v=1639708148' />
-                    </div>
-                    <div class='inforItem'>
-                        <h3>Sport Suit Fitness 4</h3>
-                        <h4>QTY : 1</h4>
-                        <p>$50.00</p>
-                    </div>
-                    <div class='delete'>
-                        <button type="button">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
+        <?php
+        if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
+            echo "
+                <div class='offcanvas-body'>
+                    <div class='emptycart'>
+                        <div class='emptycartbox'>
+                            <p>Your shopping cart is empty</p>
+                            <div class='backtoshop'>
+                                <a href='" . URL_ROOT . "'>GO TO THE SHOP</a>
+                            </div>    
+                        </div>
                     </div>
                 </div>
-            </div>
+                ";
+        } else {
+            echo "
+                    <div class='offcanvas-body'>";
+            if (isset($_SESSION['cart'])) {
+                $res = $_SESSION['cart'];
+                $index = 0;
+                while ($index < count($res)) {
+                    echo "
+                                        <div class='rootCartItem01'>
+                                            <div class='content'>
+                                                <div class='imgItem'>
+                                                    <img src='" . $res[$index]['Image'] . "' />
+                                                </div>
+                                                <div class='inforItem'>
+                                                    <h3>" . $res[$index]['Name'] . "</h3>
+                                                    <h4>QTY : " . $res[$index]['QTY'] . "</h4>
+                                                    <p>" . $res[$index]['Price'] * $res[$index]['QTY'] . "</p>
+                                                </div>
+                                                <div class='delete'>
+                                                    <form method='post' action='" . URL_ROOT . "/cart/shoppingcart'>
+                                                        <input type='hidden' name='Id' value='".$res[$index]['Id']."'>
+                                                        <button type='submit' name='deleteFromCart'>
+                                                            <i class='far fa-trash-alt'></i>
+                                                        </button>
+                                                    </form>
 
-            <div class='rootCartItem01'>
-                <div class="content">
-                    <div class='imgItem'>
-                        <img src='https://cdn.shopify.com/s/files/1/0554/5784/1199/products/8.png?v=1639708148' />
+                                                    <iframe name='deleteFromCart' style='display:none;'></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ";
+                    $index++;
+                }
+            }
+            echo "
                     </div>
-                    <div class='inforItem'>
-                        <h3>Sport Suit Fitness 4</h3>
-                        <h4>QTY : 1</h4>
-                        <p>$50.00</p>
+                    <div class='offcanvas-footer'>
+                        <div class='totalcart'>
+                            <h3>Total:</h3>
+                            <p>" .currency_format(getTotalCart()). "</p>
+                        </div>
+                        <div class='checkoutcart'>
+                            <div class='checkoutitem view'>
+                                <a href='" . URL_ROOT . "/cart/shoppingcart'>
+                                    VIEW CART
+                                </a>
+                            </div>
+                            <div class='checkoutitem'>
+                                <a href='#'>
+                                    CHECK OUT
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class='delete'>
-                        <button type="button">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas-footer">
-            <div class="totalcart">
-                <h3>Total:</h3>
-                <p>$100.00</p>
-            </div>
-            <div class="checkoutcart">
-                <div class="checkoutitem">
-                    <button class="checkoutitembtn view" type="button">
-                        VIEW CART
-                    </button>
-                </div>
-                <div class="checkoutitem">
-                    <button class="checkoutitembtn" type="button">
-                        CHECK OUT
-                    </button>
-                </div>
-            </div>
-        </div>
+                ";
+        }
+        ?>
     </div>
     <form action="<?php echo URL_ROOT; ?>/users/logout" method="post">
         <button type="submit" class="hidden-btn normal-circle-btn" value="Đăng xuất">
