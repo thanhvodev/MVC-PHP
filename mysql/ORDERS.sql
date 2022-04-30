@@ -1,4 +1,4 @@
-INSERT INTO `gymnasium`.`orders` (`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES (1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoàn thành', '2674.000đ', 'Hôm nay');
+INSERT INTO `gymnasium`.`orders` (`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES (1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoàn thành', '2.674.000đ', 'Hôm nay');
 
 INSERT INTO `gymnasium`.`orders` (`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES (1, 'Fitness Mad Light Blue x 2, Resistance Band x 1', 'Xác nhận', '3.454.000đ', 'Hôm qua');
 
