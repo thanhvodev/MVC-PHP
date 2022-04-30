@@ -1,26 +1,74 @@
-<div class="image-slider">
+<?php 
+
+    
+
+?>
+
+
+<div class="container image-slider">
     <?php
         $i = 0;
         while ($i < count($data['equipmentdeals'])){
             echo "
-            <div class='image-item'>
-                <div class='image-grid__item'>
-                    <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]." class='grid-item'>
-                    <div class='grid-item__image' style='background-image: url(".$data['equipmentdeals'][$i]["Image"].")'></div>
-                    <div class='grid-item__hover'></div>
-                    <div class='grid-item__name'>Read more</div>
-                    </a>
+                <div>
+                    <div class='rootProduct'>
+                        <div class='wrapProduct'>
+                            <div class='boxImg'>
+                                <div>
+                                    <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]."'>
+                                        <img src=" . $data['equipmentdeals'][$i]["Image"] . "></img>
+                                    </a>
+                                </div>
+                                <div class='groupbtnProduct'>
+                                    <form method='post' action='" . URL_ROOT . "/cart/shoppingcart'>
+                                        <input type='hidden' name='Id' value='". $data['equipmentdeals'][$i]["Id"] ."'/>
+                                        <input type='hidden' name='Name' value='". $data['equipmentdeals'][$i]["Name"] ."'/>
+                                        <input type='hidden' name='Price' value='". $data['equipmentdeals'][$i]["Price"] ."'/>
+                                        <input type='hidden' name='Image' value='". $data['equipmentdeals'][$i]["Image"] ."'/>
+                                        <input type='hidden' name='Point' value='". $data['equipmentdeals'][$i]["Point"] ."'/>";
+                                        if (isContainCart($data['equipmentdeals'][$i]["Id"])) {
+                                            echo "
+                                            <button type='button' name='' class='circular-btn'>
+                                                <i class='far fa-check-circle'></i>
+                                            </button>
+                                            ";
+                                        } else {
+                                            echo "
+                                            <button type='submit' name='addcart' class='circular-btn'>
+                                                <i class='fas fa-cart-plus'></i>
+                                            </button>
+                                            ";
+                                        }
+                            echo "  </form>
+
+                                    
+                                    <form>
+                                        <input type='hidden' value='none'/>
+                                        <button type='button' class='circular-btn'>
+                                        <i class='fas fa-search'></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class='content'>
+                                <div>
+                                    <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]."'>
+                                        ".$data['equipmentdeals'][$i]["Name"]." <span class='badge' style='background-color: #ff871d; color: #fff; margin-left: 5px;'>";
+                                            if ($data['equipmentdeals'][$i]["Point"] > 0)
+                                                echo $data['equipmentdeals'][$i]["Point"];
+                                            else    
+                                                echo "0";
+                                            echo "
+                                        </span>
+                                    </a>
+                                </div>
+                                <div style='margin-top: 10px;'>
+                                    <p><span>".currency_format($data['equipmentdeals'][$i]["Price"])."</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href='./products/detail/".$data['equipmentdeals'][$i]["Id"]."'>".$data['equipmentdeals'][$i]["Name"]." <span class='badge' style='background: #ff871d;'>";
-            if ($data['equipmentdeals'][$i]["Point"] > 0)
-                echo $data['equipmentdeals'][$i]["Point"];
-            else    
-                echo "*";
-            echo "
-            </span></a>
-                <div class='image-hr'></div>
-                <div class='product-price text-center'>".currency_format($data['equipmentdeals'][$i]["Price"])."</div>
-            </div>
             ";
             $i++;
         }

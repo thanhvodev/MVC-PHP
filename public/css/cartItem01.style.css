@@ -1,0 +1,65 @@
+.rootCartItem01 {
+    height: 120px;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 10px;
+}
+
+.rootCartItem01 .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.rootCartItem01 .content .imgItem {
+    height: 100%;
+    width: 80px;
+}
+
+.rootCartItem01 .content .imgItem img {
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+.rootCartItem01 .content .inforItem {
+    height: 80px;
+    width: 240px;
+    padding: 0px 10px;
+}
+
+.rootCartItem01 .content .inforItem h3 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.rootCartItem01 .content .inforItem h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.rootCartItem01 .content .inforItem p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ff871d;
+}
+
+.rootCartItem01 .content .delete {
+    width: 30px;
+}
+
+.rootCartItem01 .content .delete button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #555;
+    transition: all 0.4s;
+}
+
+.rootCartItem01 .content .delete button:hover {
+    color: #ff871d;
+}

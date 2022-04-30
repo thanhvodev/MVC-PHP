@@ -103,6 +103,16 @@
         </div>
     </div>
 </div> -->
+<div class="grid wide container main__path" style="margin-bottom:32px; padding: 0; width: 100%; margin-top: 32px; display:flex;">
+    <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100);">Home</a>
+    &nbsp > &nbsp
+    <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100); color: orange;">News & Events</a>
+</div>
+
+
+<div class="ourblog mt-5">B L O G S</div>
+<div class="horizontalline"></div>
+
 
 <?php 
     $i = 0;
@@ -136,3 +146,7 @@
     }
     echo "</div>"
 ?>
+
+
+<div class="ourblog mt-5">E V E N T S</div>
+<div class="horizontalline"></div>

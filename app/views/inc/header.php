@@ -5,32 +5,37 @@
                 <div class="col-5 left">
                     <div class="list-item">
                         <div class="item active">
-                            <a href="/">Home</a>
+                            <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a href="/">Products</a>
+                            <a class="dropdown-toggle" href="#" role="button" id="productDropDown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+
+                            <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
+                            </ul>
                         </div>
                         <div class="item">
                             <a href="/">About Us</a>
                         </div>
                         <div class="item">
-                            <a href="/">Event</a>
+                            <a href="<?php echo URL_ROOT . "/blogs";?>">Event</a>
                         </div>
                         <div class="item">
-                            <a href="/">Blog</a>
+                            <a href="<?php echo URL_ROOT . "/blogs";?>">Blog</a>
                         </div>
                     </div>
                 </div>
 
-                <?php 
-                    require APP_ROOT . "/views/components/responsiveheader.php";
+                <?php
+                require APP_ROOT . "/views/components/responsiveheader.php";
                 ?>
 
                 <div class="col-2 mid">
-                    <a style="cursor: pointer;" href="/">
+                    <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
                         <div class="box-logo">GYMASIUM</div>
                     </a>
-                    <a style="cursor: pointer;" href="/">
+                    <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
                         <div class="hiddenbox">GYM</div>
                     </a>
                 </div>
@@ -64,16 +69,18 @@
                         </div>
                     </div>
 
-                    
-
-                    <!-- <div class="usergroup">
-                        <button data-bs-toggle="modal" data-bs-target="#LoginModal" type="button" class="hidden-btn normal-circle-btn">
-                            <i style="font-size: 20px;" class="far fa-sign-in-alt"></i>
-                        </button>
-                    </div> -->
-
                     <?php
-                        require APP_ROOT . '/views/components/userheader.php';
+                        if(!isset($_SESSION['user_id'])) {
+                            echo "
+                                <div class='usergroup'>
+                                    <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button' class='hidden-btn normal-circle-btn'>
+                                        <i style='font-size: 20px;' class='fas fa-sign-in'></i>
+                                    </button>
+                                </div>
+                            ";
+                        } else {
+                                require APP_ROOT . '/views/components/userheader.php';    
+                        }
                     ?>
 
                 </div>
@@ -89,6 +96,16 @@
 
 </div>
 
-<?php
-require APP_ROOT . '/views/inc/script.php';
+<?php 
+    function isContainCart($Id) {
+        if (!isset($_SESSION['cart'])) {
+            return false;
+        }
+        for($i = 0; $i < count($_SESSION['cart']); $i++) {
+            if ($_SESSION['cart'][$i]['Id'] == $Id) {
+                return true;
+            }
+        }
+        return false;
+    }
 ?>

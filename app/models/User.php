@@ -23,6 +23,20 @@ class User
         }
     }
 
+    public function getOrders($id)
+    {
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $sql = 'SELECT * FROM orders WHERE USERID =' .  $id;
+        $result = $conn->query($sql);
+        $conn->close();
+
+        // $this->db->query('SELECT * FROM orders WHERE USERID = :userid');
+        // $this->db->bind(':userid', $id);
+        // $row = $this->db->fetch();
+        return $result;
+    }
+
+
     public function register($data)
     {
         $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL) VALUES (:username, :password, :email)');

@@ -1,0 +1,213 @@
+.rootCart {
+    min-height: 400px;
+    width: 100%;
+}
+
+.rootCart .headCart {
+    height: 50px;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+.rootCart .headCart .container {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+}
+
+.rootCart .headCart button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.4s;
+}
+
+.rootCart .headCart button:hover {
+    color: #ff871d;
+}
+
+.rootCart .headCart p {
+    height: 50px;
+    margin: 0px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.rootCart .headCart p.title {
+    color: #ff871d;
+    font-weight: 600;
+}
+
+.rootCart .mainCart {
+    width: 100%;
+    padding: 50px;
+}
+
+
+
+.rootCart .mainCart .theadCart {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    border: 1px solid #ddd;
+}
+
+.rootCart .mainCart .theadCart .theaditem {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.rootCart .mainCart .theadCart .thead1 {
+    padding: 0px 20px;
+    justify-content: flex-start;
+    width: 35%;
+}
+
+.rootCart .mainCart .theadCart .thead2 {
+    width: 15%;
+}
+
+.rootCart .mainCart .theadCart .thead3 {
+    width: 25%;
+}
+
+.rootCart .mainCart .theadCart .thead4 {
+    width: 15%;
+}
+
+.rootCart .mainCart .theadCart .thead5 {
+    border-right: none;
+    width: 10%;
+}
+
+
+.rootCart .mainCart .bodyCart {
+    width: 100%;
+}
+
+.rootCart .footerCart {
+    width: 100%;
+    padding: 0px 50px;
+}
+
+.rootCart .footerCart button {
+    padding: 15px 30px;
+    margin-right: 20px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #111111;
+    transition: all 0.4s;
+}
+
+.rootCart .footerCart button:hover {
+    background-color: #ff871d;
+}
+
+.rootCart .footerCart button.linkbutton {
+    background-color: #ff871d;
+}
+
+.rootCart .footerCart button.linkbutton:hover {
+    background-color: #111111;
+}
+
+.rootCart .toCheckout {
+    height: 250px;
+    width: 100%;
+    padding: 0px 50px;
+    margin-top: 50px;
+}
+
+.rootCart .toCheckout .checkout {
+    height: 200px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.rootCart .toCheckout .checkout h3 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.rootCart .toCheckout .checkout > div {
+    display: flex;
+    align-items: center;
+}
+
+.rootCart .toCheckout .checkout > div > p {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px;
+    width: 200px;
+}
+
+.rootCart .toCheckout .checkout > div > span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ff871d;
+}
+
+.rootCart .toCheckout .checkout button {
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    padding: 15px 50px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: white;
+    transition: all 0.4s;
+    background-color: #ff871d;
+}
+
+.rootCart .toCheckout .checkout button:hover {
+    background-color: black;
+}
+
+@media only screen and (max-width: 800px) {
+    .rootCart .mainCart .theadCart {
+        display: none;
+    }
+
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .rootCart .footerCart button {
+        margin: 10px 0px;
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .rootCart .headCart {
+        padding: 0px 20px;
+    }
+
+    .rootCart .mainCart {
+        padding: 30px 20px;
+    }
+
+    .rootCart .footerCart {
+        padding: 0px 20px;
+    }
+
+    .rootCart .toCheckout {
+        padding: 0px 20px;
+    }
+}

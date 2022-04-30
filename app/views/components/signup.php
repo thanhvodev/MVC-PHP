@@ -11,13 +11,18 @@
                     <h3 style="text-align: center; font-size: 20px; letter-spacing: 1px; margin: 20px 0px;">REGISTER</h3>
                 </div>
                 <div>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Enter Username" />
-                        <input class="form-control" type="text" placeholder="Email Address" />
-                        <input class="form-control" type="password" placeholder="Enter Password" />
-                        <input class="form-control" type="password" placeholder="Comfirm Password" />
-
-                        <button type="button" class="loginbtn">REGISTER</button>
+                    <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/register">
+                        <input class="form-control" type="text" placeholder="Enter Username" name="username" required />
+                        <input class="form-control" type="email" placeholder="Email Address" name="email" required />
+                        <input class="form-control" type="password" placeholder="Enter Password" name="password" required />
+                        <input class="form-control" type="password" placeholder="Comfirm Password" name="confirmPassword" required />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="registercheckbox">
+                            <label class="form-check-label" for="registercheckbox">
+                                I agree all statements in Terms of service
+                            </label>
+                        </div>
+                        <button type="submit" class="loginbtn" value="Register" name="register">REGISTER</button>
                     </form>
                 </div>
                 <div>
