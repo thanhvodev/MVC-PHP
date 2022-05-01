@@ -10,7 +10,7 @@ class Users extends Controller
 
     public function index()
     {
-        header("Location: " . URL_ROOT . "/users/login");
+        header("Location: " . URL_ROOT . "/index");
     }
 
 
@@ -22,7 +22,7 @@ class Users extends Controller
             'password' => '',
             'usernameError' => '',
             'passwordError' => '',
-            'page' => 'login',
+            'page' => '',
             'error' => ''
         ];
 
@@ -31,7 +31,7 @@ class Users extends Controller
             $data = [
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
-                'page' => 'login',
+                'page' => '',
                 'error' => 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!'
             ];
 
@@ -41,18 +41,18 @@ class Users extends Controller
                 $this->createUserSession($loggedInUser);
             } else {
                 // $this->render('/users/login', $data);
-                $this->render('index', $data);
+                echo "<script type='text/javascript'>alert('Sai mật khẩu');</script>";
             }
         } else {
             $data = [
                 'username' => '',
                 'password' => '',
-                'page' => 'login',
+                'page' => '',
                 'error' => ''
 
             ];
         }
-        $this->render('index', $data);
+        header("Location: " . URL_ROOT . "/index");
     }
 
     public function register()
