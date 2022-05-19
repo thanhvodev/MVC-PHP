@@ -11,8 +11,8 @@
                             <a class="dropdown-toggle" href="#" id="productDropDown" role="button" data-bs-toggle="dropdown">Products</a>
 
                             <ul class="dropdown-menu" aria-labelledby="productDropDown">
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Foods</a></li>
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="#">Equipments</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href=<?= URL_ROOT."/products/detail/food"?>>Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href=<?= URL_ROOT."/products/detail/equipment"?>>Equipments</a></li>
                             </ul>
                         </div>
                         <div class="item">

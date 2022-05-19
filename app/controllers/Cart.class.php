@@ -10,6 +10,10 @@
             header("Location: ".URL_ROOT."/cart/cartpage");
         }
 
+        public function cartpage() {
+            $this->render('/cart/cartpage', []);
+        }
+
         public function addcart() {
             $data = [
                 'cart' => array(),
