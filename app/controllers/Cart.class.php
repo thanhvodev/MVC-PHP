@@ -40,6 +40,9 @@ class Cart extends Controller
             ];
         }
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteFromCart'])) {
+            $Id = $_POST['Id'];
+            $this->deleteFromSession($Id);
             $data = [
                 'cart' => $_SESSION['cart'],
                 'page' => 'shoppingcart'
