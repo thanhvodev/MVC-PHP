@@ -1,18 +1,15 @@
 <?php
-    require APP_ROOT . '/views/inc/head.php';
 
-    function alert($msg) {
-        echo "<script type='text/javascript'>alert('$msg');</script>";
-    }
-    if ($data['error'] == 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!') {
-        alert($data['error']);
-    }
+function alert($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+if ($data['error'] == 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!') {
+    alert($data['error']);
+}
 ?>
 
-
-
-
-<body>
+<!-- <body>
     <section style="background-color: #eee;" class="vh-100">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -71,4 +68,4 @@
     </section>
     </div>
 
-</body>
+</body> -->

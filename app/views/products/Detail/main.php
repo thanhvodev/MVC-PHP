@@ -1,5 +1,5 @@
 <?php
-    require APP_ROOT . '/views/inc/head.php';
+    // require APP_ROOT . '/views/inc/head.php';
 ?>
 <script src="<?= URL_ROOT ?>/js/product.js" type="text/javascript"></script>
 <body>

@@ -8,11 +8,11 @@
                             <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a class="dropdown-toggle" href="#" id="productDropDown" role="button" data-bs-toggle="dropdown">Products</a>
+                            <a class="dropdown-toggle" href="#" role="button" id="productDropDown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
 
-                            <ul class="dropdown-menu" aria-labelledby="productDropDown">
-                                <li class="dropdown-itembox"><a class="dropdown-item" href=<?= URL_ROOT."/products/detail/food"?>>Foods</a></li>
-                                <li class="dropdown-itembox"><a class="dropdown-item" href=<?= URL_ROOT."/products/detail/equipment"?>>Equipments</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
                             </ul>
                         </div>
                         <div class="item">
@@ -69,16 +69,18 @@
                         </div>
                     </div>
 
-
-
-                    <!-- <div class="usergroup">
-                        <button data-bs-toggle="modal" data-bs-target="#LoginModal" type="button" class="hidden-btn normal-circle-btn">
-                            <i style="font-size: 20px;" class="far fa-sign-in-alt"></i>
-                        </button>
-                    </div> -->
-
                     <?php
-                    require APP_ROOT . '/views/components/userheader.php';
+                        if(!isset($_SESSION['user_id'])) {
+                            echo "
+                                <div class='usergroup'>
+                                    <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button' class='hidden-btn normal-circle-btn'>
+                                        <i style='font-size: 20px;' class='fas fa-sign-in'></i>
+                                    </button>
+                                </div>
+                            ";
+                        } else {
+                                require APP_ROOT . '/views/components/userheader.php';    
+                        }
                     ?>
 
                 </div>
@@ -87,13 +89,23 @@
     </div>
 
     <?php
-    require APP_ROOT . '/views/components/signin.php';
-    require APP_ROOT . '/views/components/signup.php';
-    require APP_ROOT . '/views/components/forgot.php';
+        require APP_ROOT . '/views/components/signin.php';
+        require APP_ROOT . '/views/components/signup.php';
+        require APP_ROOT . '/views/components/forgot.php';
     ?>
 
 </div>
 
-<?php
-require APP_ROOT . '/views/inc/script.php';
+<?php 
+    function isContainCart($Id) {
+        if (!isset($_SESSION['cart'])) {
+            return false;
+        }
+        for($i = 0; $i < count($_SESSION['cart']); $i++) {
+            if ($_SESSION['cart'][$i]['Id'] == $Id) {
+                return true;
+            }
+        }
+        return false;
+    }
 ?>

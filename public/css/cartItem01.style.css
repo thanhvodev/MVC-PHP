@@ -18,11 +18,13 @@
 .rootCartItem01 .content .imgItem img {
     height: 80px;
     width: 80px;
+    border-radius: 10px;
 }
 
 .rootCartItem01 .content .inforItem {
     height: 80px;
     width: 240px;
+    padding: 0px 10px;
 }
 
 .rootCartItem01 .content .inforItem h3 {

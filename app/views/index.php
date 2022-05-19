@@ -3,9 +3,7 @@
 ?>
 
 <body>
-    <?php
-        require APP_ROOT . '/views/inc/nav.php';
-    ?>
+    
 
     <div>
         <?php 
@@ -25,8 +23,8 @@
             } elseif ($data['page'] == 'profile') {
                 require_once APP_ROOT . '/views/users/profile.php';
 
-            } elseif ($data['page'] == 'cart') {
-                require_once APP_ROOT . '/views/cart/cartpage.php';
+            } elseif ($data['page'] == 'shoppingcart') {
+                require_once APP_ROOT . '/views/cart/shoppingcart.php';
             } elseif ($data['page'] == 'orders') {
                 require_once APP_ROOT . '/views/users/orders.php';
             } elseif ($data['page'] == 'allproducts') {
