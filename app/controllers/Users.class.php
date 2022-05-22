@@ -61,34 +61,48 @@ class Users extends Controller
 
     public function register()
     {
-
         $data = [
             'username' => '',
             'email' => '',
             'password' => '',
             'confirmPassword' => '',
-            'page' => 'register',
+            'page' => '',
+            'error' => ''
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
             $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'page' => 'register',
+                'page' => '',
+                'error' => ''
             ];
+
+            if ($data['password'] != $data['confirmPassword']) {
+                $data['error'] = 'Mật khẩu và Xác nhận mật khẩu khác nhau. Vui lòng điền lại!';
+                $this->render('/users/register', $data);
+                return;
+            }
+
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+            if ($this->userModel->findUserByEmail($data['email'])) {
+                $data['error'] = 'Email đã tồn tại, hãy dùng 1 email khác!';
+                $this->render('/users/register', $data);
+                return;
+            }
+
             if ($this->userModel->register($data)) {
-                header("Location: " . URL_ROOT . "/users/login");
+                $data['error'] = 'Đăng ký thành công!';
+                $this->render('/users/register', $data);
             } else {
                 die('Something went wrong');
             }
+        } else {
+            header("Location: " . URL_ROOT . "/index");
         }
-        // $this->render('/users/register', $data);
-        $this->render('index', $data);
     }
 
     public function seeOrders()

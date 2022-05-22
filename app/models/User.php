@@ -16,7 +16,7 @@ class User
         $this->db->bind(':email', $email);
         $row = $this->db->fetch();
         $hashedPassword = $row->PASSWORD;
-        if(password_verify($password, $hashedPassword)){
+        if (password_verify($password, $hashedPassword)) {
             return $row;
         } else {
             return false;
@@ -39,12 +39,12 @@ class User
 
     public function register($data)
     {
-        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL) VALUES (:username, :password, :email)');
+        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL, IMAGE) VALUES (:username, :password, :email, :image)');
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
-
-        if($this->db->execute()){
+        $this->db->bind(':image', 'profile_picture.jpg');
+        if ($this->db->execute()) {
             return true;
         } else {
             return false;
@@ -60,7 +60,7 @@ class User
         $this->db->bind(':phonenum', $data['phonenum']);
         $this->db->bind(':id', $_SESSION['user_id']);
 
-        if($this->db->execute()){
+        if ($this->db->execute()) {
             return true;
         } else {
             return false;
@@ -74,7 +74,7 @@ class User
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':id', $_SESSION['user_id']);
 
-        if($this->db->execute()){
+        if ($this->db->execute()) {
             return true;
         } else {
             return false;
@@ -87,7 +87,7 @@ class User
         $this->db->bind(':image', $data['image']);
         $this->db->bind(':id', $_SESSION['user_id']);
 
-        if($this->db->execute()){
+        if ($this->db->execute()) {
             return true;
         } else {
             return false;
@@ -96,10 +96,15 @@ class User
 
     public function findUserByEmail($email)
     {
-        $this->db->query('SELECT * FROM users WHERE email = :email');
-        $this->db->bind(':email', $email);
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = 'SELECT * FROM user WHERE EMAIL = "' . $email . '"';
+        $result = $conn->query($sql);
+        $conn->close();
 
-        if($this->db->rowCount() > 0){
+        if ($result->num_rows > 0) {
             return true;
         } else {
             return false;
