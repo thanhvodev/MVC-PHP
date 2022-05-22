@@ -40,8 +40,7 @@ class Users extends Controller
             if ($loggedInUser) {
                 $this->createUserSession($loggedInUser);
             } else {
-                // $this->render('/users/login', $data);
-                echo "<script type='text/javascript'>alert('Sai mật khẩu');</script>";
+                $this->render('users/login', $data);
             }
         } else {
             $data = [
@@ -52,7 +51,12 @@ class Users extends Controller
 
             ];
         }
-        header("Location: " . URL_ROOT . "/index");
+        // header("Location: " . URL_ROOT . "/index");
+    }
+
+    public function testing()
+    {
+        $this->render('users/testing', []);
     }
 
     public function register()
