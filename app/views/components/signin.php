@@ -17,7 +17,8 @@
                 <div>
                     <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/login">
                         <input class="form-control" type="email" placeholder="Email Address" name="email" required />
-                        <input class="form-control" type="password" placeholder="Password" name="password" required />
+                        <input class="form-control" type="password" placeholder="Password" name="password"
+                            pattern=".{8,}" title="Eight or more characters" required />
                         <div sytle="margin-bottom: 20px;">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#ForgotPassModal"
                                 class="linkbtn">Forgot your password ?</button>
