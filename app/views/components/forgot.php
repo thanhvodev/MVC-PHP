@@ -13,9 +13,10 @@
                         PASSWORD</h3>
                 </div>
                 <div>
-                    <form>
-                        <input class="form-control" type="email" placeholder="Email Address" required />
-                        <button type="button" class="loginbtn">SUBMIT</button>
+                    <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/resetPassword">
+                        <input class="form-control" type="email" placeholder="Email Address" id="email" name="email"
+                            required />
+                        <button type="submit" class="loginbtn">SUBMIT</button>
                     </form>
                 </div>
                 <div>

@@ -295,4 +295,55 @@ class Users extends Controller
 
         // $this->render('/users/profile',  $data);
     }
+
+    public function resetPassword()
+    {
+        header("Access-Control-Allow-Origin: *");
+        header('Access-Control-Allow-Headers: Content-Type');
+        if (isset($_POST["email"])) {
+            $email = $_POST["email"];
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.mailjet.com/v3.1/send',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => '{
+                "Messages":[
+                  {
+                    "From": {
+                      "Email": "vodinhthanh123@gmail.com",
+                      "Name": "Thanh"
+                    },
+                    "To": [
+                      {
+                        "Email": "' . $email . '",
+                        "Name": "Customer"
+                      }
+                    ],
+                    "Subject": "Gymasium password",
+                    "TextPart": "Greetings from Gymasium.",
+                    "HTMLPart": "This is your new password: <h3>123456789</h3>Reset your password for security.",
+                    "CustomID": "AppGettingStartedTest"
+                  }
+                ]
+              }',
+                CURLOPT_HTTPHEADER => array(
+                    'Authorization: Basic MDQwYTk0OWI0OGUxNmIyM2Y2MWEyMzI3ZDRhNjMxNWI6YjliNGM0NzZiZTc2NmEzN2RkYmJiYjA1ZDYwMWY3ZWQ=',
+                    'Content-Type: application/json'
+                ),
+            ));
+
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $this->userModel->resetPassword($email);
+        }
+
+        $this->render('/users/reset_password', []);
+    }
 }
