@@ -110,4 +110,17 @@ class User
             return false;
         }
     }
+
+    public function resetPassword($email)
+    {
+        $this->db->query('UPDATE user SET PASSWORD=:password WHERE EMAIL=:email ');
+        $this->db->bind(':email', $email);
+        $this->db->bind(':password', password_hash("123456789", PASSWORD_DEFAULT));
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
