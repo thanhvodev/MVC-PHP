@@ -8,7 +8,7 @@
 
             <div class="modal-body registration">
                 <div class="logologin">
-                    <img srcset="http://localhost/public/imgs/logo.png" />
+                    <img srcset="<?php echo URL_ROOT; ?>/public/imgs/logo.png" />
                 </div>
                 <div>
                     <h3 style="text-align: center; font-size: 20px; letter-spacing: 1px; margin-bottom: 20px;">Great to

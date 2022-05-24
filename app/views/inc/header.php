@@ -52,17 +52,20 @@
                                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
-                                <div class="searchbody">
+                                <div class="searchbody" style="display: flex; flex-direction:column; align-items: center">
                                     <div class="boxsearch">
                                         <h3>
-                                            Start typing and hit Enter
+                                            Search anything here ...
                                         </h3>
                                         <div class="formbox">
-                                            <input type="text" name="search" placeholder="Search anything" autoComplete="off" />
+                                            <input type="text" name="search" id="searchinput" placeholder="Search anything" autoComplete="off" />
                                             <button type="button" class="normal-circle-btn">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
+                                    </div>
+                                    <div class="boxsearch">
+                                        <table id="search-result" style="width=100%"></table>
                                     </div>
                                 </div>
                             </div>
@@ -109,3 +112,15 @@
         return false;
     }
 ?>
+
+
+<script>
+    $(document).ready(function() {
+        $('#searchinput').keyup(function() {
+            var target = $('#searchinput').val()
+            $.post('<?php echo URL_ROOT; ?>/public/ajax/searching.php', {data: target}, function(data) {
+                $('#search-result').html(data)
+            })
+        })
+    })
+</script>
