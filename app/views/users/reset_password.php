@@ -10,5 +10,4 @@ function confirm($msg)
     }
     </script>";
 }
-
-confirm($data['error']);
+confirm("Kiểm tra email để lấy lại mật khẩu");

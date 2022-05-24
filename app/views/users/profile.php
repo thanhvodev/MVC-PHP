@@ -60,9 +60,9 @@
                         <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/updateData">
                             <!-- Form Group (username)-->
                             <div class="mb-3">
-                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <label class="small mb-1" for="inputUsername">Tên người dùng</label>
                                 <input name="username" class="form-control" id="username" type="text"
-                                    placeholder="Enter your username" value="<?php echo $_SESSION['username'] ?>">
+                                    placeholder="Tên người dùng" value="<?php echo $_SESSION['username'] ?>" required>
                             </div>
                             <!-- Form Row        -->
                             <div class="row gx-3 mb-3">
@@ -70,16 +70,15 @@
                                 <div class="col-md-12">
                                     <label class="small mb-1" for="address">Địa chỉ</label>
                                     <input name="address" class="form-control" id="address" type="text"
-                                        placeholder="Enter your organization name"
-                                        value="<?php echo $_SESSION['address'] ?>">
+                                        placeholder="Địa chỉ" value="<?php echo $_SESSION['address'] ?>" required>
                                 </div>
                                 <!-- Form Group (location)-->
                             </div>
                             <!-- Form Group (email address)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                <input name="email" class="form-control" id="email" type="email"
-                                    placeholder="Enter your email address" value="<?php echo $_SESSION['email'] ?>">
+                                <input name="email" class="form-control" id="email" type="email" placeholder="Email"
+                                    value="<?php echo $_SESSION['email'] ?>" required>
                             </div>
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
@@ -87,8 +86,9 @@
                                 <div class="col-md-12">
                                     <label class="small mb-1" for="phonenum">Số điện thoại</label>
                                     <input name="phonenum" class="form-control" id="phonenum" type="tel"
-                                        placeholder="Enter your phone number"
-                                        value="<?php echo $_SESSION['phonenum'] ?>">
+                                        placeholder="Số điện thoại" value="<?php echo $_SESSION['phonenum'] ?>"
+                                        pattern="[0-9]{8,}" title="Have more than 8 numbers and don't contain letters"
+                                        required>
                                 </div>
                             </div>
                             <!-- Save changes button-->
@@ -104,7 +104,8 @@
                             <div class="mb-3">
                                 <label class="small mb-1" for="password">Nhập mật khẩu cũ</label>
                                 <input name="password" class="form-control" id="password" type="password"
-                                    placeholder="Mật khẩu cũ...">
+                                    placeholder="Mật khẩu cũ..." pattern=".{8,}" title="Eight or more characters"
+                                    required>
                             </div>
                             <!-- Form Row        -->
                             <div class="row gx-3 mb-3">
@@ -112,7 +113,8 @@
                                 <div class="col-md-12">
                                     <label class="small mb-1" for="newpass">Nhập mật khẩu mới</label>
                                     <input name="newpass" class="form-control" id="newpass" type="password"
-                                        placeholder="Mật khẩu mới...">
+                                        placeholder="Mật khẩu mới..." pattern=".{8,}" title="Eight or more characters"
+                                        required>
                                 </div>
                                 <!-- Form Group (location)-->
                             </div>
@@ -121,7 +123,8 @@
                                 <label class="small mb-1" for="confirmpassword">Nhập lại mật khẩu
                                     mới</label>
                                 <input name="confirmpassword" class="form-control" id="confirmpassword" type="password"
-                                    placeholder="Mật khẩu mới...">
+                                    placeholder="Mật khẩu mới..." pattern=".{8,}" title="Eight or more characters"
+                                    required>
                             </div>
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit">Cập nhật mật khẩu</button>

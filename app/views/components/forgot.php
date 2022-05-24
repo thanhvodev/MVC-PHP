@@ -1,4 +1,5 @@
-<div class="modal fade LoginModal" id="ForgotPassModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade LoginModal" id="ForgotPassModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,12 +9,14 @@
 
             <div class="modal-body registration">
                 <div>
-                    <h3 style="text-align: center; font-size: 20px; letter-spacing: 1px; margin: 20px 0px;">RESET YOUR PASSWORD</h3>
+                    <h3 style="text-align: center; font-size: 20px; letter-spacing: 1px; margin: 20px 0px;">RESET YOUR
+                        PASSWORD</h3>
                 </div>
                 <div>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Email Address" />
-                        <button type="button" class="loginbtn">SUBMIT</button>
+                    <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/resetPassword">
+                        <input class="form-control" type="email" placeholder="Email Address" id="email" name="email"
+                            required />
+                        <button type="submit" class="loginbtn">SUBMIT</button>
                     </form>
                 </div>
                 <div>

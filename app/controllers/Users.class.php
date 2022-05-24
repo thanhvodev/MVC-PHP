@@ -40,8 +40,7 @@ class Users extends Controller
             if ($loggedInUser) {
                 $this->createUserSession($loggedInUser);
             } else {
-                // $this->render('/users/login', $data);
-                echo "<script type='text/javascript'>alert('Sai mật khẩu');</script>";
+                $this->render('users/login', $data);
             }
         } else {
             $data = [
@@ -52,39 +51,58 @@ class Users extends Controller
 
             ];
         }
-        header("Location: " . URL_ROOT . "/index");
+        // header("Location: " . URL_ROOT . "/index");
+    }
+
+    public function testing()
+    {
+        $this->render('users/testing', []);
     }
 
     public function register()
     {
-
         $data = [
             'username' => '',
             'email' => '',
             'password' => '',
             'confirmPassword' => '',
-            'page' => 'register',
+            'page' => '',
+            'error' => ''
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
             $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'page' => 'register',
+                'page' => '',
+                'error' => ''
             ];
+
+            if ($data['password'] != $data['confirmPassword']) {
+                $data['error'] = 'Mật khẩu và Xác nhận mật khẩu khác nhau. Vui lòng điền lại!';
+                $this->render('/users/register', $data);
+                return;
+            }
+
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+            if ($this->userModel->findUserByEmail($data['email'])) {
+                $data['error'] = 'Email đã tồn tại, hãy dùng 1 email khác!';
+                $this->render('/users/register', $data);
+                return;
+            }
+
             if ($this->userModel->register($data)) {
-                header("Location: " . URL_ROOT . "/users/login");
+                $data['error'] = 'Đăng ký thành công!';
+                $this->render('/users/register', $data);
             } else {
                 die('Something went wrong');
             }
+        } else {
+            header("Location: " . URL_ROOT . "/index");
         }
-        // $this->render('/users/register', $data);
-        $this->render('index', $data);
     }
 
     public function seeOrders()
@@ -276,5 +294,56 @@ class Users extends Controller
         }
 
         // $this->render('/users/profile',  $data);
+    }
+
+    public function resetPassword()
+    {
+        header("Access-Control-Allow-Origin: *");
+        header('Access-Control-Allow-Headers: Content-Type');
+        if (isset($_POST["email"])) {
+            $email = $_POST["email"];
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.mailjet.com/v3.1/send',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => '{
+                "Messages":[
+                  {
+                    "From": {
+                      "Email": "vodinhthanh123@gmail.com",
+                      "Name": "Thanh"
+                    },
+                    "To": [
+                      {
+                        "Email": "' . $email . '",
+                        "Name": "Customer"
+                      }
+                    ],
+                    "Subject": "Gymasium password",
+                    "TextPart": "Greetings from Gymasium.",
+                    "HTMLPart": "This is your new password: <h3>123456789</h3>Reset your password for security.",
+                    "CustomID": "AppGettingStartedTest"
+                  }
+                ]
+              }',
+                CURLOPT_HTTPHEADER => array(
+                    'Authorization: Basic MDQwYTk0OWI0OGUxNmIyM2Y2MWEyMzI3ZDRhNjMxNWI6YjliNGM0NzZiZTc2NmEzN2RkYmJiYjA1ZDYwMWY3ZWQ=',
+                    'Content-Type: application/json'
+                ),
+            ));
+
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $this->userModel->resetPassword($email);
+        }
+
+        $this->render('/users/reset_password', []);
     }
 }
