@@ -123,4 +123,13 @@ class User
             return false;
         }
     }
+
+    public function getAllUsers()
+    {
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $sql = 'SELECT * FROM user';
+        $result = $conn->query($sql);
+        $conn->close();
+        return $result;
+    }
 }

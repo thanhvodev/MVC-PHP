@@ -8,21 +8,24 @@
                             <a href=<?= URL_ROOT ?>>Home</a>
                         </div>
                         <div class="item">
-                            <a class="dropdown-toggle" href="#" role="button" id="productDropDown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                            <a class="dropdown-toggle" href="#" role="button" id="productDropDown"
+                                data-bs-toggle="dropdown" aria-expanded="false">Products</a>
 
                             <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
-                                <li class="dropdown-itembox"><a class="dropdown-item" href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item"
+                                        href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                                <li class="dropdown-itembox"><a class="dropdown-item"
+                                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
                             </ul>
                         </div>
                         <div class="item">
                             <a href="/">About Us</a>
                         </div>
                         <div class="item">
-                            <a href="<?php echo URL_ROOT . "/blogs";?>">Event</a>
+                            <a href="<?php echo URL_ROOT . "/blogs"; ?>">Event</a>
                         </div>
                         <div class="item">
-                            <a href="<?php echo URL_ROOT . "/blogs";?>">Blog</a>
+                            <a href="<?php echo URL_ROOT . "/blogs"; ?>">Blog</a>
                         </div>
                     </div>
                 </div>
@@ -42,30 +45,35 @@
 
                 <div class="col-5 right">
                     <div class="search">
-                        <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas" data-bs-target="#hidden-search" aria-controls="offcanvasTop">
+                        <button type="button" class="normal-circle-btn" data-bs-toggle="offcanvas"
+                            data-bs-target="#hidden-search" aria-controls="offcanvasTop">
                             <i class="fas fa-search"></i>
                         </button>
 
-                        <div class="offcanvas offcanvas-top" tabindex="-1" id="hidden-search" data-bs-scroll="true" aria-labelledby="offcanvasTopLabel">
+                        <div class="offcanvas offcanvas-top" tabindex="-1" id="hidden-search" data-bs-scroll="true"
+                            aria-labelledby="offcanvasTopLabel">
                             <div class="offcanvas-header">
                                 <h5 id="offcanvasTopLabel"></h5>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
-                                <div class="searchbody" style="display: flex; flex-direction:column; align-items: center">
+                                <div class="searchbody"
+                                    style="display: flex; flex-direction:column; align-items: center">
                                     <div class="boxsearch">
                                         <h3>
                                             Search anything here ...
                                         </h3>
                                         <div class="formbox">
-                                            <input type="text" name="search" id="searchinput" placeholder="Search anything" autoComplete="off" />
+                                            <input type="text" name="search" id="searchinput"
+                                                placeholder="Search anything" autoComplete="off" />
                                             <button type="button" class="normal-circle-btn">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="boxsearch">
-                                        <table id="search-result" style="width=100%"></table>
+                                        <table id="search-result" style="width:100%"></table>
                                     </div>
                                 </div>
                             </div>
@@ -73,17 +81,17 @@
                     </div>
 
                     <?php
-                        if(!isset($_SESSION['user_id'])) {
-                            echo "
+                    if (!isset($_SESSION['user_id'])) {
+                        echo "
                                 <div class='usergroup'>
                                     <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button' class='hidden-btn normal-circle-btn'>
                                         <i style='font-size: 20px;' class='fas fa-sign-in'></i>
                                     </button>
                                 </div>
                             ";
-                        } else {
-                                require APP_ROOT . '/views/components/userheader.php';    
-                        }
+                    } else {
+                        require APP_ROOT . '/views/components/userheader.php';
+                    }
                     ?>
 
                 </div>
@@ -92,35 +100,38 @@
     </div>
 
     <?php
-        require APP_ROOT . '/views/components/signin.php';
-        require APP_ROOT . '/views/components/signup.php';
-        require APP_ROOT . '/views/components/forgot.php';
+    require APP_ROOT . '/views/components/signin.php';
+    require APP_ROOT . '/views/components/signup.php';
+    require APP_ROOT . '/views/components/forgot.php';
     ?>
 
 </div>
 
-<?php 
-    function isContainCart($Id) {
-        if (!isset($_SESSION['cart'])) {
-            return false;
-        }
-        for($i = 0; $i < count($_SESSION['cart']); $i++) {
-            if ($_SESSION['cart'][$i]['Id'] == $Id) {
-                return true;
-            }
-        }
+<?php
+function isContainCart($Id)
+{
+    if (!isset($_SESSION['cart'])) {
         return false;
     }
+    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+        if ($_SESSION['cart'][$i]['Id'] == $Id) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>
 
 
 <script>
-    $(document).ready(function() {
-        $('#searchinput').keyup(function() {
-            var target = $('#searchinput').val()
-            $.post('<?php echo URL_ROOT; ?>/public/ajax/searching.php', {data: target}, function(data) {
-                $('#search-result').html(data)
-            })
+$(document).ready(function() {
+    $('#searchinput').keyup(function() {
+        var target = $('#searchinput').val()
+        $.post('<?php echo URL_ROOT; ?>/public/ajax/searching.php', {
+            data: target
+        }, function(data) {
+            $('#search-result').html(data)
         })
     })
+})
 </script>
