@@ -1,27 +1,43 @@
-<?php
-    // require APP_ROOT . '/views/inc/head.php';
-?>
 <script src="<?= URL_ROOT ?>/js/product.js" type="text/javascript"></script>
 <body>
     <div class="product-detail">
-        <div class="topbar">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href=<?= URL_ROOT ?> class="backtohome">Home</a></li>
-                <li class="breadcrumb-item">
-                <?php
+    <div class="headProduct">
+            <div class="container">
+                <a href="<?php echo URL_ROOT ?>/">
+                    <button type="button">
+                        Home
+                    </button>
+                </a>
+                <p>
+                    <i class="fas fa-angle-right"></i>
+                </p>
+                <a href="<?php
                     if ($data["Type"] == 1){
-                        echo "<a href='". URL_ROOT."/products/detail/food' class='backtohome'>Thực phẩm dinh dưỡng</a></li>";
+                        echo URL_ROOT."/products/detail/food";
                     }
                     else {
-                        echo "<a href='". URL_ROOT."/products/detail/equipment' class='backtohome'>Dụng cụ tập luyện</a></li>";
+                        echo URL_ROOT."/products/detail/equipment";
                     }
-                ?>    
-                <li class="breadcrumb-item active" aria-current="page">
+                ?>  /">
+                    <button type="button">
+                    <?php
+                        if ($data["Type"] == 1){
+                            echo "Thực phẩm dinh dưỡng";
+                        }
+                        else {
+                            echo "Dụng cụ tập luyện";
+                        }
+                    ?>
+                    </button>
+                </a>
+                <p>
+                    <i class="fas fa-angle-right"></i>
+                </p>   
+                <p class="title">
                     <?php
                         echo $data["Name"];
                     ?>
-                </li>
-            </ol>
+                </p>
         </div>
         <div class='row mainInfo pt-3'>
             <div class='col-md-6 col-sm-12'>
