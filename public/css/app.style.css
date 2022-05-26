@@ -370,7 +370,7 @@
 /*-------------ProductDetail---------------*/
 
 .product-detail .headProduct {
-    height: 50px;
+    /* height: 50px; */
     background-color: #f6f6f6;
     width: 100%;
     margin-bottom: 50px;
