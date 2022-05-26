@@ -23,11 +23,13 @@
                                 <td>'  . $row['EMAIL'] . '</td>
                                 <td>'  . $row['PHONENUM'] . '</td>
                                 <td>'  . $row['ADDRESS'] . '</td>
-                                <td>'  . '<button class="btn btn-primary">Cập nhật</button>' . '</td>
-                                <td>'  . '<button class="btn btn-danger">Cấm</button>' . '</td>
-                                <td>'  . '<button class="btn btn-danger">Xóa</button>' . '</td>
+                                <td>'  . '<form><button class="btn btn-primary">Cập nhật</button></form>' . '</td>
+                                <td>'  . '<form><button class="btn btn-danger">Cấm</button></form>' . '</td>
+                                <td>'  . '<form action="/admin/deleteUser"
+            method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button type="submit"
+                class="btn btn-danger">Xóa</button></form>' . '</td>
 
-                            </tr>';
+            </tr>';
                 }
             }
             ?>

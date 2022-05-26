@@ -20,4 +20,15 @@ class Admin extends Controller
 
         $this->render('admin/index', $data);
     }
+
+    public function deleteUser()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+            $this->userModel->deleteUser($id);
+            $data = ["page" => "delete_user", "error" => "Xóa tài khoản với id: $id thành công"];
+
+            $this->render('admin/index', $data);
+        }
+    }
 }

@@ -16,6 +16,8 @@ require APP_ROOT . '/views/inc/head.php';
         <?php
         if ($data['page'] == 'users') {
             require_once APP_ROOT . '/views/admin/users.php';
+        } else if ($data['page'] == 'delete_user') {
+            require_once APP_ROOT . '/views/admin/delete.php';
         }
 
         ?>
