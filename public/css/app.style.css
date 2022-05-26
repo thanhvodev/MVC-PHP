@@ -369,6 +369,10 @@
 /****************************/
 /*-------------ProductDetail---------------*/
 
+.product-detail {
+    width: 100%;
+}
+
 .product-detail .headProduct {
     /* height: 50px; */
     background-color: #f6f6f6;

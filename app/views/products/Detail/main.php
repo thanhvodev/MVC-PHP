@@ -38,7 +38,7 @@
                     ?>
                 </p>
             </div>
-            <div class='row mainInfo pt-3'>
+            <div class='row mainInfo pt-3' style="width: 100%">
                 <div class='col-md-6 col-sm-12'>
                     <?php
                     require_once APP_ROOT . '/views/products/Detail/productImage.php';
@@ -54,7 +54,7 @@
                 <div class='divider mt-5'></div>
                 <div class='title'><?php echo "Đánh giá của khách hàng (" . count($data["Feedbacks"]) . ")"; ?></div>
                 <div class='blog-title-hr'></div>
-                <div class='row feedbacklist'>
+                <div class='row feedbacklist' style="width: 100%">
                     <?php
                     require_once APP_ROOT . '/views/products/Detail/feedback.php';
                     ?>
