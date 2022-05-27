@@ -3,7 +3,7 @@
 <body>
     <div class="product-detail" style="height: auto">
         <div class="headProduct">
-            <div class="container">
+            <div class="head-container">
                 <a href="<?php echo URL_ROOT ?>/">
                     <button type="button">
                         Home
@@ -40,26 +40,24 @@
             </div>
         </div>
         <div class='row mainInfo' style="width: 100%">
-            <div class='col-md-6 col-sm-12 col-12'>
+            <div class='col-lg-6 col-sm-12 col-12'>
                 <?php
                 require_once APP_ROOT . '/views/products/Detail/productImage.php';
                 ?>
             </div>
-            <div class='col-md-6 col-sm-12 col-12'>
+            <div class='col-lg-6 col-sm-12 col-12'>
                 <?php
                 require_once APP_ROOT . '/views/products/Detail/description.php';
                 ?>
             </div>
         </div>
         <div class='feedback pt-5'>
-            <div class='divide'></div>
+            <div class='divider mt-3'></div>
             <div class='title'><?php echo "Đánh giá của khách hàng (" . count($data["Feedbacks"]) . ")"; ?></div>
             <div class='blog-title-hr'></div>
-            <div class='row feedbacklist' style="width: 100%">
-                <?php
-                require_once APP_ROOT . '/views/products/Detail/feedback.php';
-                ?>
-            </div>
+            <?php
+            require_once APP_ROOT . '/views/products/Detail/feedback.php';
+            ?>
             <div class="rate text-center mt-5">
                 <button type="button" class="btn btn-choose" data-bs-toggle="modal" data-bs-target="#addFeedback">Thêm đánh giá</button>
                 <div class="modal fade" id="addFeedback" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
