@@ -36,9 +36,13 @@ class Users extends Controller
             ];
 
             $loggedInUser = @$this->userModel->login($data['email'], $data['password']);
-
             if ($loggedInUser) {
-                $this->createUserSession($loggedInUser);
+                if ($loggedInUser->PERMISSION == -1) {
+                    $data['error'] = 'Tài khoản này đã bị cấm do các hành vi tiêu cực, vui lòng liên hệ admin để mở lại!';
+                    $this->render('users/register', $data);
+                } else {
+                    $this->createUserSession($loggedInUser);
+                }
             } else {
                 $this->render('users/login', $data);
             }
@@ -52,11 +56,6 @@ class Users extends Controller
             ];
         }
         // header("Location: " . URL_ROOT . "/index");
-    }
-
-    public function testing()
-    {
-        $this->render('users/testing', []);
     }
 
     public function register()
