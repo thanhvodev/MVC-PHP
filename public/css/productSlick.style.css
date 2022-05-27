@@ -111,6 +111,15 @@
     }
 }
 
+@media (max-width: 648px) {
+    .rootProduct .wrapProduct {
+        width: 70%;
+    }
+    body {
+        overflow-x: hidden;
+    }
+}
+
 @media (max-width: 576px) {
     .product-container {
         margin: 0 70px;
