@@ -369,11 +369,15 @@
 /****************************/
 /*-------------ProductDetail---------------*/
 
+.product-detail {
+    width: 100%;
+}
+
 .product-detail .headProduct {
-    height: 50px;
+    /* height: 50px; */
     background-color: #f6f6f6;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .product-detail .headProduct .container {
@@ -406,6 +410,16 @@
     font-weight: 600;
 }
 
+.product-detail .mainInfo {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.product-detail .feedback {
+    padding-left: 70px;
+    padding-right: 50px;
+}
+
 .feedback .title {
     font-size: 24px;
     font-weight: 500;
@@ -429,9 +443,9 @@
 
 /*----------------End----------------------*/
 /*----------------Description----------------------*/
-.detail {
+/* .detail {
     margin: auto 30px;
-}
+} */
 
 .detail .title {
     font-size: 30px;
@@ -616,5 +630,4 @@
     background-color: #e96d00 !Important;
     border: solid 1px #e96d00 !Important;
 }
-
 
