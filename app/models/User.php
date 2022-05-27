@@ -127,7 +127,7 @@ class User
     public function getAllUsers()
     {
         $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        $sql = 'SELECT * FROM user';
+        $sql = 'SELECT * FROM user WHERE PERMISSION <> 1';
         $result = $conn->query($sql);
         $conn->close();
         return $result;
@@ -136,6 +136,32 @@ class User
     public function deleteUser($id)
     {
         $this->db->query('DELETE FROM user WHERE id=:id');
+        $this->db->bind(':id', $id);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function ban_user($id)
+    {
+        $this->db->query('UPDATE user SET PERMISSION=:permission WHERE ID=:id');
+        $this->db->bind(':permission', -1);
+        $this->db->bind(':id', $id);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function unban_user($id)
+    {
+        $this->db->query('UPDATE user SET PERMISSION=:permission WHERE ID=:id');
+        $this->db->bind(':permission', 0);
         $this->db->bind(':id', $id);
 
         if ($this->db->execute()) {

@@ -17,6 +17,12 @@
             if ($data['users']->num_rows > 0) {
                 // output data of each row
                 while ($row = $data['users']->fetch_assoc()) {
+                    if ($row['PERMISSION'] == 0) {
+                        $ban_button = '<form action="/admin/ban_user" method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-danger">Cấm</button></form>';
+                    } else {
+                        $ban_button = '<form action="/admin/unban_user" method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-primary">Hủy cấm</button></form>';
+                    }
+
                     echo '<tr class="cell-1">
                                 <td>'  . $row['ID'] . '</td>
                                 <td>'  . $row['USERNAME'] . '</td>
@@ -24,7 +30,7 @@
                                 <td>'  . $row['PHONENUM'] . '</td>
                                 <td>'  . $row['ADDRESS'] . '</td>
                                 <td>'  . '<form><button class="btn btn-primary">Cập nhật</button></form>' . '</td>
-                                <td>'  . '<form><button class="btn btn-danger">Cấm</button></form>' . '</td>
+                                <td>'  . $ban_button . '</td>
                                 <td>'  . '<form action="/admin/deleteUser"
             method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button type="submit"
                 class="btn btn-danger">Xóa</button></form>' . '</td>

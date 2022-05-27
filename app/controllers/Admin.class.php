@@ -31,4 +31,28 @@ class Admin extends Controller
             $this->render('admin/index', $data);
         }
     }
+
+    public function ban_user()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+
+            $this->userModel->ban_user($id);
+            $data = ["page" => "ban_user", "error" => "Cấm tài khoản với id: $id thành công"];
+
+            $this->render('admin/index', $data);
+        }
+    }
+
+    public function unban_user()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+
+            $this->userModel->unban_user($id);
+            $data = ["page" => "unban_user", "error" => "Hủy cấm tài khoản với id: $id thành công"];
+
+            $this->render('admin/index', $data);
+        }
+    }
 }

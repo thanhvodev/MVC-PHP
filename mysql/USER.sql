@@ -1,6 +1,6 @@
 -- PASSWORD = 123456789
 
-INSERT INTO `gymnasium`.`user` (`USERNAME`, `PASSWORD`, `FULLNAME`, `EMAIL`, `PHONENUM`, `IMAGE`, `ADDRESS`, `PERMISSION`) VALUES ('Thiên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Đức Quang Thiên', 'ducquangthien107@facebook.com', '089 579 0132', 'profile_picture.jpg', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', '0');
+INSERT INTO `gymnasium`.`user` (`USERNAME`, `PASSWORD`, `FULLNAME`, `EMAIL`, `PHONENUM`, `IMAGE`, `ADDRESS`, `PERMISSION`) VALUES ('Thiên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Đức Quang Thiên', 'ducquangthien107@facebook.com', '089 579 0132', 'profile_picture.jpg', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', '1');
 
 INSERT INTO `gymnasium`.`user` (`USERNAME`, `PASSWORD`, `FULLNAME`, `EMAIL`, `PHONENUM`, `IMAGE`, `ADDRESS`, `PERMISSION`) VALUES ('Quyên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lục Bích Quyên', 'lucbichquyen420@naver.com', '0123456789', 'profile_picture.jpg', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', '0');
 
