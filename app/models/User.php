@@ -39,11 +39,12 @@ class User
 
     public function register($data)
     {
-        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL, IMAGE) VALUES (:username, :password, :email, :image)');
+        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL, IMAGE, PERMISSION) VALUES (:username, :password, :email, :image, :permission)');
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':image', 'profile_picture.jpg');
+        $this->db->bind(':permission', 0);
         if ($this->db->execute()) {
             return true;
         } else {
