@@ -22,6 +22,8 @@ require APP_ROOT . '/views/inc/head.php';
             require_once APP_ROOT . '/views/admin/message.php';
         } else if ($data['page'] == 'unban_user') {
             require_once APP_ROOT . '/views/admin/message.php';
+        } else if ($data['page'] == 'message') {
+            require_once APP_ROOT . '/views/admin/message.php';
         }
 
         ?>

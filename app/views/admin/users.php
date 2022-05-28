@@ -23,13 +23,35 @@
                         $ban_button = '<form action="/admin/unban_user" method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-primary">Hủy cấm</button></form>';
                     }
 
+
+                    if ($row['PHONENUM']) {
+                        $phone_num = $row['PHONENUM'];
+                    } else {
+                        $phone_num = '<input type="number" name="phone_no"/>';
+                    }
+
+                    if ($row['ADDRESS']) {
+                        $address = $row['ADDRESS'];
+                    } else {
+                        $address = '<input type="text" name="address"/>';
+                    }
+
+                    if ($row['PHONENUM'] && $row['ADDRESS']) {
+                        $disable_update = 'disabled';
+                    } else {
+                        $disable_update = '';
+                    }
+
                     echo '<tr class="cell-1">
                                 <td>'  . $row['ID'] . '</td>
                                 <td>'  . $row['USERNAME'] . '</td>
                                 <td>'  . $row['EMAIL'] . '</td>
-                                <td>'  . $row['PHONENUM'] . '</td>
-                                <td>'  . $row['ADDRESS'] . '</td>
-                                <td>'  . '<form><button class="btn btn-primary">Cập nhật</button></form>' . '</td>
+                                <form action="/admin/update_user"
+                                method="POST">
+                                <td>'  . $phone_num . '</td>
+                                <td>'  . $address . '</td>
+                                <td>'  . '<input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-primary"' . $disable_update . '>Cập nhật</button>' . '</td>
+                                </form>
                                 <td>'  . $ban_button . '</td>
                                 <td>'  . '<form action="/admin/deleteUser"
             method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button type="submit"

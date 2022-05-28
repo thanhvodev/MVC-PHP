@@ -171,4 +171,30 @@ class User
             return false;
         }
     }
+
+    public function update_user($id, $phone_no, $address)
+    {
+
+        if ($phone_no && !$address) {
+            $this->db->query('UPDATE user SET PHONENUM=:phonenum WHERE ID=:id ');
+            $this->db->bind(':phonenum',  $phone_no);
+            $this->db->bind(':id', $id);
+        } else if ($address && !$phone_no) {
+            $this->db->query('UPDATE user SET ADDRESS=:address WHERE ID=:id ');
+            $this->db->bind(':address',  $address);
+            $this->db->bind(':id', $id);
+        } else {
+            $this->db->query('UPDATE user SET ADDRESS=:address, PHONENUM=:phonenum WHERE ID=:id ');
+            $this->db->bind(':address',  $address);
+            $this->db->bind(':phonenum',  $phone_no);
+            $this->db->bind(':id', $id);
+        }
+
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
