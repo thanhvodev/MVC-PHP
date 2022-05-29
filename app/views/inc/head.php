@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/header.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/footer.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/app.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/admin.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/grid.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/productSlick.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cart.style.css">
