@@ -44,9 +44,9 @@
 }
 
 .footer-root .footer-head {
-    /* border-top: 1px solid #ddd; */
     width: 100%;
     padding: 40px 20px 10px;
+    border-top: 2px solid #ff871d;
 }
 
 .footer-root .footer-head .content {

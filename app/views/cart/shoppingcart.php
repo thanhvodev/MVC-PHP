@@ -186,7 +186,7 @@
                         ?>
                     </span>
                 </div>
-                <a href="#">
+                <a href="<?php echo URL_ROOT ?>/checkout/checkout">
                     <button type="button">
                         PROCEED TO CHECKOUT
                     </button>

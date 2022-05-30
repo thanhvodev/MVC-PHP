@@ -1,0 +1,451 @@
+.rootCheckout {
+    min-height: 400px;
+    width: 100%;
+}
+
+.rootCheckout .headCheckout {
+    height: 50px;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+.rootCheckout .headCheckout .container {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+}
+
+.rootCheckout .headCheckout button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.4s;
+}
+
+.rootCheckout .headCheckout button:hover {
+    color: #ff871d;
+}
+
+.rootCheckout .headCheckout p {
+    height: 50px;
+    margin: 0px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.rootCheckout .headCheckout p.title {
+    color: #ff871d;
+    font-weight: 600;
+}
+
+/* .rootCheckout .container {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.rootCheckout .address {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    height: 180px;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.rootCheckout .headAddress {
+    height: 40px;
+    display: flex;
+}
+
+.rootCheckout .headAddress button {
+    height: 40px;
+    width: 180px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: #ff871d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+}
+
+.rootCheckout .headAddress button:hover {
+    background-color: black;
+}
+
+.rootCheckout .contentAddress .noaddress {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.rootCheckout .contentAddress .addressdetail {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.rootCheckout .contentAddress .addressdetail .namephone {
+    width: 25%;
+}
+
+.rootCheckout .contentAddress .addressdetail .namephone h5 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.rootCheckout .contentAddress .addressdetail .namephone h6 {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.rootCheckout .contentAddress .noaddress h6 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+#addaddress .addadr h6 {
+    font-size: 20px;
+    color: #ff871d;
+    margin-bottom: 20px;
+}
+
+#addaddress .addadr .wi50 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#addaddress .addadr .wi50 input {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+#addaddress .addadr .wi30 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#addaddress .addadr .wi30 input {
+    width: 31%;
+    margin-bottom: 15px;
+}
+
+#addaddress .addadr .btngroup {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#addaddress .addadr button {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 2px;
+    margin: 0px 10px;
+}
+
+#addaddress .addadr .btngroup .btninfo {
+    color: #ff871d;
+    background-color: #fff;
+    transition: all 0.4s;
+}
+
+#addaddress .addadr .btngroup .btninfo:hover {
+    background-color: #eeeeeefe;
+}
+
+#addaddress .addadr .btngroup .btnsuccess {
+    color: #fff;
+    background-color: #ff871d;
+    transition: all 0.4s;
+}
+
+#addaddress .addadr .btngroup .btnsuccess:hover {
+    background-color: black;
+}
+
+.rootCheckout .cart {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    min-height: 300px;
+    border: 1px solid #ddd;
+    display: flex;
+}
+
+.rootCheckout .cart .leftcart {
+    min-height: 300px;
+    width: 30%;
+    border-right: 1px solid #ddd;
+    padding: 10px 0px;
+}
+
+.rootCheckout .cart .rightcart {
+    height: 100%;
+    width: 70%;
+    padding: 30px 20px;
+    
+}
+
+.rootCheckout .cart .rightcart .headCart {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    /* border: 1px solid #ddd; */
+}
+
+.rootCheckout .cart .rightcart .headCart .theaditem {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.rootCheckout .cart .rightcart .headCart .thead1 {
+    padding: 0px 20px;
+    justify-content: flex-start;
+    width: 55%;
+}
+
+.rootCheckout .cart .rightcart .headCart .thead2 {
+    width: 15%;
+}
+
+.rootCheckout .cart .rightcart .headCart .thead3 {
+    width: 15%;
+}
+
+.rootCheckout .cart .rightcart .headCart .thead4 {
+    width: 15%;
+}
+
+.rootCheckout .cart .rightcart .bodyCart {
+    width: 100%;
+}
+
+.rootCheckout .cartItem {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.rootCheckout .cartItem .theaditem {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rootCheckout .cartItem .thead1 {
+    padding: 0px 20px;
+    justify-content: flex-start;
+    width: 55%;
+}
+
+.rootCheckout .cartItem .thead1 img {
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+}
+
+.rootCheckout .cartItem .thead1 h6 {
+    font-weight: 400;
+}
+
+.rootCheckout .cartItem .thead2 {
+    color: #A8a8a8;
+    font-size: 14px;
+    width: 15%;
+}
+
+.rootCheckout .cartItem .thead3 {
+    width: 15%;
+}
+
+.rootCheckout .cartItem .thead4 {
+    color: #A8a8a8;
+    font-size: 14px;
+    width: 15%;
+}
+
+.rootCheckout .footercart {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 30px;
+    padding: 10px 20px;
+}
+
+.rootCheckout .footercart h3 {
+    color:#ff871d;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.rootCheckout .footercart div {
+    display: flex;
+}
+
+.rootCheckout .footercart div p {
+    width: 200px;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.rootCheckout .footercart div span {
+    font-size: 14px;
+    color: #ff871d;
+}
+
+.rootCheckout .cart .leftcart .voucher {
+    border-bottom: 1px solid #ddd;
+}
+
+.rootCheckout .cart .leftcart .voucher div {
+    display: flex;
+    width: 100%;
+}
+
+.rootCheckout .cart .leftcart .voucher div > i {
+    height: 40px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #ff871d;
+}
+
+.rootCheckout .cart .leftcart .voucher div > p {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: #ff871d;
+    margin-bottom: 0px;
+}
+
+.rootCheckout .cart .leftcart .voucher div > input {
+    margin: 0px 15px 10px;
+    width: 200px;
+}
+
+.rootCheckout .cart .leftcart .voucher div > button {
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #ff871d;
+    color: white;
+    width: 100px;
+    border-radius: 2px;
+    transition: all 0.4s;
+}
+
+.rootCheckout .cart .leftcart .voucher div > button:hover {
+    background-color: #333;
+}
+
+.rootCheckout .cart .leftcart .thanhtoan {
+    border-bottom: 1px solid #ddd;
+}
+
+.rootCheckout .cart .leftcart .thanhtoan div {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.rootCheckout .cart .leftcart .thanhtoan div > i {
+    height: 40px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #ff871d;
+}
+
+.rootCheckout .cart .leftcart .thanhtoan div > p {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: #ff871d;
+    margin-bottom: 0px;
+}
+
+.rootCheckout .cart .leftcart .thanhtoan div > h6 {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.rootCheckout .cart .leftcart .confirm {
+    padding: 20px;
+}
+
+.rootCheckout .cart .leftcart .confirm div {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.rootCheckout .cart .leftcart .confirm div > h6 {
+    width: 60%;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.rootCheckout .cart .leftcart .confirm div > p {
+    margin-bottom: 0px;
+    width: 40%;
+    font-size: 14px;
+    /* text-transform: uppercase; */
+    font-weight: 600;
+    color: #ff871d;
+}
+
+.rootCheckout .cart .leftcart .confirm div > form > button {
+    margin-top: 10px; 
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #ff871d;
+    color: white;
+    width: 200px;
+    border-radius: 2px;
+    transition: all 0.4s;
+}
+
+.rootCheckout .cart .leftcart .confirm div > form > button:hover {
+    background-color: #333;
+}
+
+.rootCheckout .cart .leftcart .confirm div > h5 {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #ff871d;
+}
