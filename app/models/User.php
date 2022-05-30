@@ -39,11 +39,12 @@ class User
 
     public function register($data)
     {
-        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL, IMAGE) VALUES (:username, :password, :email, :image)');
+        $this->db->query('INSERT INTO user (USERNAME, PASSWORD, EMAIL, IMAGE, PERMISSION) VALUES (:username, :password, :email, :image, :permission)');
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':image', 'profile_picture.jpg');
+        $this->db->bind(':permission', 0);
         if ($this->db->execute()) {
             return true;
         } else {
@@ -163,6 +164,32 @@ class User
         $this->db->query('UPDATE user SET PERMISSION=:permission WHERE ID=:id');
         $this->db->bind(':permission', 0);
         $this->db->bind(':id', $id);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function update_user($id, $phone_no, $address)
+    {
+
+        if ($phone_no && !$address) {
+            $this->db->query('UPDATE user SET PHONENUM=:phonenum WHERE ID=:id ');
+            $this->db->bind(':phonenum',  $phone_no);
+            $this->db->bind(':id', $id);
+        } else if ($address && !$phone_no) {
+            $this->db->query('UPDATE user SET ADDRESS=:address WHERE ID=:id ');
+            $this->db->bind(':address',  $address);
+            $this->db->bind(':id', $id);
+        } else {
+            $this->db->query('UPDATE user SET ADDRESS=:address, PHONENUM=:phonenum WHERE ID=:id ');
+            $this->db->bind(':address',  $address);
+            $this->db->bind(':phonenum',  $phone_no);
+            $this->db->bind(':id', $id);
+        }
+
 
         if ($this->db->execute()) {
             return true;

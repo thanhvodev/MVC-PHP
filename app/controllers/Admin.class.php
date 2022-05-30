@@ -55,4 +55,17 @@ class Admin extends Controller
             $this->render('admin/index', $data);
         }
     }
+
+    public function update_user()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+            $phone_no = $_POST['phone_no'] ? $_POST['phone_no'] : null;
+            $address = isset($_POST['address']) ? $_POST['address'] : null;
+            $this->userModel->update_user($id, $phone_no, $address);
+            $data = ["page" => "message", "error" => "Cập nhật tài khoản với id: $id thành công"];
+
+            $this->render('admin/index', $data);
+        }
+    }
 }

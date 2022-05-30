@@ -36,7 +36,7 @@
 
                 <div class="col-2 mid">
                     <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
-                        <div class="box-logo">GYMASIUM</div>
+                        <div class="box-logo">GYMNASIUM</div>
                     </a>
                     <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
                         <div class="hiddenbox">GYM</div>
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="boxsearch">
-                                        <table id="search-result" style="width:100%"></table>
+                                        <table id="search-result" style="margin-top: 20px; background-color: rgb(250, 250, 250); width: 100%; padding: 16px; box-sizing: border-box;"></table>
                                     </div>
                                 </div>
                             </div>

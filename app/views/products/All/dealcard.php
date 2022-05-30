@@ -21,12 +21,12 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
 }
 ?>
 
-<div class="container">
-    <div class="row all-products d-flex justify-content-center">
+<div class="product-container">
+    <div class="row d-flex justify-content-center">
         <?php
         $i = 0;
         while ($i < count($res)) { ?>
-            <div class="col-3">
+            <div class="col-sm-6 col-md-4 col-xl-4 col-xxl-3 col-12">
                 <div class="rootProduct">
                     <div class="wrapProduct">
                         <div class="boxImg">
@@ -72,16 +72,16 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
                         </div>
 
                         <div class='content'>
-                            <div>
+                            <div style='padding-top: 10px;'>
                                 <a href="<?php echo URL_ROOT ?>/products/detail/<?php echo $res[$i]["ID"]; ?>">
                                     <?php echo $res[$i]["Name"]; ?>
-                                    <span class='badge' style='background-color: #ff871d; color: #fff; margin-left: 5px;'>
+                                    <span class='badge' style='background-color: #ff871d; color: #fff; margin-left: 5px'>
 
                                         <?php
                                         if ($res[$i]["Point"] > 0)
                                             echo $res[$i]["Point"];
                                         else
-                                            echo "0";
+                                            echo "*";
                                         ?>
 
                                     </span>
