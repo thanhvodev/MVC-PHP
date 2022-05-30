@@ -6,6 +6,7 @@ class Admin extends Controller
     public function __construct()
     {
         $this->userModel = $this->loadModel('User');
+        $this->productModel = $this->loadModel('Product');
     }
 
     // public function index()
@@ -67,5 +68,12 @@ class Admin extends Controller
 
             $this->render('admin/index', $data);
         }
+    }
+
+    public function products(){
+        $productsData =  $this->productModel->getProductList(1);
+        $data = ["products" => $productsData, "page" => "products"];
+
+        $this->render('admin/index', $data);
     }
 }
