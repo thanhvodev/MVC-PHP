@@ -387,14 +387,22 @@
     padding: 0px 55px;
 }
 
-.product-detail .headProduct button {
+.product-detail .headProduct .head-container button {
     border: none;
     outline: none;
     background-color: transparent;
     transition: all 0.4s;
 }
 
-.product-detail .headProduct button:hover {
+.product-detail .headProduct .action button {
+    width: max-content;
+    height: 40px;
+    padding: 0px 10px;
+    margin-right: 150px;
+    /* display: none; */
+}
+
+.product-detail .headProduct .head-container button:hover {
     color: #ff871d;
 }
 
