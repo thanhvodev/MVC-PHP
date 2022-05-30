@@ -19,7 +19,7 @@
                         <img src="<?php echo $data['blogs'][$data['id']-1]->IMAGE; ?>" alt="" class="main__image1">
                     </div>
                     <div class="col l-12 m-12 c-12 author" style="display: flex; justify-content: center; align-items: center;">
-                        <i class="fa-solid fa-user-tie"></i> &nbsp Tran Nhat Huy &nbsp &nbsp
+                        <i class="fa-solid fa-user-tie"></i> &nbsp TeamDEV &nbsp &nbsp
                         <i class="fa-solid fa-clock"></i> &nbsp 24.March.2022 &nbsp &nbsp
                         <i class="fa-solid fa-comment"></i> &nbsp Comment &nbsp &nbsp 
                     </div>
