@@ -36,7 +36,7 @@
 
                 <div class="col-2 mid">
                     <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
-                        <div class="box-logo">GYMASIUM</div>
+                        <div class="box-logo">GYMNASIUM</div>
                     </a>
                     <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
                         <div class="hiddenbox">GYM</div>
