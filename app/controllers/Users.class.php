@@ -170,7 +170,8 @@ class Users extends Controller
             $_SESSION['address'] = trim($_POST['address']);
 
             if ($this->userModel->updateData($data)) {
-                header("Location: " . URL_ROOT . "/users/profile");
+                //header("Location: " . URL_ROOT . "/users/profile");
+                $this->render('/users/message', $data);
             } else {
                 die('Something went wrong');
             }
@@ -201,7 +202,8 @@ class Users extends Controller
                 $data['password'] = password_hash($data['newpass'], PASSWORD_DEFAULT);
                 if ($this->userModel->updatePassword($data)) {
                     $_SESSION['password'] = $data['password'];
-                    header("Location: " . URL_ROOT . "/users/profile");
+                    //header("Location: " . URL_ROOT . "/users/profile");
+                    $this->render('/users/message', "");
                 } else {
                     die('Something went wrong');
                 }
@@ -219,7 +221,11 @@ class Users extends Controller
 
     public function uploadImage()
     {
-        $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/public/imgs/";
+        if ($_SERVER['DOCUMENT_ROOT'] == URL_ROOT) {
+            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/imgs/";
+        } else {
+            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/MVC-PHP/public/imgs/";
+        }
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -232,18 +238,6 @@ class Users extends Controller
             } else {
                 $uploadOk = 0;
             }
-        }
-
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
         }
 
         // Allow certain file formats
