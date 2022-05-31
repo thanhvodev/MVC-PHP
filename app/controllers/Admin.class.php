@@ -9,10 +9,10 @@ class Admin extends Controller
         $this->productModel = $this->loadModel('Product');
     }
 
-    // public function index()
-    // {
-    //     header("Location: " . URL_ROOT . "/admin/users.php");
-    // }
+     public function index()
+    {
+         header("Location: " . URL_ROOT . "/index.php");
+    }
 
     public function users()
     {

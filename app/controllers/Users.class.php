@@ -126,7 +126,12 @@ class Users extends Controller
         $_SESSION['image'] = $loggedInUser->IMAGE;
         $_SESSION['address'] = $loggedInUser->ADDRESS;
         $_SESSION['permission'] = $loggedInUser->PERMISSION;
-        header('Location: ' . URL_ROOT . '/index');
+        if ($_SESSION['permission']==1) {
+            header('Location: ' . URL_ROOT . '/admin/users');
+        } else {
+            header('Location: ' . URL_ROOT . '/index');
+        }
+
     }
 
     public function logout()

@@ -1,3 +1,13 @@
+<?php
+    
+    if(!isset($_SESSION['user_id']) || $_SESSION['permission'] == 0) {
+        echo "<script type='text/javascript'>
+            location.replace('dead');
+         </script>";  
+    }
+?>
+
+
 <body>
     <table class="table">
         <thead>
