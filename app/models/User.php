@@ -172,6 +172,15 @@ class User
         }
     }
 
+    public function getNoOfBanned()
+    {
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $sql = 'SELECT * FROM user WHERE PERMISSION = -1';
+        $result = $conn->query($sql);
+        $conn->close();
+        return $result->num_rows;
+    }
+
     public function update_user($id, $phone_no, $address)
     {
 
