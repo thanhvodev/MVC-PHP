@@ -9,6 +9,18 @@
 
 
 <body>
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-sm border border-primary p-3">
+                Số thành viên hiện tại: <?php echo $data['users']->num_rows; ?>
+            </div>
+            <div class="col-sm">
+            </div>
+            <div class="col-sm border border-primary p-3">
+                Số thành viên bị cấm hiện tại: <?php echo $data['noOfBanned']; ?>
+            </div>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -64,10 +76,10 @@
                                 </form>
                                 <td>'  . $ban_button . '</td>
                                 <td>'  . '<form action="'.URL_ROOT.'/admin/deleteUser"
-            method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button type="submit"
-                class="btn btn-danger">Xóa</button></form>' . '</td>
+                                                method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button type="submit"
+                                                class="btn btn-danger">Xóa</button></form>' . '</td>
 
-            </tr>';
+                        </tr>';
                 }
             }
             ?>

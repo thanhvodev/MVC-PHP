@@ -17,7 +17,8 @@ class Admin extends Controller
     public function users()
     {
         $usersData =  $this->userModel->getAllUsers();
-        $data = ["users" => $usersData, "page" => "users"];
+        $noOfBanned = $this->userModel->getNoOfBanned();
+        $data = ["users" => $usersData, "page" => "users", "noOfBanned"=>$noOfBanned];
 
         $this->render('admin/index', $data);
     }
