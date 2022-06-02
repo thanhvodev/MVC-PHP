@@ -127,7 +127,7 @@ class Users extends Controller
         $_SESSION['address'] = $loggedInUser->ADDRESS;
         $_SESSION['permission'] = $loggedInUser->PERMISSION;
         if ($_SESSION['permission']==1) {
-            header('Location: ' . URL_ROOT . '/admin/users');
+            header('Location: ' . URL_ROOT . '/admin/users/1');
         } else {
             header('Location: ' . URL_ROOT . '/index');
         }
