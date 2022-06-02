@@ -29,7 +29,7 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Trạng thái</th>
                                     <th>Tổng cộng</th>
-                                    <th>Tạo ngày</th>
+                                    <th>Thời gian</th>
                                     <th></th>
                                 </tr>
                             </thead>
