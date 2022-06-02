@@ -58,6 +58,7 @@ class Checkout extends Controller
             $payment_method = 1;
             $orderItems = $_SESSION['cart'];
             $orderBill = @$this->orderModel->createOrderBill($userid, $username, $time, $addressStr, $payment_method, $orderItems);
+            @$this->orderModel->createOrders($userid, $time, $orderItems);
             if ($orderBill) {
                 $_SESSION['cart'] = [];
                 header("Location: " . URL_ROOT . "/index");
