@@ -210,7 +210,7 @@ INSERT INTO `orderitem` (`ID`, `USERID`, `ORDERID`, `PRODUCTID`, `USERNAME`, `QU
 CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
   `USERID` int(11) NOT NULL,
-  `PRODUCT_NAMES` varchar(255) DEFAULT NULL,
+  `PRODUCT_NAMES` text DEFAULT NULL,
   `STATUS_O` varchar(255) DEFAULT NULL,
   `TOTAL` varchar(255) DEFAULT NULL,
   `CREATED` varchar(255) DEFAULT NULL
@@ -221,10 +221,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES
-(1, 1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoàn thành', '2.674.000đ', 'Hôm nay'),
-(2, 1, 'Fitness Mad Light Blue x 2, Resistance Band x 1', 'Xác nhận', '3.454.000đ', 'Hôm qua'),
-(3, 1, 'Hạt chia đen x 1', 'Đang ship', '6.274.000đ', 'May 12,2020'),
-(4, 1, 'Nui Gạo Lứt x 1', 'Đang xử lý', '6.375.000đ', 'May 11,2020');
+(1, 1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoan Thanh', '2.674.000đ', '2022-06-02'),
+(2, 1, 'Fitness Mad Light Blue x 2, Resistance Band x 1', 'Hoan Thanh', '3.454.000đ', '2022-06-02'),
+(3, 1, 'Hạt chia đen x 1', 'Đang ship', 'Hoan Thanh', '2022-06-02'),
+(4, 1, 'Nui Gạo Lứt x 1', 'Đang xử lý', 'Hoan Thanh', '2022-06-02');
 
 -- --------------------------------------------------------
 
