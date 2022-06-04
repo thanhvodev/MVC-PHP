@@ -57,10 +57,12 @@ class Checkout extends Controller
             $addressStr = $address['fullname'] . "- SĐT: " . $address['phone'] . "-" . $address['toolsaddress'] . "-" . $address['commune'] . "-" . $address['district'] . "-" . $address['province']; 
             $payment_method = 1;
             $orderItems = $_SESSION['cart'];
-            $orderBill = @$this->orderModel->createOrderBill($userid, $username, $time, $addressStr, $payment_method, $orderItems);
-            if ($orderBill) {
-                $_SESSION['cart'] = [];
-                header("Location: " . URL_ROOT . "/index");
+            if (isset($_SESSION['user_id'])) {
+                $orderBill = @$this->orderModel->createOrderBill($userid, $username, $time, $addressStr, $payment_method, $orderItems);
+                if ($orderBill) {
+                    $_SESSION['cart'] = [];
+                    header("Location: " . URL_ROOT . "/index");
+                }
             }
         }
 
