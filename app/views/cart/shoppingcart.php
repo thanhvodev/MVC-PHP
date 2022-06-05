@@ -4,7 +4,7 @@
 
 <body>
     <div class="rootCart">
-        <div class="headCart">
+        <!-- <div class="headCart">
             <div class="container">
                 <a href="<?php echo URL_ROOT ?>/">
                     <button type="button">
@@ -15,6 +15,23 @@
                     <i class="fas fa-angle-right"></i>
                 </p>
                 <p class="title">Your Shopping Cart</p>
+            </div>
+        </div> -->
+        <div class="product-detail">
+            <div class="headProduct d-flex align-items-center">
+                <div class="head-container">
+                    <a href="<?php echo URL_ROOT ?>/">
+                        <button type="button">
+                            Trang chủ
+                        </button>
+                    </a>
+                    <p>
+                        <i class="fas fa-angle-right"></i>
+                    </p>
+                    <p class="title">
+                        Giỏ hàng của tôi
+                    </p>
+                </div>
             </div>
         </div>
         <div class="mainCart">

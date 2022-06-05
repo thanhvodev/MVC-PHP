@@ -103,10 +103,27 @@
         </div>
     </div>
 </div> -->
-<div class="grid wide container main__path" style="margin-bottom:32px; padding: 0; width: 100%; margin-top: 32px; display:flex;">
+<!-- <div class="grid wide container main__path" style="margin-bottom:32px; padding: 0; width: 100%; margin-top: 32px; display:flex;">
     <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100);">Home</a>
     &nbsp > &nbsp
     <a class="detail__home__href" href="<?php echo URL_ROOT . "/";?>" style="text-decoration: none; color: rgb(100,100,100); color: orange;">News & Events</a>
+</div> -->
+<div class="product-detail">
+    <div class="headProduct d-flex align-items-center">
+        <div class="head-container">
+            <a href="<?php echo URL_ROOT ?>/">
+                <button type="button">
+                    Trang chủ
+                </button>
+            </a>
+            <p>
+                <i class="fas fa-angle-right"></i>
+            </p>
+            <p class="title">
+                Blog tư vấn
+            </p>
+        </div>
+    </div>
 </div>
 
 
