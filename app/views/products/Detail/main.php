@@ -6,7 +6,7 @@
             <div class="head-container">
                 <a href="<?php echo URL_ROOT ?>/">
                     <button type="button">
-                        Home
+                        Trang chủ
                     </button>
                 </a>
                 <p>
@@ -51,9 +51,9 @@
                 ?>
             </div>
         </div>
-        <div class='feedback pt-5'>
+        <div class='feedback pt-3'>
             <div class='divider mt-3'></div>
-            <div class='title'><?php echo "Đánh giá của khách hàng (" . count($data["Feedbacks"]) . ")"; ?></div>
+            <div class='title pt-3'><?php echo "Đánh giá của khách hàng (" . count($data["Feedbacks"]) . ")"; ?></div>
             <div class='blog-title-hr'></div>
             <?php
             require_once APP_ROOT . '/views/products/Detail/feedback.php';

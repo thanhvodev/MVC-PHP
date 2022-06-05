@@ -494,6 +494,7 @@
 .btn-choose {
     background-color: #ff871d;
     color: white;
+    margin: 10px;
 }
 
 .btn-choose:hover {
@@ -506,8 +507,8 @@
 }
 
 #myCarousel .carousel-item img {
-    width: 530px !important;
-    height: 530px !important
+    width: 30vw !important;
+    height: 35vw;
 }
 
 #myCarousel .carousel-indicators {
@@ -515,15 +516,11 @@
     margin-top: 0px
 }
 
-#myCarousel .carousel-indicators>li {
-    width: 100px
-}
-
 #myCarousel .carousel-indicators li img {
     display: block;
     opacity: 0.5;
-    height: 100px;
-    width: 100px;
+    width: 5vw;
+    height: 5vw;
 }
 
 #myCarousel .carousel-indicators li.active img {
@@ -620,7 +617,6 @@
 
 .all-star {
     position: relative;
-    width: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -629,7 +625,6 @@
 }
 
 .ratingstar {
-    font-size: 1.3em;
     color: #ff871d;
     transition: filter linear .3s;
 }
@@ -653,4 +648,28 @@
     color: white;
     background-color: #e96d00 !Important;
     border: solid 1px #e96d00 !Important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: white !important;
+    border-color: #ff871d !important;
+    margin: 0 auto;
+}
+
+@media (max-width: 404px) {
+    .btn-choose {
+        margin: 2px;
+    }
+}
+
+@media (max-width: 992px) {
+    #myCarousel .carousel-item img {
+        width: 60vw !important;
+        height: 65vw;
+    }
+
+    #myCarousel .carousel-indicators li img {
+        width: 10vw;
+        height: 10vw;
+    }
 }
