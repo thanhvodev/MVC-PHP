@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     <form role="form" method="post" action="<?php echo URL_ROOT; ?>/users/register">
-                        <input class="form-control" type="text" placeholder="Enter Username" name="username" required />
+                        <input class="form-control" type="text" placeholder="Enter Your Name" name="username" required />
                         <input class="form-control" type="email" placeholder="Email Address" name="email" required />
                         <input class="form-control" type="password" placeholder="Enter Password" name="password"
                             pattern=".{8,}" title="Eight or more characters" required />
