@@ -4,9 +4,9 @@ function confirm($msg)
 {
     echo "<script type='text/javascript'>
     if (confirm('$msg') == true) {
-        location.replace('http://localhost/index');
+        location.replace('index');
     } else {
-        location.replace('http://localhost/index');
+        location.replace('index');
     }
     </script>";
 }

@@ -11,14 +11,14 @@ require APP_ROOT . '/views/inc/head.php';
                 <i class="bi bi-list"></i>
             </div>
             <ul>
-                <li class="list active ">
-                    <a href="#">
+                <li class="list ">
+                    <a href="<?php echo URL_ROOT ?>/admin/users">
                         <i class="bi bi-people"></i>
                         <span class="title">Quản lý thành viên</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="<?php echo URL_ROOT ?>/admin/products">
                         <i class="bi bi-handbag"></i>
                         <span class="title">Quản lý sản phẩm</span>
                     </a>
@@ -44,6 +44,7 @@ require APP_ROOT . '/views/inc/head.php';
             </ul>
         </div>
         <div class="content">
+            <div class="page" style="display: none"><?php echo $data['page'];?></div>
             <?php
             if ($data['page'] == 'users') {
                 require_once APP_ROOT . '/views/admin/users.php';
@@ -55,6 +56,8 @@ require APP_ROOT . '/views/inc/head.php';
                 require_once APP_ROOT . '/views/admin/message.php';
             } else if ($data['page'] == 'message') {
                 require_once APP_ROOT . '/views/admin/message.php';
+            } else if ($data['page'] == 'products') {
+                require_once APP_ROOT . '/views/admin/products.php';
             }
             ?>
         </div>
@@ -87,5 +90,17 @@ require APP_ROOT . '/views/inc/head.php';
                 list[i].className = 'list active';
             }
         }
+        let page = document.querySelector('.page').innerHTML;
+        if (page == "users"){
+            index = 0;
+        }
+        else if (page == "products"){
+            index = 1;
+        }
+        let j = 0;
+        while (j < list.length){
+            list[j++].className = 'list';
+        }
+        list[index].className = 'list active';
     </script>
 </body>

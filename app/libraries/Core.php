@@ -17,11 +17,8 @@ class Core
 	{
 		$url = $this->getUrl();
 
-		// Rechercher dans le BLL(Business Logic Layer) pour la première valeur
 		if (isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]) . '.class.php')) {
-			// S’il existe, défini comme controller
 			$this->currentController = ucwords($url[0]);
-			// Unset l'index 0
 			unset($url[0]);
 		} else if (isset($url[0])) {
 			$data = ['headTitle' => 'Not found', 'cssFile' => 'errors', "errorCode" => 404];

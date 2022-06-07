@@ -210,21 +210,11 @@ INSERT INTO `orderitem` (`ID`, `USERID`, `ORDERID`, `PRODUCTID`, `USERNAME`, `QU
 CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
   `USERID` int(11) NOT NULL,
-  `PRODUCT_NAMES` varchar(255) DEFAULT NULL,
+  `PRODUCT_NAMES` text DEFAULT NULL,
   `STATUS_O` varchar(255) DEFAULT NULL,
   `TOTAL` varchar(255) DEFAULT NULL,
   `CREATED` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `orders`
---
-
-INSERT INTO `orders` (`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES
-(1, 1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoàn thành', '2.674.000đ', 'Hôm nay'),
-(2, 1, 'Fitness Mad Light Blue x 2, Resistance Band x 1', 'Xác nhận', '3.454.000đ', 'Hôm qua'),
-(3, 1, 'Hạt chia đen x 1', 'Đang ship', '6.274.000đ', 'May 12,2020'),
-(4, 1, 'Nui Gạo Lứt x 1', 'Đang xử lý', '6.375.000đ', 'May 11,2020');
 
 -- --------------------------------------------------------
 
@@ -385,7 +375,6 @@ CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `USERNAME` varchar(50) DEFAULT NULL,
   `PASSWORD` varchar(255) DEFAULT NULL,
-  `FULLNAME` varchar(50) DEFAULT NULL,
   `EMAIL` varchar(320) DEFAULT NULL,
   `PHONENUM` varchar(20) DEFAULT NULL,
   `IMAGE` text DEFAULT NULL,

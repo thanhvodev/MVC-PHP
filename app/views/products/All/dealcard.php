@@ -1,5 +1,5 @@
 <?php
-$perpage = 8;
+$perpage = 6;
 if (isset($_GET['page']) & !empty($_GET['page'])) {
     $curpage = $_GET['page'];
 } else {
@@ -26,7 +26,7 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
         <?php
         $i = 0;
         while ($i < count($res)) { ?>
-            <div class="col-sm-6 col-md-4 col-xl-4 col-xxl-3 col-12">
+            <div class="col-sm-6 col-md-4 col-xl-4 col-xxl-4 col-12">
                 <div class="rootProduct">
                     <div class="wrapProduct">
                         <div class="boxImg">

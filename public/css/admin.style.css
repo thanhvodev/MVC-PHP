@@ -14,7 +14,7 @@
 }
 
 .admin-page .sidebar.active {
-    width: 5%;
+    width: 4.5%;
     overflow-x: hidden;
 }
 
@@ -176,6 +176,7 @@
     padding: 0 50px 50px 50px;
     margin-left: auto; 
     margin-right: 0;
+    transition: 0.5s;
 }
 
 .admin-page .content.active{
@@ -184,6 +185,26 @@
     margin-left: auto; 
     margin-right: 0;
 }
+
+.card-overall .card {
+    height: fit-content;
+    border-left: .25rem solid #ff871d !important;
+    margin: 0 auto;
+}
+
+.card-overall .card .card-body .row .col .title{
+    color: #ff871d;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.card-overall .card .card-body .row .col .number{
+    color: #5a5c69!important;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
 
 @media only screen and (max-width: 1400px) {
     .admin-page .sidebar .hiddenbox {

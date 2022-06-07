@@ -1,14 +1,13 @@
-<?php
+﻿<?php
 
 function confirm($msg)
 {
     echo "<script type='text/javascript'>
     if (confirm('$msg') == true) {
-        location.replace('index');
+        location.replace('profile');
     } else {
-        location.replace('index');
+        location.replace('profile');
     }
     </script>";
 }
-
-confirm($data['error']);
+confirm("Cập nhật thông tin thành công");

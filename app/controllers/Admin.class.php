@@ -6,17 +6,19 @@ class Admin extends Controller
     public function __construct()
     {
         $this->userModel = $this->loadModel('User');
+        $this->productModel = $this->loadModel('Product');
     }
 
-    // public function index()
-    // {
-    //     header("Location: " . URL_ROOT . "/admin/users.php");
-    // }
+     public function index()
+    {
+         header("Location: " . URL_ROOT . "/index.php");
+    }
 
     public function users()
     {
         $usersData =  $this->userModel->getAllUsers();
-        $data = ["users" => $usersData, "page" => "users"];
+        $noOfBanned = $this->userModel->getNoOfBanned();
+        $data = ["users" => $usersData, "page" => "users", "noOfBanned"=>$noOfBanned];
 
         $this->render('admin/index', $data);
     }
@@ -67,5 +69,14 @@ class Admin extends Controller
 
             $this->render('admin/index', $data);
         }
+    }
+
+    public function products(){
+        $productsData =  $this->productModel->getProductList(0);
+        $fb =  $this->productModel->getFeedback(0);
+        $catenum = $this->productModel->getAllCategory();
+        $data = ["products" => $productsData, "page" => "products", "feedbacks" => $fb, "nums" => $catenum];
+
+        $this->render('admin/index', $data);
     }
 }

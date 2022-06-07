@@ -4,10 +4,13 @@
         $count = 0;
         while ($count < count($data["Feedbacks"])/2){
             echo "
-            <div class='row d-flex justify-content-center align-items-center mt-4'>
-                <i class='col-1 bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
-                <h6 class='col-2'>".$data["Feedbacks"][$count]->USERNAME."</h6>";
-            echo "<div class='col-2 all-star'>";
+            <div class='row d-flex align-items-center mt-4'>
+                <div class='col-2 d-flex justify-content-end'>
+                    <i class='bi bi-person-circle' style='font-size: 2rem; color: #ff871d'></i>
+                </div>
+                <div class='col-2'>
+                <h6>".$data["Feedbacks"][$count]->USERNAME."</h6></div>";
+            echo "<div class='col-4 all-star'>";
             $i = 1;
             while ($i <= $data["Feedbacks"][$count]->RATING){
                 echo "<i class='ratingstar fas fa-star'></i>";
@@ -19,10 +22,13 @@
                 $i++;
             }
             echo "</div>
-            <h6 class='col-4' style='color: #767676'>".$data["Feedbacks"][$count]->TIMESTAMP."</h6>";
+            <div class='col-4 text-center'>
+            <h6 style='color: #767676'>".$data["Feedbacks"][$count]->TIMESTAMP."</h6></div>";
             echo "
-            <div class='col-1'></div>
-            <input class='form-control' style='width: 500px;' type='text' value='".$data["Feedbacks"][$count]->CONTENT."' aria-label='Disabled input example' disabled readonly>
+            <div class='col-2'></div>
+            <div class='col-10'>
+                <input class='form-control' type='text' value='".$data["Feedbacks"][$count]->CONTENT."' aria-label='Disabled input example' disabled readonly>
+            </div>
             ";
             echo "</div>";
             $count++;
@@ -37,10 +43,13 @@
             $count = count($data["Feedbacks"])/2 + 1;
         while ($count < count($data["Feedbacks"])){
             echo "
-            <div class='listFB row d-flex justify-content-center align-items-center mt-4'>
-            <i class='col-1 bi bi-person-circle text-right' style='font-size: 2rem; color: #ff871d;'></i>
-            <h6 class='col-2'>".$data["Feedbacks"][$count]->USERNAME."</h6>";
-            echo "<div class='col-2 all-star'>";
+            <div class='row d-flex align-items-center mt-4'>
+                <div class='col-2 d-flex justify-content-end'>
+                    <i class='bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
+                </div>
+                <div class='col-2'>
+                <h6>".$data["Feedbacks"][$count]->USERNAME."</h6></div>";
+            echo "<div class='col-4 all-star'>";
             $i = 1;
             while ($i <= $data["Feedbacks"][$count]->RATING){
                 echo "<i class='ratingstar fas fa-star'></i>";
@@ -52,10 +61,13 @@
                 $i++;
             }
             echo "</div>
-            <h6 class='col-4' style='color: #767676'>".$data["Feedbacks"][$count]->TIMESTAMP."</h6>";
+            <div class='col-4 text-center'>
+            <h6 style='color: #767676'>".$data["Feedbacks"][$count]->TIMESTAMP."</h6></div>";
             echo "
-            <div class='col-1'></div>
-            <input class='form-control' style='width: 500px;' type='text' value='".$data["Feedbacks"][$count]->CONTENT."' aria-label='Disabled input example' disabled readonly>
+            <div class='col-2'></div>
+            <div class='col-10'>
+                <input class='form-control' type='text' value='".$data["Feedbacks"][$count]->CONTENT."' aria-label='Disabled input example' disabled readonly>
+            </div>
             ";
             echo "</div>";
             $count++;

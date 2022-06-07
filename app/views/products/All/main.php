@@ -8,7 +8,7 @@ require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
             <div class="head-container">
                 <a href="<?php echo URL_ROOT ?>/">
                     <button type="button">
-                        Home
+                        Trang chủ
                     </button>
                 </a>
                 <p>
@@ -23,9 +23,6 @@ require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
                     }
                     ?>
                 </p>
-            </div>
-            <div class="action">
-                <button class="btn btn-choose">Quản lý sản phẩm</button>
             </div>
         </div>
         <?php

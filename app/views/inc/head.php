@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cart.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cartItem01.style.css">
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/cartItem02.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/checkout.css">
 
     <!-- Load FontAwsome and Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
