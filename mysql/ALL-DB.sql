@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 27, 2022 lúc 12:39 PM
+-- Thời gian đã tạo: Th6 07, 2022 lúc 07:58 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.28
 
@@ -24,44 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `blog`
+-- Cấu trúc bảng cho bảng `blogevent`
 --
 
-CREATE TABLE `blog` (
-  `ID` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `blogevent` (
+  `ID` int(11) NOT NULL,
   `TITLE` varchar(255) DEFAULT NULL,
   `IMAGE` text DEFAULT NULL,
   `CONTENT` text DEFAULT NULL,
   `TIMESTAMP` datetime DEFAULT NULL,
-  `WRITER` varchar(50) DEFAULT NULL
+  `WRITER` varchar(50) DEFAULT NULL,
+  `TYPE` int(11) DEFAULT NULL CHECK (`TYPE` = 1 or `TYPE` = 2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `blog`
+-- Đang đổ dữ liệu cho bảng `blogevent`
 --
 
-INSERT INTO `blog` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VALUES
-(1, 'Today Is The Best Day To Starting Training. No Excuses', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 15:18:25', 'Ken'),
-(2, 'Fitness is not about being better than someone else', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog5_1024x1024.png?v=1639709301', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken'),
-(3, 'What Happend at the rx-fitness Chalenge Last Weekend', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog3_553c7cb8-982a-4e28-a694-2d2a42e9adb0_1024x1024.png?v=1639709275', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken'),
-(4, 'How to exercise effectively', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog4_b28dfcca-2a30-4325-824a-02c86a38381f_1024x1024.png?v=1639709240', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken'),
-(5, 'How to know enough or not?', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog2_f0c4728c-b443-49dd-9abd-44773eb908d4_1024x1024.png?v=1639709221', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken'),
-(6, 'Diet when exercising weight loss, science for women', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `event`
---
-
-CREATE TABLE `event` (
-  `ID` int(10) UNSIGNED NOT NULL,
-  `TITLE` varchar(255) DEFAULT NULL,
-  `IMAGE` text DEFAULT NULL,
-  `CONTENT` text DEFAULT NULL,
-  `TIMESTAMP` datetime DEFAULT NULL,
-  `WRITER` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `blogevent` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`, `TYPE`) VALUES
+(1, 'Today Is The Best Day To Starting Training. No Excuses', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog6_1024x1024.png?v=1639709323', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 15:18:25', 'Ken', 1),
+(2, 'Fitness is not about being better than someone else', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog5_1024x1024.png?v=1639709301', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 1),
+(3, 'What Happend at the rx-fitness Chalenge Last Weekend', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog3_553c7cb8-982a-4e28-a694-2d2a42e9adb0_1024x1024.png?v=1639709275', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 1),
+(4, 'How to exercise effectively', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog4_b28dfcca-2a30-4325-824a-02c86a38381f_1024x1024.png?v=1639709240', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 1),
+(5, 'How to know enough or not?', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog2_f0c4728c-b443-49dd-9abd-44773eb908d4_1024x1024.png?v=1639709221', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 1),
+(6, 'Diet when exercising weight loss, science for women', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/articles/blog1_0d29b473-654a-48d5-902d-1ecdfc32efdf_1024x1024.png?v=1639709165', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 1),
+(7, 'Vault', 'http://www.elleman.vn/wp-content/uploads/2017/04/13/Nuoc-hoa-nam-cho-phong-gym-1.jpg', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 15:18:25', 'Ken', 2),
+(8, 'Floor Exercise', 'https://leep.imgix.net/2020/08/lan-dau-tap-gym-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 2),
+(9, 'Balance Beam', 'https://thethaodonga.com/wp-content/uploads/2022/01/anh-tap-gym-nu-dep-7.png', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 2),
+(10, 'Uneven Bars', 'https://kenhhomestay.com/wp-content/uploads/2019/08/phong-tap-gym-Can-Tho-1.jpg', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil. <br/> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.', '2022-03-09 22:34:55', 'Ken', 2);
 
 -- --------------------------------------------------------
 
@@ -70,10 +60,9 @@ CREATE TABLE `event` (
 --
 
 CREATE TABLE `feedback` (
-  `ID` int(10) UNSIGNED NOT NULL,
-  `USERID` int(11) NOT NULL,
-  `PRODUCTID` int(10) UNSIGNED DEFAULT NULL,
-  `USERNAME` varchar(50) DEFAULT NULL,
+  `ID` int(11) NOT NULL,
+  `USERID` int(11) DEFAULT NULL,
+  `PRODUCTID` int(11) DEFAULT NULL,
   `TIMESTAMP` datetime DEFAULT NULL,
   `RATING` int(11) DEFAULT NULL CHECK (`RATING` >= 1 and `RATING` <= 5),
   `CONTENT` text DEFAULT NULL
@@ -83,25 +72,25 @@ CREATE TABLE `feedback` (
 -- Đang đổ dữ liệu cho bảng `feedback`
 --
 
-INSERT INTO `feedback` (`ID`, `USERID`, `PRODUCTID`, `USERNAME`, `TIMESTAMP`, `RATING`, `CONTENT`) VALUES
-(2, 1, 1, 'Thiên', '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(3, 1, 2, 'Thiên', '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(4, 1, 3, 'Thiên', '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(5, 2, 1, 'Quyên', '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(6, 2, 2, 'Quyên', '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(7, 2, 4, 'Quyên', '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(8, 4, 1, 'Chiểu', '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(9, 4, 2, 'Chiểu', '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(10, 4, 3, 'Chiểu', '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(11, 7, 2, 'Uy', '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(12, 7, 4, 'Uy', '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(13, 7, 1, 'Uy', '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(14, 1, 1, 'Thiên', '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(15, 8, 4, 'Hà', '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(16, 8, 5, 'Hà', '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(17, 5, 1, 'Liên', '2022-04-13 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(18, 1, 1, 'Thiên', '2022-04-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
-(19, 10, 1, 'Tưởng', '2022-03-13 00:00:00', 5, 'Sản phẩm tuyệt vời!');
+INSERT INTO `feedback` (`ID`, `USERID`, `PRODUCTID`, `TIMESTAMP`, `RATING`, `CONTENT`) VALUES
+(1, 1, 1, '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(2, 1, 2, '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(3, 1, 3, '2021-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(4, 2, 1, '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(5, 2, 2, '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(6, 2, 4, '2022-02-11 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(7, 4, 1, '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(8, 4, 2, '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(9, 4, 3, '2022-06-18 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(10, 7, 2, '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(11, 7, 4, '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(12, 7, 1, '2021-07-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(13, 1, 1, '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(14, 8, 4, '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(15, 8, 5, '2023-03-31 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(16, 5, 1, '2022-04-13 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(17, 1, 1, '2022-04-30 00:00:00', 5, 'Sản phẩm tuyệt vời!'),
+(18, 10, 1, '2022-03-13 00:00:00', 5, 'Sản phẩm tuyệt vời!');
 
 -- --------------------------------------------------------
 
@@ -110,10 +99,10 @@ INSERT INTO `feedback` (`ID`, `USERID`, `PRODUCTID`, `USERNAME`, `TIMESTAMP`, `R
 --
 
 CREATE TABLE `orderbill` (
-  `ID` int(10) UNSIGNED NOT NULL,
-  `USERID` int(11) NOT NULL,
-  `USERNAME` varchar(50) DEFAULT NULL,
+  `ID` int(11) NOT NULL,
+  `USERID` int(11) DEFAULT NULL,
   `TIMESTAMP` datetime DEFAULT NULL,
+  `PHONENUM` varchar(20) DEFAULT NULL,
   `ADDRESS` varchar(150) DEFAULT NULL,
   `PAYMENT_METHOD` int(11) DEFAULT NULL CHECK (`PAYMENT_METHOD` = 1 or `PAYMENT_METHOD` = 2 or `PAYMENT_METHOD` = 3)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -122,27 +111,17 @@ CREATE TABLE `orderbill` (
 -- Đang đổ dữ liệu cho bảng `orderbill`
 --
 
-INSERT INTO `orderbill` (`ID`, `USERID`, `USERNAME`, `TIMESTAMP`, `ADDRESS`, `PAYMENT_METHOD`) VALUES
-(1, 1, 'Thiên', '2021-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
-(2, 2, 'Quyên', '2022-02-11 00:00:00', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', 3),
-(3, 4, 'Chiểu', '2022-06-18 00:00:00', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
-(4, 4, 'Chiểu', '0202-07-11 00:00:00', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
-(5, 7, 'Uy', '2021-07-30 00:00:00', 'Xã Triệu An, Huyện Triệu Phong, Tỉnh Quảng Trị', 1),
-(6, 1, 'Thiên', '2023-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
-(7, 8, 'Hà', '2023-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 3),
-(8, 5, 'Liên', '2022-04-13 00:00:00', 'Xã Thanh Tùng, Huyện Đầm Dơi, Cà Mau', 1),
-(9, 1, 'Thiên', '2022-04-30 00:00:00', 'Xã Mường Sại, Huyện Quỳnh Nhai, Sơn La', 2),
-(10, 10, 'Tường', '2022-03-13 00:00:00', 'Phường Quang Trung, Thành phố Thái Bình, Thái Bình', 1),
-(11, 1, 'Thiên', '2021-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
-(12, 2, 'Quyên', '2022-02-11 00:00:00', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', 3),
-(13, 4, 'Chiểu', '2022-06-18 00:00:00', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
-(14, 4, 'Chiểu', '0202-07-11 00:00:00', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
-(15, 7, 'Uy', '2021-07-30 00:00:00', 'Xã Triệu An, Huyện Triệu Phong, Tỉnh Quảng Trị', 1),
-(16, 1, 'Thiên', '2023-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
-(17, 8, 'Hà', '2023-03-31 00:00:00', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 3),
-(18, 5, 'Liên', '2022-04-13 00:00:00', 'Xã Thanh Tùng, Huyện Đầm Dơi, Cà Mau', 1),
-(19, 1, 'Thiên', '2022-04-30 00:00:00', 'Xã Mường Sại, Huyện Quỳnh Nhai, Sơn La', 2),
-(20, 10, 'Tường', '2022-03-13 00:00:00', 'Phường Quang Trung, Thành phố Thái Bình, Thái Bình', 1);
+INSERT INTO `orderbill` (`ID`, `USERID`, `TIMESTAMP`, `PHONENUM`, `ADDRESS`, `PAYMENT_METHOD`) VALUES
+(1, 1, '2021-03-31 00:00:00', '089 579 0132', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
+(2, 2, '2022-02-11 00:00:00', '0123456789', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', 3),
+(3, 4, '2022-06-18 00:00:00', '077 968 1703', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
+(4, 4, '0202-07-11 00:00:00', '077 968 1703', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 3),
+(5, 7, '2021-07-30 00:00:00', '099 371 8654', 'Xã Triệu An, Huyện Triệu Phong, Tỉnh Quảng Trị', 1),
+(6, 1, '2023-03-31 00:00:00', '089 579 0132', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 2),
+(7, 8, '2023-03-31 00:00:00', '084 129 3056', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 3),
+(8, 5, '2022-04-13 00:00:00', '076 458 0176', 'Xã Thanh Tùng, Huyện Đầm Dơi, Cà Mau', 1),
+(9, 1, '2022-04-30 00:00:00', '089 579 0132', 'Xã Mường Sại, Huyện Quỳnh Nhai, Sơn La', 2),
+(10, 10, '2022-03-13 00:00:00', '078 843 2915', 'Phường Quang Trung, Thành phố Thái Bình, Thái Bình', 1);
 
 -- --------------------------------------------------------
 
@@ -151,55 +130,35 @@ INSERT INTO `orderbill` (`ID`, `USERID`, `USERNAME`, `TIMESTAMP`, `ADDRESS`, `PA
 --
 
 CREATE TABLE `orderitem` (
-  `ID` int(10) UNSIGNED NOT NULL,
-  `USERID` int(11) NOT NULL,
-  `ORDERID` int(10) UNSIGNED DEFAULT NULL,
-  `PRODUCTID` int(10) UNSIGNED DEFAULT NULL,
-  `USERNAME` varchar(50) DEFAULT NULL,
-  `QUANTITY` int(10) UNSIGNED DEFAULT NULL
+  `ID` int(11) NOT NULL,
+  `ORDERID` int(11) DEFAULT NULL,
+  `CATEGORYID` int(11) DEFAULT NULL,
+  `QUANTITY` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `orderitem`
 --
 
-INSERT INTO `orderitem` (`ID`, `USERID`, `ORDERID`, `PRODUCTID`, `USERNAME`, `QUANTITY`) VALUES
-(1, 1, 1, 1, 'Thiên', 100000),
-(2, 1, 1, 2, 'Thiên', 15000),
-(3, 1, 1, 3, 'Thiên', 10000),
-(4, 2, 2, 1, 'Quyên', 100000),
-(5, 2, 2, 2, 'Quyên', 100000),
-(6, 2, 2, 4, 'Quyên', 100000),
-(7, 4, 3, 1, 'Chiểu', 100000),
-(8, 4, 3, 2, 'Chiểu', 100000),
-(9, 4, 4, 3, 'Chiểu', 100000),
-(10, 7, 5, 2, 'Uy', 100000),
-(11, 7, 5, 4, 'Uy', 100000),
-(12, 7, 5, 1, 'Uy', 100000),
-(13, 1, 6, 1, 'Thiên', 100000),
-(14, 8, 7, 4, 'Hà', 100000),
-(15, 8, 7, 5, 'Hà', 100000),
-(16, 5, 8, 1, 'Liên', 100000),
-(17, 1, 9, 1, 'Thiên', 100000),
-(18, 10, 10, 1, 'Tường', 100000),
-(19, 1, 1, 1, 'Thiên', 100000),
-(20, 1, 1, 2, 'Thiên', 15000),
-(21, 1, 1, 3, 'Thiên', 10000),
-(22, 2, 2, 1, 'Quyên', 100000),
-(23, 2, 2, 2, 'Quyên', 100000),
-(24, 2, 2, 4, 'Quyên', 100000),
-(25, 4, 3, 1, 'Chiểu', 100000),
-(26, 4, 3, 2, 'Chiểu', 100000),
-(27, 4, 4, 3, 'Chiểu', 100000),
-(28, 7, 5, 2, 'Uy', 100000),
-(29, 7, 5, 4, 'Uy', 100000),
-(30, 7, 5, 1, 'Uy', 100000),
-(31, 1, 6, 1, 'Thiên', 100000),
-(32, 8, 7, 4, 'Hà', 100000),
-(33, 8, 7, 5, 'Hà', 100000),
-(34, 5, 8, 1, 'Liên', 100000),
-(35, 1, 9, 1, 'Thiên', 100000),
-(36, 10, 10, 1, 'Tường', 100000);
+INSERT INTO `orderitem` (`ID`, `ORDERID`, `CATEGORYID`, `QUANTITY`) VALUES
+(1, 1, 1, 1),
+(2, 1, 2, 1),
+(3, 1, 3, 2),
+(4, 2, 1, 1),
+(5, 2, 2, 1),
+(6, 2, 4, 1),
+(7, 3, 1, 1),
+(8, 3, 2, 1),
+(9, 4, 3, 1),
+(10, 5, 2, 1),
+(11, 5, 4, 1),
+(12, 5, 1, 1),
+(13, 6, 1, 1),
+(14, 7, 4, 1),
+(15, 7, 5, 1),
+(16, 8, 1, 1),
+(17, 9, 1, 1),
+(18, 10, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -209,8 +168,8 @@ INSERT INTO `orderitem` (`ID`, `USERID`, `ORDERID`, `PRODUCTID`, `USERNAME`, `QU
 
 CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
-  `USERID` int(11) NOT NULL,
-  `PRODUCT_NAMES` text DEFAULT NULL,
+  `USERID` int(11) DEFAULT NULL,
+  `PRODUCT_NAMES` varchar(255) DEFAULT NULL,
   `STATUS_O` varchar(255) DEFAULT NULL,
   `TOTAL` varchar(255) DEFAULT NULL,
   `CREATED` varchar(255) DEFAULT NULL
@@ -224,7 +183,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `paymentinfo` (
   `ID` int(11) NOT NULL,
-  `USERID` int(11) NOT NULL,
+  `USERID` int(11) DEFAULT NULL,
   `NUMBER` varchar(50) DEFAULT NULL,
   `EXPIRY_DATE` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -262,7 +221,7 @@ INSERT INTO `paymentinfo` (`ID`, `USERID`, `NUMBER`, `EXPIRY_DATE`) VALUES
 --
 
 CREATE TABLE `product` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID` int(11) NOT NULL,
   `NAME` varchar(50) DEFAULT NULL,
   `TYPE` int(11) DEFAULT NULL CHECK (`TYPE` = 1 or `TYPE` = 2),
   `DESCRIPTION` text DEFAULT NULL
@@ -287,7 +246,6 @@ INSERT INTO `product` (`ID`, `NAME`, `TYPE`, `DESCRIPTION`) VALUES
 (12, 'Táo Đỏ Hàn Quốc', 1, 'Táo Đỏ Hàn Quốc thượng hạng sấy khô đặc biệt loại 1 hộp 350gr Healthy Food.<br>Táo đỏ còn có tên gọi khác là hồng táo được nhập từ Hàn Quốc, quả to, màu đỏ đẹp, thơm nhẹ và có vị ngọt đậm tự nhiên là thực phẩm organic vô cùng chất lượng.<br>\nTrong đông y, táo đỏ là loại thực phẩm rất giàu dinh dưỡng, bổ sung sắt cho thai phụ, chống lão hóa da, tăng cường nội tiết tố phụ nữ tuổi tiền mãn kinh.<br>\nNghiên cứu đã chứng minh táo đỏ có lợi cho dạ dày, bổ sung khí huyết và giúp nhuận phổi. Chứa nhiều vitamin C và E giúp da của ng sử dụng tươi sáng và đẹp hơn, chống lại sự hình thành các vết nám, sạm. <br>\nSản phẩm được đóng gói đẹp mắt, sang trọng nên làm quà tặng biếu người thân thì quá tuyệt vời. <br>\nTáo đỏ có tính giữ nhiệt, giàu chất dinh dưỡng, bởi chứa các thành phần như: prôtêin, lipit, đường, canxi, phốt pho, sắt, và nhiều loại vitamin A, C, B1, B2, carotene… <br>\nDân gian thường nói “Ngày ngày ăn táo đỏ, trẻ mãi không già”. Táo đỏ không chỉ là loại quả mà nhiều người thích ăn mà còn là liều thuốc tránh được các bệnh liên quan tới tỳ, gan, dạ dày, thần kinh, khí huyết, da, tốt cho tiêu hóa... <br>\nThích hợp cho người bị mỡ máu. Bổ gan, tăng cường cơ bắp, hạ huyết áp, an thần dễ ngủ, hạn chế sự phát triển của tế bào ung thư, tiêu đờm, giảm ho, cải thiện dinh dưỡng cơ tim. Tăng cường trí nhớ.<br>'),
 (13, 'Bơ đậu phộng không đường', 1, '<b>CÔNG DỤNG CỦA BƠ ĐẬU PHỘNG</b><br>\n- Bơ đậu phộng chứa thành phần dinh dưỡng đa dạng như chất béo tốt cho cơ thể, protein, carbohydrate.<br>\n- Nguồn Protein thực vật dồi dào.<br>\n- Cung cấp năng lượng, hỗ trợ ăn kiêng nhờ chất béo và các vitamin, khoáng chất trong hạt điều.<br>\n- Chất xơ giúp tốt cho tiêu hoá.<br>\n- Cung cấp chất béo cần thiết, tốt cho tim mạch.<br>\n- Nguồn chất chống oxy hóa tuyệt vời, giúp đẹp dáng, cải thiện làn da và tóc.<br>\n- Chất béo, protein trong bơ hạt điều giúp giảm cảm giác thèm ăn, tạo cảm giác no lâu.<br>');
 
-
 -- --------------------------------------------------------
 
 --
@@ -295,40 +253,41 @@ INSERT INTO `product` (`ID`, `NAME`, `TYPE`, `DESCRIPTION`) VALUES
 --
 
 CREATE TABLE `productcategory` (
-  `ID` int(10) UNSIGNED NOT NULL,
-  `CATEGORY` varchar(20) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `PRODUCTID` int(11) DEFAULT NULL,
+  `CATEGORY` varchar(20) DEFAULT NULL,
   `PRICE` int(11) DEFAULT NULL,
-  `QUANTITY` int(10) UNSIGNED DEFAULT NULL
+  `QUANTITY` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `productcategory`
 --
 
-INSERT INTO `productcategory` (`ID`, `CATEGORY`, `PRICE`, `QUANTITY`) VALUES
-(1, '150g', 107000, 100),
-(1, '250g', 188000, 100),
-(1, '500g', 249000, 100),
-(2, 'Vị matcha', 150000, 100),
-(2, 'Vị socola', 150000, 100),
-(2, 'Vị truyền thống', 150000, 100),
-(3, 'Size L', 250000, 100),
-(3, 'Size M', 250000, 100),
-(3, 'Size S', 250000, 100),
-(4, 'Màu xanh', 180000, 100),
-(5, '250g', 300000, 100),
-(6, '100g', 100000, 100),
-(7, 'High Level', 70000, 100),
-(7, 'Low Level', 50000, 100),
-(7, 'Medium Level', 60000, 100),
-(8, '250g', 219000, 30),
-(9, '1kg', 229000, 100),
-(9, '500g', 129000, 50),
-(11, '400g', 115000, 100),
-(11, '750g', 188000, 129),
-(12, '350g', 99000, 100),
-(13, '100g', 50000, 120),
-(13, '230g', 75000, 100);
+INSERT INTO `productcategory` (`ID`, `PRODUCTID`, `CATEGORY`, `PRICE`, `QUANTITY`) VALUES
+(1, 1, '150g', 107000, 100),
+(2, 1, '250g', 188000, 100),
+(3, 1, '500g', 249000, 100),
+(4, 2, 'Vị matcha', 150000, 100),
+(5, 2, 'Vị socola', 150000, 100),
+(6, 2, 'Vị truyền thống', 150000, 100),
+(7, 3, 'Size L', 250000, 100),
+(8, 3, 'Size M', 250000, 100),
+(9, 3, 'Size S', 250000, 100),
+(10, 4, 'Màu xanh', 180000, 100),
+(11, 5, '250g', 300000, 100),
+(12, 6, '100g', 100000, 100),
+(13, 7, 'High Level', 70000, 100),
+(14, 7, 'Low Level', 50000, 100),
+(15, 7, 'Medium Level', 60000, 100),
+(16, 8, '250g', 219000, 30),
+(17, 9, '1kg', 229000, 100),
+(18, 9, '500g', 129000, 50),
+(19, 11, '400g', 115000, 100),
+(20, 11, '750g', 188000, 129),
+(21, 12, '350g', 99000, 100),
+(22, 13, '100g', 50000, 120),
+(23, 13, '230g', 75000, 100);
 
 -- --------------------------------------------------------
 
@@ -337,7 +296,7 @@ INSERT INTO `productcategory` (`ID`, `CATEGORY`, `PRICE`, `QUANTITY`) VALUES
 --
 
 CREATE TABLE `productimage` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID` int(11) NOT NULL,
   `IMAGE` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -373,12 +332,12 @@ INSERT INTO `productimage` (`ID`, `IMAGE`) VALUES
 
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
-  `USERNAME` varchar(50) DEFAULT NULL,
-  `PASSWORD` varchar(255) DEFAULT NULL,
   `EMAIL` varchar(320) DEFAULT NULL,
+  `PASSWORD` varchar(255) DEFAULT NULL,
+  `USERNAME` varchar(50) DEFAULT NULL,
   `PHONENUM` varchar(20) DEFAULT NULL,
-  `IMAGE` text DEFAULT NULL,
   `ADDRESS` varchar(150) DEFAULT NULL,
+  `IMAGE` text DEFAULT NULL,
   `PERMISSION` int(11) DEFAULT NULL CHECK (`PERMISSION` = 0 or `PERMISSION` = 1 or `PERMISSION` = -1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -386,42 +345,36 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`ID`, `USERNAME`, `PASSWORD`, `FULLNAME`, `EMAIL`, `PHONENUM`, `IMAGE`, `ADDRESS`, `PERMISSION`) VALUES
-(1, 'Thiên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Đức Quang Thiên', 'ducquangthien107@facebook.com', '089 579 0132', 'profile_picture.jpg', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 1),
-(2, 'Quyên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lục Bích Quyên', 'lucbichquyen420@naver.com', '0123456789', 'profile_picture.jpg', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', 0),
-(3, 'Huệ', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Xung Minh Huệ', 'xungminhhue624@microsoft.com', '0123456789', 'profile_picture.jpg', '50400 US HIGHWAY 285 GRANT CO 80448-5029 USA', 0),
-(4, 'Chiểu', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khâu Huy Chiểu', 'khauhuychieu888@gmail.com', '077 968 1703', 'profile_picture.jpg', '3700  COUNTY ROAD 62 GRANT CO 80448-1000 USA\r\n', 0),
-(5, 'Liên', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lục Thúy Liên', 'lucthuylien389@naver.com', '076 458 0176', 'profile_picture.jpg', 'Xã Thanh Tùng, Huyện Đầm Dơi, Cà Mau', 0),
-(6, 'Mẫn', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Huỳnh Thanh Mẫn', 'huynhthanhman626@icloud.com', '090 940 3217', 'profile_picture.jpg', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 0),
-(7, 'Uy', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Ưng Gia Uy', 'unggiauy596@hotmail.com', '099 371 8654', 'profile_picture.jpg', 'Xã Mường Sại, Huyện Quỳnh Nhai, Sơn La', 0),
-(8, 'Hà', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Sái Quang Hà', 'saiquangha2@yahoo.com', '084 129 3056', 'profile_picture.jpg', 'Xã Tiến Thắng, Huyện Lý Nhân, Hà Nam\r\n', 0),
-(9, 'Ngọc', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Viêm Vân Ngọc', 'viemvanngoc668@naver.com', '035 820 1649', 'profile_picture.jpg', 'Xã Nghĩa Đồng, Huyện Nghĩa Hưng, Nam Định', 0),
-(10, 'Tường', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khai Thế Tường', 'khaithetuong589@yahoo.com', '078 843 2915', 'profile_picture.jpg', 'Phường Quang Trung, Thành phố Thái Bình, Thái Bình', 0),
-(11, 'Thi', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Phú Uyên Thi', 'phuuyenthi595@yahoo.com', '038 105 3284', 'profile_picture.jpg', 'Xã Hòa Điền, Huyện Kiên Lương, Kiên Giang\r\n', 0),
-(12, 'Uyển', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Nông Nguyệt Uyển', 'nongnguyetuyen751@naver.com', '099 967 8351', 'profile_picture.jpg', 'Xã Vĩnh Thạnh Trung, Huyện Châu Phú, An Giang', 0),
-(13, 'Quảng', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lý Ðình Quảng', 'lyinhquang37@google.com', '086 718 9563', 'profile_picture.jpg', 'Xã Chu Hương, Huyện Ba Bể, Bắc cạn', 0),
-(14, 'Huy', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Liên Nhật Huy', 'liennhathuy613@facebook.com', '032 248 0961', 'profile_picture.jpg', 'Xã Hữu Lợi, Huyện Yên Thủy, Hoà Bình', 0),
-(15, 'Hoa', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khuất Tuyết Hoa', 'khuattuyethoa839@google.com', '078 694 7315', 'profile_picture.jpg', 'Phường Cầu Kho, Quận 1, Hồ Chí Minh (tphcm)', 0),
-(16, 'Siêu', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Phú Ðức Siêu', 'phuucsieu960@icloud.com', '036 104 5932', 'profile_picture.jpg', 'Xã Ea Na, Huyện Krông A Na, Đắc Lắc', 0),
-(17, 'Hào', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Ca Công Hào', 'caconghao52@microsoft.com', '056 063 2879', 'profile_picture.jpg', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 0),
-(18, 'Như', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Thang Tịnh Như', 'thangtinhnhu268@microsoft.com', '034 032 4175', 'profile_picture.jpg', 'Xã Tân Trung, Thị xã Gò Công, Tiền Giang', 0),
-(19, 'Khanh', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Diệp Mai Khanh', 'diepmaikhanh112@google.com', '082 472 5930', 'profile_picture.jpg', 'Thị trấn Chùa Hang, Huyện Đồng Hỷ, Thái Nguyên', 0),
-(20, 'Cường', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Quán Hùng Cường', 'quanhungcuong325@facebook.com', '084 640 3751', 'profile_picture.jpg', 'Xã Đắk Cấm, Thành phố Kon Tum, Kon Tum\r\n', 0);
+INSERT INTO `user` (`ID`, `EMAIL`, `PASSWORD`, `USERNAME`, `PHONENUM`, `ADDRESS`, `IMAGE`, `PERMISSION`) VALUES
+(1, 'ducquangthien107@facebook.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Đức Quang Thiên', '089 579 0132', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 'profile_picture.jpg', 1),
+(2, 'lucbichquyen420@naver.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lục Bích Quyên', '0123456789', '45900 US HIGHWAY 285 GRANT CO 80448-5021 USA', 'profile_picture.jpg', 0),
+(3, 'xungminhhue624@microsoft.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Xung Minh Huệ', '0123456789', '50400 US HIGHWAY 285 GRANT CO 80448-5029 USA', 'profile_picture.jpg', 0),
+(4, 'khauhuychieu888@gmail.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khâu Huy Chiểu', '077 968 1703', '3700  COUNTY ROAD 62 GRANT CO 80448-1000 USA\r\n', 'profile_picture.jpg', 0),
+(5, 'lucthuylien389@naver.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lục Thúy Liên', '076 458 0176', 'Xã Thanh Tùng, Huyện Đầm Dơi, Cà Mau', 'profile_picture.jpg', 0),
+(6, 'huynhthanhman626@icloud.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Huỳnh Thanh Mẫn', '090 940 3217', 'Xã Hóa Sơn, Huyện Minh Hóa, Quảng Bình', 'profile_picture.jpg', 0),
+(7, 'unggiauy596@hotmail.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Ưng Gia Uy', '099 371 8654', 'Xã Mường Sại, Huyện Quỳnh Nhai, Sơn La', 'profile_picture.jpg', 0),
+(8, 'saiquangha2@yahoo.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Sái Quang Hà', '084 129 3056', 'Xã Tiến Thắng, Huyện Lý Nhân, Hà Nam\r\n', 'profile_picture.jpg', 0),
+(9, 'viemvanngoc668@naver.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Viêm Vân Ngọc', '035 820 1649', 'Xã Nghĩa Đồng, Huyện Nghĩa Hưng, Nam Định', 'profile_picture.jpg', 0),
+(10, 'khaithetuong589@yahoo.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khai Thế Tường', '078 843 2915', 'Phường Quang Trung, Thành phố Thái Bình, Thái Bình', 'profile_picture.jpg', 0),
+(11, 'phuuyenthi595@yahoo.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Phú Uyên Thi', '038 105 3284', 'Xã Hòa Điền, Huyện Kiên Lương, Kiên Giang\r\n', 'profile_picture.jpg', 0),
+(12, 'nongnguyetuyen751@naver.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Nông Nguyệt Uyển', '099 967 8351', 'Xã Vĩnh Thạnh Trung, Huyện Châu Phú, An Giang', 'profile_picture.jpg', 0),
+(13, 'lyinhquang37@google.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Lý Ðình Quảng', '086 718 9563', 'Xã Chu Hương, Huyện Ba Bể, Bắc cạn', 'profile_picture.jpg', 0),
+(14, 'liennhathuy613@facebook.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Liên Nhật Huy', '032 248 0961', 'Xã Hữu Lợi, Huyện Yên Thủy, Hoà Bình', 'profile_picture.jpg', 0),
+(15, 'khuattuyethoa839@google.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khuất Tuyết Hoa', '078 694 7315', 'Phường Cầu Kho, Quận 1, Hồ Chí Minh (tphcm)', 'profile_picture.jpg', 0),
+(16, 'phuucsieu960@icloud.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Phú Ðức Siêu', '036 104 5932', 'Xã Ea Na, Huyện Krông A Na, Đắc Lắc', 'profile_picture.jpg', 0),
+(17, 'caconghao52@microsoft.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Hào', '056 063 2879', '300 COUNTY ROAD 62 GRANT CO 80448-5013 USA', 'profile_picture.jpg', 0),
+(18, 'thangtinhnhu268@microsoft.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Như', '034 032 4175', 'Xã Tân Trung, Thị xã Gò Công, Tiền Giang', 'profile_picture.jpg', 0),
+(19, 'diepmaikhanh112@google.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Khanh', '082 472 5930', 'Thị trấn Chùa Hang, Huyện Đồng Hỷ, Thái Nguyên', 'profile_picture.jpg', 0),
+(20, 'quanhungcuong325@facebook.com', '$2y$10$hkz2JrolzkIVA6CZrN9XyetWzcN1IDihh8vnH73o7XxNRGyHNG3qm', 'Cường', '084 640 3751', 'Xã Đắk Cấm, Thành phố Kon Tum, Kon Tum\r\n', 'profile_picture.jpg', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Chỉ mục cho bảng `blog`
+-- Chỉ mục cho bảng `blogevent`
 --
-ALTER TABLE `blog`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Chỉ mục cho bảng `event`
---
-ALTER TABLE `event`
+ALTER TABLE `blogevent`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -429,23 +382,23 @@ ALTER TABLE `event`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `PRODUCTID` (`PRODUCTID`),
-  ADD KEY `USERID` (`USERID`);
+  ADD UNIQUE KEY `USERID` (`USERID`,`PRODUCTID`,`TIMESTAMP`),
+  ADD KEY `PRODUCTID` (`PRODUCTID`);
 
 --
 -- Chỉ mục cho bảng `orderbill`
 --
 ALTER TABLE `orderbill`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `USERID` (`USERID`);
+  ADD UNIQUE KEY `USERID` (`USERID`,`TIMESTAMP`);
 
 --
 -- Chỉ mục cho bảng `orderitem`
 --
 ALTER TABLE `orderitem`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ORDERID` (`ORDERID`),
-  ADD KEY `USERID` (`USERID`);
+  ADD UNIQUE KEY `ORDERID` (`ORDERID`,`CATEGORYID`),
+  ADD KEY `CATEGORYID` (`CATEGORYID`);
 
 --
 -- Chỉ mục cho bảng `orders`
@@ -458,7 +411,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `paymentinfo`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `USERID` (`USERID`);
+  ADD UNIQUE KEY `USERID` (`USERID`,`NUMBER`);
 
 --
 -- Chỉ mục cho bảng `product`
@@ -470,7 +423,8 @@ ALTER TABLE `product`
 -- Chỉ mục cho bảng `productcategory`
 --
 ALTER TABLE `productcategory`
-  ADD PRIMARY KEY (`ID`,`CATEGORY`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `PRODUCTID` (`PRODUCTID`,`CATEGORY`);
 
 --
 -- Chỉ mục cho bảng `productimage`
@@ -489,40 +443,34 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT cho bảng `blog`
+-- AUTO_INCREMENT cho bảng `blogevent`
 --
-ALTER TABLE `blog`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `event`
---
-ALTER TABLE `event`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `blogevent`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `orderbill`
 --
 ALTER TABLE `orderbill`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `paymentinfo`
@@ -534,7 +482,13 @@ ALTER TABLE `paymentinfo`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `productcategory`
+--
+ALTER TABLE `productcategory`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
@@ -564,7 +518,7 @@ ALTER TABLE `orderbill`
 --
 ALTER TABLE `orderitem`
   ADD CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`ORDERID`) REFERENCES `orderbill` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`USERID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`CATEGORYID`) REFERENCES `productcategory` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `paymentinfo`
@@ -576,7 +530,7 @@ ALTER TABLE `paymentinfo`
 -- Các ràng buộc cho bảng `productcategory`
 --
 ALTER TABLE `productcategory`
-  ADD CONSTRAINT `productcategory_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `product` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `productcategory_ibfk_1` FOREIGN KEY (`PRODUCTID`) REFERENCES `product` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `productimage`
