@@ -216,16 +216,6 @@ CREATE TABLE `orders` (
   `CREATED` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Đang đổ dữ liệu cho bảng `orders`
---
-
-INSERT INTO `orders` (`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES
-(1, 1, 'Ngũ cốc ăn kiêng Granola x 1', 'Hoan Thanh', '2.674.000đ', '2022-06-02'),
-(2, 1, 'Fitness Mad Light Blue x 2, Resistance Band x 1', 'Hoan Thanh', '3.454.000đ', '2022-06-02'),
-(3, 1, 'Hạt chia đen x 1', 'Đang ship', 'Hoan Thanh', '2022-06-02'),
-(4, 1, 'Nui Gạo Lứt x 1', 'Đang xử lý', 'Hoan Thanh', '2022-06-02');
-
 -- --------------------------------------------------------
 
 --
