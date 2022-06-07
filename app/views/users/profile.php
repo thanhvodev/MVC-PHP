@@ -23,15 +23,15 @@
         <!-- Account page navigation-->
         <nav class="nav nav-borders">
             <form>
-                <input class="nav-link" type="submit" value="Profile" style="border: none;">
+                <input class="nav-link" type="submit" value="Profile" style="border: none; color: #fd871d;">
             </form>
             <form action="<?php echo URL_ROOT; ?>/users/seeOrders" method="post">
-                <input class="nav-link" type="submit" value="Đơn hàng" style="border: none;">
+                <input class="nav-link" type="submit" value="Đơn hàng" style="border: none; color: #fd871d;">
             </form> <!-- <a class="nav-link" href="#" target="__blank">Địa chỉ</a> -->
             <!-- <a class="nav-link" href="#" target="__blank">Thông báo</a> -->
             <!-- <a class="nav-link" href="./logout" target="__blank">Đăng xuất</a> -->
             <form action="<?php echo URL_ROOT; ?>/users/logout" method="post">
-                <input class="nav-link" type="submit" value="Đăng xuất" style="border: none;">
+                <input class="nav-link" type="submit" value="Đăng xuất" style="border: none; color: #fd871d;">
             </form>
         </nav>
         <hr class="mt-0 mb-4">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-warning" type="submit">Lưu thay đổi</button>
+                            <button class="btn btn-choose" type="submit">Lưu thay đổi</button>
                         </form>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                                     required>
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-warning" type="submit">Cập nhật mật khẩu</button>
+                            <button class="btn btn-choose" type="submit">Cập nhật mật khẩu</button>
                         </form>
                     </div>
                 </div>
