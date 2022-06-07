@@ -23,3 +23,9 @@
 <?php
     include APP_ROOT. '/views/components/blogslider.php';
 ?>
+
+<div class="ourblog mt-5">E V E N T S</div>
+<div class="horizontalline"></div>
+<?php
+    include APP_ROOT. '/views/components/eventslider.php';
+?>

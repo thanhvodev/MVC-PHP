@@ -1,12 +1,11 @@
-
 <?php 
     $i = 0;
     echo "<div class='container image-slider'>";
-    while ($i<count($data['blogs'])) {
-        $hreflink =  URL_ROOT . "/blogs/detail/".$data['blogs'][$i]->ID;
-        $bgurl = $data['blogs'][$i]->IMAGE;
-        $title = $data['blogs'][$i]->TITLE;
-        $content = $data['blogs'][$i]->CONTENT;
+    while ($i<count($data['events'])) {
+        $hreflink =  URL_ROOT . "/events/detail/".$data['events'][$i]->ID;
+        $bgurl = $data['events'][$i]->IMAGE;
+        $title = $data['events'][$i]->TITLE;
+        $content = $data['events'][$i]->CONTENT;
         echo "
         <div class='image-item'>
             <div class='image-grid__item'>
