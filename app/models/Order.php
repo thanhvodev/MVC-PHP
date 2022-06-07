@@ -40,7 +40,7 @@ class Order {
         $time = date('Y-m-d');
         $products = substr($products, 0, -2);
         $sum = currency_format($sum);
-        $sql = 'INSERT INTO `orders`(`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES ("'. $userid .'", "'. $products .'", "Hoan thanh", "'.$sum.'", "'.$time.'")';
+        $sql = 'INSERT INTO `orders`(`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES ("'. $userid .'", "'. $products .'", "Success", "'.$sum.'", "'.$time.'")';
         $connect->query($sql);
     }
 }

@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
+                            <button class="btn btn-warning" type="submit">Lưu thay đổi</button>
                         </form>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                                     required>
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit">Cập nhật mật khẩu</button>
+                            <button class="btn btn-warning" type="submit">Cập nhật mật khẩu</button>
                         </form>
                     </div>
                 </div>

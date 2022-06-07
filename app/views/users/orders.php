@@ -15,9 +15,10 @@
         });
 
     });
+
     </script>
     <div class="container mt-5">
-        <a href="./profile"> &lt; &lt;Quay lại Trang cá nhân</a>
+        <a class="inprofile-url" style="text-decoration: none; color: black;" href="<?php echo URL_ROOT ?>">Trang chủ</a> <i class="fas fa-angle-right"></i> <a style="text-decoration: none;  color: black;" class="inprofile-url" href="./profile">Trang cá nhân<a/> <i class="fas fa-angle-right"></i> <span  style="color: #fd871d;">Đơn hàng</span>
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 <div class="rounded">
@@ -42,7 +43,7 @@
 
                                         <td>#SO-'  . $row['ID'] .'</td>
                                         <td>'  . $row['PRODUCT_NAMES'] .'</td>
-                                        <td><span class="btn btn-primary">'  . $row['STATUS_O'] .'</span></td>
+                                        <td><button class="btn btn btn-warning" disabled>'  . $row['STATUS_O'] .'</button></td>
                                         <td>'  . $row['TOTAL'] .'</td>
                                         <td>'  . $row['CREATED'] .'</td>
                                         <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
