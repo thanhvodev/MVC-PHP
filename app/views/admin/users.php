@@ -11,7 +11,9 @@
     $page = $array_uri[count($array_uri)-1];
     if ($page == "users")
     {
-        $page = 0;
+        echo "<script type='text/javascript'>
+            location.replace('dead');
+         </script>"; 
     }
     else
     {

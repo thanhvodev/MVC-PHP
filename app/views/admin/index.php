@@ -12,7 +12,7 @@ require APP_ROOT . '/views/inc/head.php';
             </div>
             <ul>
                 <li class="list ">
-                    <a href="<?php echo URL_ROOT ?>/admin/users">
+                    <a href="<?php echo URL_ROOT ?>/admin/users/1">
                         <i class="bi bi-people"></i>
                         <span class="title">Quản lý thành viên</span>
                     </a>
