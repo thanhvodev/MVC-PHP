@@ -51,16 +51,15 @@
                         $data = [
                             'userid' => trim($_SESSION['user_id']),
                             'productid' => $option,
-                            'username' => trim($_SESSION['username']),
                             'timestamp' => date("Y-m-d H:i:s"),
                             'rating' => trim($_POST['rating']),
                             'content' => trim($_POST['content']),
                         ];
                         if($this->productModel->addFeedback($data)){
                             echo "<script>
-                              alert('Gửi đánh giá thành công!');
-                              window.location.href ='".URL_ROOT."/products/detail/".$option."';
-                              </script>";
+                            alert('Gửi đánh giá thành công!');
+                            window.location.href ='".URL_ROOT."/products/detail/".$option."';
+                            </script>";
                         }
                         else {
                             die('Something went wrong');

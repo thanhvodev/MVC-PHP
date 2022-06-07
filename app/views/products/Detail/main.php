@@ -74,7 +74,7 @@
                                 } else {
                                     echo "
                                     <div class='row d-flex justify-content-center align-items-center'>
-                                    <i class='col-1 bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
+                                    <i class='col-2 bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
                                     <h5 class='col-2'>" . $_SESSION['username'] . "</h5>";
                                     echo "
                                 <form method='POST'>
@@ -90,7 +90,7 @@
                                     echo "
                                     <textarea class=\"form-control mt-3\" name='content' rows=\"3\" required></textarea>
                                     <button type='button' class='btn btn-secondary mt-3' data-bs-dismiss='modal'>Hủy</button>
-                                    <button type='submit' class='btn btn-choose mt-3' name='feedback'>Lưu đánh giá</button>
+                                    <button type='submit' class='btn btn-choose mt-4' name='feedback'>Lưu đánh giá</button>
                                 </form></div>";
                                 }
                                 ?>

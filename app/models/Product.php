@@ -10,9 +10,15 @@ class Product
 
     public function getProductList($type)
     {
-        $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
-        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name");
-        $this->db->bind(':ptype', $type);
+        if ($type != 0){
+            $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
+            WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name");
+            $this->db->bind(':ptype', $type);
+        }
+        else {
+            $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
+            WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID GROUP BY name");
+        }
         $row = $this->db->fetchAll();
         $i = 0;
         $res = array();
@@ -62,10 +68,22 @@ class Product
         return $row;
     }
 
+    public function getAllCategory()
+    {
+        $this->db->query("SELECT SUM(QUANTITY) AS QUANTITY FROM PRODUCTCATEGORY");
+        $row = $this->db->fetch();
+        return $row->QUANTITY;
+    }
+
     public function getFeedback($id)
     {
-        $this->db->query("SELECT USERNAME, TIMESTAMP, RATING, CONTENT FROM FEEDBACK WHERE PRODUCTID = :id ORDER BY TIMESTAMP DESC");
-        $this->db->bind(':id', $id);
+        if ($id == 0){
+            $this->db->query("SELECT USERNAME, TIMESTAMP, RATING, CONTENT FROM FEEDBACK JOIN USER ON USERID = USER.ID ORDER BY TIMESTAMP DESC");
+        }
+        else {
+            $this->db->query("SELECT USERNAME, TIMESTAMP, RATING, CONTENT FROM FEEDBACK JOIN USER ON USERID = USER.ID WHERE PRODUCTID = :id ORDER BY TIMESTAMP DESC");
+            $this->db->bind(':id', $id);
+        }
         $row = $this->db->fetchAll();
         return $row;
     }
@@ -126,10 +144,9 @@ class Product
     }
 
     public function addFeedback($data){
-        $this->db->query('INSERT INTO feedback (userid, productid, username, timestamp, rating, content) VALUES (:userid, :productid, :username, :timestamp, :rating, :content)');
+        $this->db->query('INSERT INTO feedback (userid, productid, timestamp, rating, content) VALUES (:userid, :productid, :timestamp, :rating, :content)');
         $this->db->bind(':userid', $data['userid']);
         $this->db->bind(':productid', $data['productid']);
-        $this->db->bind(':username', $data['username']);
         $this->db->bind(':timestamp', $data['timestamp']);
         $this->db->bind(':rating', $data['rating']);
         $this->db->bind(':content', $data['content']);
