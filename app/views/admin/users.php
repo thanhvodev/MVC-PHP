@@ -44,7 +44,7 @@
                 $i = 0;
                 while ($row = $data['users']->fetch_assoc()) {
                     $i += 1;
-                    if ($i > 20*($page-1) && $i <20*$page)
+                    if ($i > 20*($page-1) && $i <= 20*$page)
                     {
                         if ($row['PERMISSION'] == 0) {
                             $ban_button = '<form action="'.URL_ROOT.'/admin/ban_user" method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-danger">Cấm</button></form>';
