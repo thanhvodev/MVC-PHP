@@ -72,7 +72,7 @@ class Admin extends Controller
     }
 
     public function products(){
-        $productsData =  $this->productModel->getProductList(0);
+        $productsData =  $this->productModel->getAllProducts();
         $fb =  $this->productModel->getFeedback(0);
         $catenum = $this->productModel->getAllCategory();
         $data = ["products" => $productsData, "page" => "products", "feedbacks" => $fb, "nums" => $catenum];

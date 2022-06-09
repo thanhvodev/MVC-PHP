@@ -1,4 +1,4 @@
-<?php
+ <?php
 $perpage = 6;
 if (isset($_GET['page']) & !empty($_GET['page'])) {
     $curpage = $_GET['page'];

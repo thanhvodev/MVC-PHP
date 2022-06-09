@@ -8,17 +8,9 @@ class Product
         $this->db = new Database();
     }
 
-    public function getProductList($type)
-    {
-        if ($type != 0){
-            $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
-            WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name");
-            $this->db->bind(':ptype', $type);
-        }
-        else {
-            $this->db->query("SELECT PRODUCT.ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
-            WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID GROUP BY name");
-        }
+    public function getAllProducts(){
+        $this->db->query("SELECT PRODUCT.ID AS ID, NAME, TYPE, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
+        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID GROUP BY name ORDER BY PRODUCT.ID");
         $row = $this->db->fetchAll();
         $i = 0;
         $res = array();
@@ -27,6 +19,35 @@ class Product
             $element = [
                 "ID" => $row[$i]->ID,
                 "Name" => $row[$i]->NAME,
+                "Type" => $row[$i]->TYPE,
+                "Image" => $row[$i]->IMAGE,
+                "Price" => $row[$i]->PRICE,
+                "Point" => round($this->getRatingPoint($row[$i]->ID), 1)
+            ];
+            array_push($pointList, round($this->getRatingPoint($row[$i]->ID), 1));
+            array_push($res, $element);
+            $i++;
+        }
+        return $res;
+    }
+
+    public function getProductList($type)
+    {
+        $this->db->query("SELECT PRODUCT.ID AS ID, NAME, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
+        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID and type = :ptype GROUP BY name ORDER BY PRODUCT.ID");
+        $this->db->bind(':ptype', $type);
+        $row = $this->db->fetchAll();
+        $i = 0;
+        $res = array();
+        $pointList = array();
+        while ($i < count($row)){
+            if ($type == 0){
+                $type = $row[$i]->TYPE;
+            }
+            $element = [
+                "ID" => $row[$i]->ID,
+                "Name" => $row[$i]->NAME,
+                "Type" => $type,
                 "Image" => $row[$i]->IMAGE,
                 "Price" => $row[$i]->PRICE,
                 "Point" => round($this->getRatingPoint($row[$i]->ID), 1)

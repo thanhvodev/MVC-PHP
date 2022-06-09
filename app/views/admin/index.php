@@ -5,8 +5,8 @@ require APP_ROOT . '/views/inc/head.php';
 <body>
     <div class="admin-page d-flex">
         <div class="sidebar">
-            <div class="box-logo"><a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">GYMNASIUM</a></div>
-            <div class="hiddenbox"><a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">GYM</a></div>
+            <div class="box-logo"><a style="cursor: pointer;" href="<?php echo URL_ROOT ?>/admin/users">GYMNASIUM</a></div>
+            <div class="hiddenbox"><a style="cursor: pointer;" href="<?php echo URL_ROOT ?>/admin/users">GYM</a></div>
             <div class="toggle">
                 <i class="bi bi-list"></i>
             </div>

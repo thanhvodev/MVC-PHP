@@ -74,8 +74,8 @@
                                 } else {
                                     echo "
                                     <div class='row d-flex justify-content-center align-items-center'>
-                                    <i class='col-2 bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
-                                    <h5 class='col-2'>" . $_SESSION['username'] . "</h5>";
+                                    <i class='col-auto bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
+                                    <h6 class='col-auto'>" . $_SESSION['username'] . "</h6>";
                                     echo "
                                 <form method='POST'>
                                     <label for=\"exampleFormControlTextarea1\" class=\"form-label\" style='color: #fd7e14'>Vui lòng chọn sao và điền nội dung đánh giá dưới đây!</label>
