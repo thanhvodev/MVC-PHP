@@ -19,20 +19,11 @@
     }
 ?>
 
-
+<h1 class='text-center mb-5' style='color: #ff871d'>Quản lý thành viên</h1>
+<?php
+    require_once APP_ROOT . '/views/components/user-overall.php';
+?>
 <body>
-    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
-        <div class="row">
-            <div class="col-sm border border-primary p-3">
-                Số thành viên hiện tại: <?php echo $data['users']->num_rows; ?>
-            </div>
-            <div class="col-sm">
-            </div>
-            <div class="col-sm border border-primary p-3">
-                Số thành viên bị cấm hiện tại: <?php echo $data['noOfBanned']; ?>
-            </div>
-        </div>
-    </div>
     <table class="table">
         <thead>
             <tr>
