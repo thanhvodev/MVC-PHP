@@ -5,12 +5,12 @@
         while ($count < count($data["Feedbacks"])/2){
             echo "
             <div class='row d-flex align-items-center mt-4'>
-                <div class='col-2 d-flex justify-content-end'>
+                <div class='col-2 d-flex justify-content-center'>
                     <i class='bi bi-person-circle' style='font-size: 2rem; color: #ff871d'></i>
                 </div>
-                <div class='col-2'>
+                <div class='col-3'>
                 <h6>".$data["Feedbacks"][$count]->USERNAME."</h6></div>";
-            echo "<div class='col-4 all-star'>";
+            echo "<div class='col-3 all-star'>";
             $i = 1;
             while ($i <= $data["Feedbacks"][$count]->RATING){
                 echo "<i class='ratingstar fas fa-star'></i>";
@@ -44,12 +44,12 @@
         while ($count < count($data["Feedbacks"])){
             echo "
             <div class='row d-flex align-items-center mt-4'>
-                <div class='col-2 d-flex justify-content-end'>
+                <div class='col-2 d-flex justify-content-center'>
                     <i class='bi bi-person-circle' style='font-size: 2rem; color: #ff871d;'></i>
                 </div>
-                <div class='col-2'>
+                <div class='col-3'>
                 <h6>".$data["Feedbacks"][$count]->USERNAME."</h6></div>";
-            echo "<div class='col-4 all-star'>";
+            echo "<div class='col-3 all-star'>";
             $i = 1;
             while ($i <= $data["Feedbacks"][$count]->RATING){
                 echo "<i class='ratingstar fas fa-star'></i>";
