@@ -12,13 +12,13 @@ require APP_ROOT . '/views/inc/head.php';
             </div>
             <ul>
                 <li class="list ">
-                    <a href="<?php echo URL_ROOT ?>/admin/users">
+                    <a href="<?php echo URL_ROOT ?>/admin/users/1">
                         <i class="bi bi-people"></i>
                         <span class="title">Quản lý thành viên</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="<?php echo URL_ROOT ?>/admin/products">
+                    <a href="<?php echo URL_ROOT ?>/admin/products/all">
                         <i class="bi bi-handbag"></i>
                         <span class="title">Quản lý sản phẩm</span>
                     </a>
@@ -46,7 +46,10 @@ require APP_ROOT . '/views/inc/head.php';
         <div class="content">
             <div class="page" style="display: none"><?php echo $data['page'];?></div>
             <?php
-            if ($data['page'] == 'users') {
+            if (isset($data['name']) && strlen($data['name']) > 0){
+                require_once APP_ROOT . '/views/admin/productdetail.php';
+            }
+            else if ($data['page'] == 'users') {
                 require_once APP_ROOT . '/views/admin/users.php';
             } else if ($data['page'] == 'delete_user') {
                 require_once APP_ROOT . '/views/admin/message.php';
