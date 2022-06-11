@@ -21,12 +21,60 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
 }
 ?>
 <h1 class='text-center mb-3' style='color: #ff871d'>Quản lý sản phẩm</h1>
+<div id="liveAlertPlaceholder"></div>
 <?php
     require_once APP_ROOT . '/views/components/card-overall.php';
 ?>
-<div class='head-product row mt-3'>
-    <div class='col-auto'>
-        <button class='btn btn-choose'>Thêm sản phẩm mới</button>
+<div class='head-product d-flex justify-content-end mt-3 me-0'>
+    <button type="button" class='btn btn-choose' data-bs-toggle="modal" data-bs-target="#addProduct">Thêm sản phẩm mới</button>
+    <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductLabel"><?php echo "Thêm sản phẩm mới"; ?></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method='POST'>
+                        <div class='mb-3'>
+                            <label for="name" class="form-label">Vui lòng chọn loại sản phẩm</label>
+                            <select class="form-select" name="type" aria-label="Select type" required>
+                                <option selected disabled>-- Loại sản phẩm --</option>
+                                <option value="1">Thực phẩm dinh dưỡng</option>
+                                <option value="2">Dụng cụ tập luyện</option>
+                            </select>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="name" class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="description" class="form-label">Mô tả sản phẩm</label>
+                            <textarea class="form-control" name="description" rows='3' maxlength='10000' required></textarea>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="image" class="form-label">Hình ảnh sản phẩm</label>
+                            <textarea class="form-control" name="image" rows='3' placeholder='Điền link hình ảnh cho sản phẩm, nếu có 2 ảnh trở lên vui lòng điền cách nhau bởi dấu chấm phẩy ;.' required></textarea>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="cate1" class="form-label">Tên phân loại</label>
+                            <input type="text" class="form-control" name="cate1" required>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="price1" class="form-label">Giá</label>
+                            <input type="text" class="form-control" name="price1" required>
+                        </div>
+                        <div class='mb-3'>
+                            <label for="quantity1" class="form-label">Số lượng</label>
+                            <input type="text" class="form-control" name="quantity1" required>
+                        </div>
+                        <div class='text-center'>
+                            <button type='submit' class='btn btn-choose mt-3' name='add'>Thêm sản phẩm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <table class="table table-striped table-bordered table-hover mt-3" style="overflow-x:auto;">
@@ -50,7 +98,7 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
             echo "<tr>";
             echo "<td>".$res[$i]["ID"]."</td>";
             echo "<td style='font-weight: 500; color: #ff871d'>".$res[$i]["Name"]."</td>";            
-            if ($res[$i]["Type"] == 2){
+            if ($res[$i]["Type"] == 1){
                 echo "<td>Thực phẩm dinh dưỡng</td>";
             }
             else {
@@ -68,10 +116,13 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
             <td>
             <div class='row d-flex justify-content-center'>
                 <div class='col-lg-6 col-12'>
-                    <button class='btn btn-success' style='background-color: #1cc88a !important; border-color: #1cc88a !important'>Sửa<i class='bi bi-pencil-square'></i></button>
+                    <a href='".URL_ROOT."/admin/products/".$res[$i]["ID"]."'><button class='btn btn-success' style='background-color: #1cc88a !important; border-color: #1cc88a !important' name='requestedit'>Sửa<i class='bi bi-pencil-square'></i></button></a>
                 </div>
                 <div class='col-lg-6 col-12'>
-                    <button class='btn btn-choose' style='margin: 0 !important'>Xóa<i class='bi bi-trash3'></i></button>
+                    <form method='POST'>
+                        <input type='hidden' name='product_id' value='". $res[$i]["ID"]."'>
+                        <button class='btn btn-choose' style='margin: 0 !important' name='delete'>Xóa<i class='bi bi-trash3'></i></button>
+                    </form>
                 </div>
             </div>
             </td></tr>";
@@ -79,6 +130,21 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
         }
         ?>
     </tbody>
+    <script>
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+        const alert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+        }
+    </script>
 </table>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center mt-3">
