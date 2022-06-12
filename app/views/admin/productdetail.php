@@ -17,13 +17,7 @@
             </div>
             <div class='mb-3'>
                 <label for="image" class="form-label">Hình ảnh sản phẩm</label>
-                <textarea class="form-control" name="image" rows='3' value='<?php echo $data['img'][0]->IMAGE;?>' required><?php 
-                $i = 0;
-                while ($i < count($data['img'])){
-                    echo $data['img'][$i]->IMAGE;
-                    echo "\n";
-                    $i++;
-                }?></textarea>
+                <textarea class="form-control" name="image" rows='2' required><?php echo $data['img'][0]->IMAGE;?></textarea>
             </div>
             <div class='mb-3'>
                 <input type='hidden' name='product_id' value=<?php echo $data['id']?>>
