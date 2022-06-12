@@ -22,7 +22,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTT
 //define('URL_ROOT', 'https://Gymasium.com');
 
 // Nom du site
-define('SITE_NAME', 'Gymasium');
+define('SITE_NAME', 'Gymnasium');
 
 //Meta
 define('CARD_DESCRIPTION', 'Gym products store');

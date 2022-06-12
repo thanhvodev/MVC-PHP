@@ -83,12 +83,9 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
             <th>ID</th>
             <th>Tên sản phẩm</th>
             <th>Loại sản phẩm</th>
-            <!-- <th>Mô tả</th> -->
             <th>Hình ảnh</th>
-            <!-- <th>Phân loại</th> -->
             <th>Điểm đánh giá</th>
             <th>Thao tác</th>
-            <!-- <th>Số lượng sản phẩm</th> -->
         </tr>
     </thead>
     <tbody>
@@ -111,7 +108,9 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
                 echo $res[$i]["Point"];
             else
                 echo "*";
-            echo "</></td>";
+            echo "</span><br>";
+            if ($res[$i]["Point"] > 0)
+                echo "<a href='".URL_ROOT."/admin/feedbacks/".$res[$i]["ID"]."'><button class='btn btn-link' style='text-decoration: none !important; color: #1cc88a !important;'>Xem đánh giá</button></a></td>";
             echo "
             <td>
             <div class='row d-flex justify-content-center'>
