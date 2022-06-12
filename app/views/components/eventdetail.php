@@ -6,7 +6,7 @@
                 &nbsp > &nbsp
                 <a class="detail__home__href" href="<?php echo URL_ROOT . "/blogs";?>" style="text-decoration: none; color: rgb(100,100,100);">News & Events</a>
                 &nbsp > &nbsp
-                <div style="color:orange;"><?php echo $data['blogs'][$data['id']-1]->TITLE; ?></div>
+                <div style="color:orange;"><?php echo $data['events'][$data['id']-1]->TITLE; ?></div>
             </div>
         </div>
     </div>
@@ -16,20 +16,15 @@
             <div class="grid">
                 <div class="row">
                     <div class="col l-12 m-12 c-12">
-                        <img src="<?php echo $data['blogs'][$data['id']-1]->IMAGE; ?>" alt="" class="main__image1">
-                    </div>
-                    <div class="col l-12 m-12 c-12 author" style="display: flex; justify-content: center; align-items: center;">
-                        <i class="fa-solid fa-user-tie"></i> &nbsp TeamDEV &nbsp &nbsp
-                        <i class="fa-solid fa-clock"></i> &nbsp 24.March.2022 &nbsp &nbsp
-                        <i class="fa-solid fa-comment"></i> &nbsp Comment &nbsp &nbsp 
+                        <img src="<?php echo $data['events'][$data['id']-1]->IMAGE; ?>" alt="" class="main__image1">
                     </div>
                 </div>
             </div>
         </div>
         <div class="col l-6 m-12 c-12 item__info">
-            <div class="item__name"><?php echo $data['blogs'][$data['id']-1]->TITLE; ?></div>
-            <div class="item__desc"><?php echo $data['blogs'][$data['id']-1]->CONTENT; ?></div>
-            <div class="item__desc" style="width: 100%; text-align: end; margin-top: 16px;"><?php echo $data['blogs'][$data['id']-1]->WRITER; ?></div> 
+            <div class="item__name"><?php echo $data['events'][$data['id']-1]->TITLE; ?></div>
+            <div class="item__desc"><?php echo $data['events'][$data['id']-1]->CONTENT; ?></div>
+            <!-- <div class="item__desc" style="width: 100%; text-align: end; margin-top: 16px;"><?php echo $data['events'][$data['id']-1]->WRITER; ?></div>  -->
         </div>
     </div>
 
@@ -59,15 +54,15 @@
 
 <div class="line"></div>
 
-<div class="ourblog mt-5">R E L A T E D &nbsp &nbsp P O S T</div>
+<div class="ourblog mt-5">R E L A T E D &nbsp &nbsp E V E N T S</div>
 <div class="horizontalline"></div>
 
 
 <?php
 
     // echo $data['title'];
-    include APP_ROOT . '/views/components/blogslider.php';
+    include APP_ROOT . '/views/components/eventslider.php';
 
 
-    // print_r($data['blogs'][$data['id']-1]->ID);
+    // print_r($data['events'][$data['id']-1]->ID);
 ?>

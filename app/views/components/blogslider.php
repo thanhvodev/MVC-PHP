@@ -12,7 +12,7 @@
             Today Is The Best Day To Starting Training. No Excuses
         </div>
         <div class="image-hr"></div>
-        <div class="image-detail">
+        <div clasehcs="image-detail">
             Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Etiam ut purus mattis mauris sodales...
         </div>
     </div>
@@ -127,7 +127,7 @@
             </div>
             <div class='image-hr'></div>
             <div class='image-detail'>
-                Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Etiam ut purus mattis mauris sodales...
+                Cho đến đôi khi, nỗi sợ hãi và cục diện kinh tế, nỗi đau của những mũi tên trên khắp thế giới, nhu cầu muốn có mi tự do hoặc xấu xí. Mặc dù vậy, bất động sản thuần túy của các thành viên ...
             </div>
         </div>
         ";

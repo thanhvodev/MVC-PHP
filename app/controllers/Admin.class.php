@@ -7,6 +7,8 @@ class Admin extends Controller
     {
         $this->userModel = $this->loadModel('User');
         $this->productModel = $this->loadModel('Product');
+        $this->blogModel = $this->loadModel('Blog');
+        $this->eventModel = $this->loadModel('Event');
     }
 
      public function index()
@@ -77,6 +79,15 @@ class Admin extends Controller
         $catenum = $this->productModel->getAllCategory();
         $data = ["products" => $productsData, "page" => "products", "feedbacks" => $fb, "nums" => $catenum];
 
+        $this->render('admin/index', $data);
+    }
+
+    public function blogevent()
+    {
+        $blogData = $this->blogModel->getBlogList();
+        $eventData = $this->eventModel->getEventList();
+
+        $data = ["page" => "blogevent", "blogs" => $blogData, "events" => $eventData];
         $this->render('admin/index', $data);
     }
 }

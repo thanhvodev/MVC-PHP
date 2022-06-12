@@ -24,7 +24,7 @@ require APP_ROOT . '/views/inc/head.php';
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="<?php echo URL_ROOT ?>/admin/blogevent">
                         <i class="bi bi-calendar-event"></i>
                         <span class="title">Quản lý blog/sự kiện</span>
                     </a>
@@ -58,7 +58,9 @@ require APP_ROOT . '/views/inc/head.php';
                 require_once APP_ROOT . '/views/admin/message.php';
             } else if ($data['page'] == 'products') {
                 require_once APP_ROOT . '/views/admin/products.php';
-            }
+            } else if ($data['page'] == 'blogevent') {
+                require_once APP_ROOT . '/views/admin/blogevent.php';
+            } 
             ?>
         </div>
     </div>

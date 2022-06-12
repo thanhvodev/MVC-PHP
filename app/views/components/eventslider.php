@@ -15,7 +15,7 @@
                 <div class='grid-item__name'>Read more</div>
                 </a>
             </div>
-            <h4 class='image-title'>NEWS</h4>
+            <h4 class='image-title'>EVENTS</h4>
             <div class='image-description'>
                 $title
             </div>
