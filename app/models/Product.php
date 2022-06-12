@@ -83,7 +83,7 @@ class Product
 
     public function getCategory($id)
     {
-        $this->db->query("SELECT ID, CATEGORY, PRICE, QUANTITY FROM PRODUCTCATEGORY WHERE ID = :id");
+        $this->db->query("SELECT PRODUCTID, CATEGORY, PRICE, QUANTITY FROM PRODUCTCATEGORY WHERE PRODUCTID = :id");
         $this->db->bind(':id', $id);
         $row = $this->db->fetchAll();
         return $row;
