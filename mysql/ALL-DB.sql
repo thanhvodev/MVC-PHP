@@ -195,6 +195,21 @@ CREATE TABLE `orders` (
   `CREATED` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+INSERT INTO `orders`(`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES 
+(1,1,'Whey Protein x 1, Protein Bar x 1','Success','300.000 VND','2022-02-15'),
+(2,2,'Bánh Biscotti Trà Xanh x 1','Success','250.000 VND','2021-01-05'),
+(3,3,'Ngũ cốc ăn kiêng Granola x 1','Success','107.000 VND','2020-12-02'),
+(4,4,'Bánh Biscotti Cela x 1','Success','188.000 VND','2022-03-11'),
+(5,5,'Whey Protein x 1, Fitness Mad Light Blue x 1','Success','300.000 VND','2019-10-25'),
+(6,6,'Muối hồng Himalaya x 1','Success','250.000 VND','2018-01-01'),
+(7,7,'Set Seamless Clothes x 1','Success','249.000 VND','2019-02-02'),
+(8,8,'Resistance Band x 1','Success','250.000 VND','2020-03-03'),
+(9,9,'Bánh Biscotti Cela x 3','Success','564.000 VND','2021-04-04'),
+(10,10,'Protein Bar x 2, Set Seamless Clothes x 1','Success','549.000 VND','2022-05-05');
+
 -- --------------------------------------------------------
 
 --
