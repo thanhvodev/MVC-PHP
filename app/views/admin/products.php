@@ -54,7 +54,7 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
                         </div>
                         <div class='mb-3'>
                             <label for="image" class="form-label">Hình ảnh sản phẩm</label>
-                            <textarea class="form-control" name="image" rows='3' placeholder='Điền link hình ảnh cho sản phẩm, nếu có 2 ảnh trở lên vui lòng điền cách nhau bởi dấu chấm phẩy ;.' required></textarea>
+                            <textarea class="form-control" name="image" rows='3' placeholder='Điền link hình ảnh cho sản phẩm' required></textarea>
                         </div>
                         <div class='mb-3'>
                             <label for="cate1" class="form-label">Tên phân loại</label>
