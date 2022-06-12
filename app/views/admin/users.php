@@ -5,8 +5,8 @@
             location.replace('dead');
          </script>";  
     }
-
-    $noOfPage = $data['users']->num_rows/20 + 1;
+    $usersPerPage = 10;
+    $noOfPage = $data['users']->num_rows/$usersPerPage + 1;
     $array_uri = explode('/',$_SERVER['REQUEST_URI']);
     $page = $array_uri[count($array_uri)-1];
     if ($page == "users")
@@ -44,7 +44,7 @@
                 $i = 0;
                 while ($row = $data['users']->fetch_assoc()) {
                     $i += 1;
-                    if ($i > 20*($page-1) && $i <= 20*$page)
+                    if ($i > $usersPerPage*($page-1) && $i <= $usersPerPage*$page)
                     {
                         if ($row['PERMISSION'] == 0) {
                             $ban_button = '<form action="'.URL_ROOT.'/admin/ban_user" method="POST"><input type="hidden" name="id" value="' . $row['ID'] . '"><button class="btn btn-danger">Cấm</button></form>';
