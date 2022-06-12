@@ -46,7 +46,10 @@ require APP_ROOT . '/views/inc/head.php';
         <div class="content">
             <div class="page" style="display: none"><?php echo $data['page'];?></div>
             <?php
-            if (isset($data['name']) && strlen($data['name']) > 0){
+            if (isset($data['feedback'])){
+                require_once APP_ROOT . '/views/admin/feedback.php';
+            }
+            else if (isset($data['name']) && strlen($data['name']) > 0){
                 require_once APP_ROOT . '/views/admin/productdetail.php';
             }
             else if ($data['page'] == 'users') {

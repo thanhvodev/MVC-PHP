@@ -107,7 +107,7 @@ class Admin extends Controller
                 echo "<script>
                     alert('Xóa sản phẩm thành công!', 'warning');
                     window.setTimeout(function() {
-                        window.location.href ='".URL_ROOT."/admin/products/';
+                        window.location.href ='".URL_ROOT."/admin/products/all';
                     }, 1500);
                 </script>";
             }
@@ -163,5 +163,13 @@ class Admin extends Controller
                 die('Something went wrong');
             }
         }
+    }
+
+    public function feedbacks($id){
+        $feedback =  $this->productModel->getFeedback($id);
+        $name = $this->productModel->getNameTypeDes($id)->NAME;
+        $img = $this->productModel->getImage($id)[0]->IMAGE;
+        $data = ["feedback" => $feedback, "page" => "products", "name" => $name, "img" => $img];
+        $this->render('admin/index', $data);
     }
 }
