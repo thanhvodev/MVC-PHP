@@ -9,8 +9,8 @@ class Product
     }
 
     public function getAllProducts(){
-        $this->db->query("SELECT PRODUCT.ID AS ID, NAME, TYPE, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY, FEEDBACK 
-        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.ID GROUP BY name ORDER BY PRODUCT.ID");
+        $this->db->query("SELECT PRODUCT.ID AS ID, NAME, TYPE, IMAGE, PRICE FROM PRODUCT, PRODUCTIMAGE, PRODUCTCATEGORY
+        WHERE PRODUCT.ID = PRODUCTIMAGE.ID and PRODUCT.ID = PRODUCTCATEGORY.PRODUCTID GROUP BY name ORDER BY PRODUCT.ID");
         $row = $this->db->fetchAll();
         $i = 0;
         $res = array();
@@ -83,7 +83,7 @@ class Product
 
     public function getCategory($id)
     {
-        $this->db->query("SELECT CATEGORY, PRICE, QUANTITY FROM PRODUCTCATEGORY WHERE ID = :id");
+        $this->db->query("SELECT PRODUCTID, CATEGORY, PRICE, QUANTITY FROM PRODUCTCATEGORY WHERE PRODUCTID = :id");
         $this->db->bind(':id', $id);
         $row = $this->db->fetchAll();
         return $row;
@@ -171,6 +171,67 @@ class Product
         $this->db->bind(':timestamp', $data['timestamp']);
         $this->db->bind(':rating', $data['rating']);
         $this->db->bind(':content', $data['content']);
+
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addProduct($data){
+        $this->db->query('INSERT INTO product (TYPE, NAME, DESCRIPTION) VALUES (:type, :name, :description)');
+        $this->db->bind(':type', $data['type']);
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':description', $data['description']);
+
+        if($this->db->execute()){
+            $this->db->query("SELECT ID FROM PRODUCT WHERE NAME = :name");
+            $this->db->bind(':name', $data['name']);
+            $row = $this->db->fetch();        
+            $id = $row->ID;
+            $this->db->query('INSERT INTO productimage (ID, IMAGE) VALUES (:id, :image)');
+            $this->db->bind(':id', $id);
+            $this->db->bind(':image', $data['image']);
+            $this->db->execute();
+            $this->db->query('INSERT INTO productcategory (PRODUCTID, CATEGORY, PRICE, QUANTITY) VALUES (:productid, :category, :price, :quantity)');
+            $this->db->bind(':productid', $id);
+            $this->db->bind(':category', $data['category']);
+            $this->db->bind(':price', $data['price']);
+            $this->db->bind(':quantity', $data['quantity']);
+            $this->db->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function editProduct($data){
+        $this->db->query("UPDATE PRODUCT SET NAME = :name, DESCRIPTION = :des WHERE ID = :id");
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':des', $data['des']);
+        $this->db->bind(':id', $data['id']);
+        if($this->db->execute()){
+            $this->db->query("UPDATE PRODUCTIMAGE SET IMAGE = :image WHERE ID = :id and IMAGE=:old_image");
+            $this->db->bind(':image', $data['image']);
+            $this->db->bind(':id', $data['id']);
+            $this->db->bind(':old_image', $data['old_image']);
+            $this->db->execute();
+            $this->db->query("UPDATE PRODUCTCATEGORY SET CATEGORY = :cate, PRICE = :price, QUANTITY = :quantity WHERE ID = :cateid");
+            $this->db->bind(':cate', $data['cate']);
+            $this->db->bind(':price', $data['price']);
+            $this->db->bind(':quantity', $data['quantity']);
+            $this->db->bind(':cateid', $data['cateid']);
+            $this->db->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteProduct($data){
+        $this->db->query('DELETE FROM product WHERE ID = :id');
+        $this->db->bind(':id', $data['id']);
 
         if($this->db->execute()){
             return true;

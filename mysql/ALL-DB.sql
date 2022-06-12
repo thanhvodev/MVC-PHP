@@ -195,6 +195,21 @@ CREATE TABLE `orders` (
   `CREATED` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+INSERT INTO `orders`(`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES 
+(1,1,'Whey Protein x 1, Protein Bar x 1','Success','300.000 VND','2022-02-15'),
+(2,2,'Bánh Biscotti Trà Xanh x 1','Success','250.000 VND','2021-01-05'),
+(3,3,'Ngũ cốc ăn kiêng Granola x 1','Success','107.000 VND','2020-12-02'),
+(4,4,'Bánh Biscotti Cela x 1','Success','188.000 VND','2022-03-11'),
+(5,5,'Whey Protein x 1, Fitness Mad Light Blue x 1','Success','300.000 VND','2019-10-25'),
+(6,6,'Muối hồng Himalaya x 1','Success','250.000 VND','2018-01-01'),
+(7,7,'Set Seamless Clothes x 1','Success','249.000 VND','2019-02-02'),
+(8,8,'Resistance Band x 1','Success','250.000 VND','2020-03-03'),
+(9,9,'Bánh Biscotti Cela x 3','Success','564.000 VND','2021-04-04'),
+(10,10,'Protein Bar x 2, Set Seamless Clothes x 1','Success','549.000 VND','2022-05-05');
+
 -- --------------------------------------------------------
 
 --
@@ -338,6 +353,7 @@ INSERT INTO `productimage` (`ID`, `IMAGE`) VALUES
 (8, 'https://product.hstatic.net/200000378871/product/upload_11068af392f24e3fa285af2d854aa02b_master.jpg'),
 (9, 'https://product.hstatic.net/200000378871/product/6_2b88e106856b4ba8b914f27c1aeff4e3_master.png'),
 (9, 'https://product.hstatic.net/200000378871/product/upload_dc4effffb36e4e218f5ac38d5923e3f5_master.jpg'),
+(10, 'https://taycat.com.vn/wp-content/uploads/2021/09/nui-gao-lut-500g.jpg'),
 (11, 'https://product.hstatic.net/200000378871/product/11_e4503316b519487b9db051b19b68fe55_master.png'),
 (11, 'https://product.hstatic.net/200000378871/product/upload_1d9dff67d71a4573b7e7d457cfb0133c_master.jpg'),
 (12, 'https://product.hstatic.net/200000378871/product/15_9bf3ffee5b034ad8b781113c44a1caaa_master.png'),

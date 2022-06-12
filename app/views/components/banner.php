@@ -9,14 +9,14 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="./public/imgs/dungcugym.jpg" alt="..." class="d-block" style="width:100vw; height: 100vh">
+            <img src="./public/imgs/dungcugym.jpg" alt="..." class="d-block" style="width:100vw; height: 100vh; min-width: 800px;">
             <div class="carousel-caption banner">
                 <h3>DỤNG CỤ TẬP GYM</h3>
                 <p>Đa dạng dụng cụ thoải mái lựa chọn</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="./public/imgs/functional_food.jpg" alt="..." class="d-block" style="width:100vw; height: 100vh">
+            <img src="./public/imgs/functional_food.jpg" alt="..." class="d-block" style="width:100vw; height: 100vh; min-width: 1000px;">
             <div class="carousel-caption banner">
                 <h3>THỰC PHẨM CHỨC NĂNG</h3>
                 <p>Thực phẩm, đồ uống tăng hiệu quả cho việc luyện tập</p>
