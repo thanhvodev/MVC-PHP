@@ -89,7 +89,7 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
         </tr>
     </thead>
     <tbody>
-        <?php 
+    <?php 
         $i = 0;
         while ($i < count($res)){
             echo "<tr>";

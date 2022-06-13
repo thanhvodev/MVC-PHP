@@ -13,6 +13,7 @@
 			$this->productModel = $this->loadmodel('Product');
 			$this->blogModel = $this->loadModel('Blog');
 			$this->eventModel = $this->loadModel('Event');
+			$this->bannerModel = $this->loadModel('Banner');
 		}
 		
 		/**
@@ -24,7 +25,8 @@
 				'fooddeals' => $this->productModel->getDealList(1),
 				'equipmentdeals' => $this->productModel->getDealList(2),
 				'blogs' => $this->blogModel->getBlogList(),
-				'events' => $this->eventModel->getEventList()
+				'events' => $this->eventModel->getEventList(),
+				'banner' => $this->bannerModel->getBanners(),
 			];
 			
 			$this->render('index', $data);

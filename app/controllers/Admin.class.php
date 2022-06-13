@@ -9,6 +9,8 @@ class Admin extends Controller
         $this->productModel = $this->loadModel('Product');
         $this->blogModel = $this->loadModel('Blog');
         $this->eventModel = $this->loadModel('Event');
+
+        $this->bannerModel = $this->loadModel('Banner');
     }
 
      public function index()
@@ -185,9 +187,54 @@ class Admin extends Controller
     }
 
     public function banner() {
+        $bannerData = $this->bannerModel->getBanners();
         $data = [
             "page" => "banner",
+            "banner" => $bannerData,
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addbanner'])) {
+            $title = $_POST['title'];
+            $des = $_POST['description'];
+            $images = $_POST['images'];
+
+            $this->bannerModel->createBanner($title, $des, $images);
+            $bannerData = $this->bannerModel->getBanners();
+            $data = [
+                "page" => "banner",
+                "banner" => $bannerData,
+            ];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteBanner'])) {
+            $ID = intval($_POST["ID"]);
+
+            if (count($bannerData) <= 2) {
+                $this->render('admin/index', $data);
+            } else {
+                $this->bannerModel->deleteBanner($ID);
+            }
+            $bannerData = $this->bannerModel->getBanners();
+            $data = [
+                "page" => "banner",
+                "banner" => $bannerData,
+            ];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modify'])) {
+            $ID = intval($_POST['id']);
+            $title = $_POST['title'];
+            $des = $_POST['description'];
+            $img = $_POST['images'];
+
+            $this->bannerModel->updateBanner($ID, $title, $des, $img);
+            $bannerData = $this->bannerModel->getBanners();
+            $data = [
+                "page" => "banner",
+                "banner" => $bannerData,
+            ];
+        }
+
         $this->render('admin/index', $data);
     }   
 }
