@@ -61,7 +61,7 @@
         if ($data['fooddeals'][$i]["Point"] > 0)
             echo $data['fooddeals'][$i]["Point"];
         else
-            echo "0";
+            echo "*";
         echo "
                                         </span>
                                     </a>

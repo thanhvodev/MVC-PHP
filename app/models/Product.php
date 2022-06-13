@@ -34,7 +34,7 @@ class Product
     public function getProductList($type)
     {
         $this->db->query("SELECT product.ID AS ID, NAME, IMAGE, PRICE FROM product, productimage, productcategory, feedback 
-        WHERE product.ID = productimage.ID and product.ID = productcategory.ID and type = :ptype GROUP BY name ORDER BY product.ID");
+        WHERE product.ID = productimage.ID and product.ID = productcategory.PRODUCTID and type = :ptype GROUP BY name ORDER BY product.ID");
         $this->db->bind(':ptype', $type);
         $row = $this->db->fetchAll();
         $i = 0;

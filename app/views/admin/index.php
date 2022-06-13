@@ -106,6 +106,12 @@ require APP_ROOT . '/views/inc/head.php';
         else if (page == "products"){
             index = 1;
         }
+        else if (page == "blogevent"){
+            index = 2;
+        }
+        else if (page == "banner"){
+            index = 3;
+        }
         let j = 0;
         while (j < list.length){
             list[j++].className = 'list';
