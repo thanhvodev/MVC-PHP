@@ -5,24 +5,24 @@
                 <div class="col-5 left">
                     <div class="list-item">
                         <div class="item active">
-                            <a href=<?= URL_ROOT ?>>Home</a>
+                            <a href=<?= URL_ROOT ?>>Trang chủ</a>
                         </div>
                         <div class="item">
                             <a class="dropdown-toggle" href="#" role="button" id="productDropDown"
-                                data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                                data-bs-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
 
                             <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
                                 <li class="dropdown-itembox"><a class="dropdown-item"
-                                        href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                                        href="<?php echo URL_ROOT ?>/products/detail/food">Thực phẩm chức năng</a></li>
                                 <li class="dropdown-itembox"><a class="dropdown-item"
-                                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
+                                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Dụng cụ tập luyện</a></li>
                             </ul>
                         </div>
                         <div class="item">
-                            <a href="<?php echo URL_ROOT . "/about/about"; ?>">About Us</a>
+                            <a href="<?php echo URL_ROOT . "/about/about"; ?>">Thông tin</a>
                         </div>
                         <div class="item">
-                            <a href="<?php echo URL_ROOT . "/blogs"; ?>">Event</a>
+                            <a href="<?php echo URL_ROOT . "/blogs"; ?>">Sự kiện</a>
                         </div>
                         <div class="item">
                             <a href="<?php echo URL_ROOT . "/blogs"; ?>">Blog</a>
@@ -62,11 +62,11 @@
                                     style="display: flex; flex-direction:column; align-items: center">
                                     <div class="boxsearch">
                                         <h3>
-                                            Search anything here ...
+                                            Tìm kiếm mọi thứ ở đây ...
                                         </h3>
                                         <div class="formbox">
                                             <input type="text" name="search" id="searchinput"
-                                                placeholder="Search anything" autoComplete="off" />
+                                                placeholder="Tìm kiếm" autoComplete="off" />
                                             <button type="button" class="normal-circle-btn">
                                                 <i class="fas fa-search"></i>
                                             </button>

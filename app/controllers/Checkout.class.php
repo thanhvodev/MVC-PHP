@@ -14,14 +14,16 @@ class Checkout extends Controller
 
     public function checkout()
     {
+        $userInfo = $this->orderModel->getUserInfo(intval($_SESSION['user_id']));
+        $isSet = False;
+        if ($userInfo->PHONENUM != "") {
+            $isSet = True;
+        }
         $address = [
-            'fullname' => "",
-            'phone' => "",
-            'province' => "",
-            'district' => "",
-            'commune' => "",
-            'toolsaddress' => "",
-            'issetaddress' => False,
+            'fullname' => $userInfo->USERNAME,
+            'phone' => $userInfo->PHONENUM,
+            'address' => $userInfo->ADDRESS,
+            'issetaddress' => $isSet,
         ];
 
         $data = [
@@ -35,10 +37,7 @@ class Checkout extends Controller
             $address = [
                 'fullname' => $_POST['fullname'],
                 'phone' => $_POST['phone'],
-                'province' => $_POST['province'],
-                'district' => $_POST['district'],
-                'commune' => $_POST['commune'],
-                'toolsaddress' => $_POST['toolsaddress'],
+                'address' => $_POST['toolsaddress'] . ", " . $_POST['commune'] . ", " . $_POST['district'] . ", " .$_POST['province'] ,
                 'issetaddress' => True,
             ];
 
@@ -54,7 +53,7 @@ class Checkout extends Controller
             $userid = $_SESSION['user_id'];
             $username = $_SESSION['username'];
             $time = date('Y-m-d h-i-s');
-            $addressStr = $address['fullname'] . "- SĐT: " . $address['phone'] . "-" . $address['toolsaddress'] . "-" . $address['commune'] . "-" . $address['district'] . "-" . $address['province']; 
+            $addressStr = $address['address'];
             $payment_method = 1;
             $orderItems = $_SESSION['cart'];
             $orderBill = @$this->orderModel->createOrderBill($userid, $username, $time, $addressStr, $payment_method, $orderItems);

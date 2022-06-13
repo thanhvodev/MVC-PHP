@@ -29,4 +29,11 @@ class Order {
         $sql = 'INSERT INTO `orders`(`USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES ("'. $userid .'", "'. $products .'", "Success", "'.$sum.'", "'.$time.'")';
         $connect->query($sql);
     }
+
+    public function getUserInfo($id) {
+        $this->db->query("SELECT * FROM user WHERE ID = :id");
+        $this->db->bind(':id', $id);
+        $row = $this->db->fetch();
+        return $row;
+    }
 }

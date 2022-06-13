@@ -19,14 +19,14 @@
                         echo "
                         <button type='button'>
                             <a href='".URL_ROOT."/users/profile'>
-                                <i style='margin-right: 20px;' class='far fa-user'></i> USER
+                                <i style='margin-right: 20px;' class='far fa-user'></i> NGƯỜI DÙNG
                             </a>
                         </button>
                         ";
                     } else {
                         echo "
                         <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button'>
-                            <i style='margin-right: 20px;' class='far fa-user'></i> LOGIN
+                            <i style='margin-right: 20px;' class='far fa-user'></i> ĐĂNG NHẬP
                         </button>
                         ";
                     }
@@ -40,31 +40,31 @@
 
             <div class="links" style="overflow: hidden">
                 <a href=<?= URL_ROOT ?>>
-                <button type="button">Home</button>
+                <button type="button">Trang chủ</button>
                 </a>
                 <a class="dropdown-toggle" href="#" role="button" id="productDropDown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                     <button type="button">
-                        Products
+                        Sản phẩm
                     </button>
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
                     <li class="dropdown-itembox"><a class="dropdown-item"
-                        href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                        href="<?php echo URL_ROOT ?>/products/detail/food">Thực phẩm chức năng</a></li>
                     <li class="dropdown-itembox"><a class="dropdown-item"
-                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
+                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Dụng cụ tập luyện</a></li>
                 </ul>
 
 
                 <a href="<?php echo URL_ROOT . "/about/about"; ?>">
                 <button type="button">
-                    About Us
+                    Thông tin
                 </button>
                 </a>
                 <a href="<?php echo URL_ROOT . "/blogs"; ?>">
                 <button type="button">
-                    Events
+                    Sự kiện
                 </button>
                 </a>
                 <a href="<?php echo URL_ROOT . "/blogs"; ?>">
@@ -78,7 +78,7 @@
                     echo "
                     <form action='".URL_ROOT."/users/logout' method='post'>
                         <button id='logoutbtn' type='submit' value='Đăng xuất'>
-                            <AiOutlineLogout size={25} /> LOGOUT
+                            <AiOutlineLogout size={25} /> Đăng xuất
                         </button>
                     </form>
                     ";
@@ -90,7 +90,7 @@
         </div>
         <div class="offcanvas-footer">
             <button id="offtabs" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
-                CLOSE
+                Thoát
             </button>
         </div>
     </div>

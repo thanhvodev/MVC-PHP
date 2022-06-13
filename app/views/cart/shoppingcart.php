@@ -36,10 +36,10 @@
         </div>
         <div class="mainCart">
             <div class="theadCart">
-                <div class="thead1 theaditem">PRODUCT NAME</div>
-                <div class="thead2 theaditem">PRICE</div>
-                <div class="thead3 theaditem">QUANTITY</div>
-                <div class="thead4 theaditem">TOTAL</div>
+                <div class="thead1 theaditem">TÊN SẢN PHẨM</div>
+                <div class="thead2 theaditem">GIÁ</div>
+                <div class="thead3 theaditem">SỐ LƯỢNG</div>
+                <div class="thead4 theaditem">TỔNG</div>
                 <div class="thead5 theaditem"></div>
             </div>
 
@@ -186,17 +186,17 @@
             </button> -->
             <a href="<?php echo URL_ROOT ?>/products/detail/food">
                 <button class="linkbutton" type="button">
-                    CONTINUE SHOPPING
+                    TIẾP TỤC MUA SẮM
                 </button>
             </a>
         </div>
 
         <div class="toCheckout">
             <div class="checkout">
-                <h3>CART TOTALS</h3>
+                <h3>THANH TOÁN</h3>
                 <hr />
                 <div>
-                    <p>TOTAL</p>
+                    <p>TỔNG</p>
                     <span>
                         <?php
                             echo currency_format(getTotalCart());
@@ -205,7 +205,7 @@
                 </div>
                 <a href="<?php echo URL_ROOT ?>/checkout/checkout">
                     <button type="button">
-                        PROCEED TO CHECKOUT
+                        THANH TOÁN NGAY
                     </button>
                 </a>
             </div>

@@ -29,7 +29,7 @@
         <div class="offcanvas-header">
             <p></p>
             <h5 id="offcanvasRightLabel">
-                Shopping Cart
+                Giỏ hàng
             </h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -39,9 +39,9 @@
                 <div class='offcanvas-body'>
                     <div class='emptycart'>
                         <div class='emptycartbox'>
-                            <p>Your shopping cart is empty</p>
+                            <p>Giỏ hàng của bạn đang trống</p>
                             <div class='backtoshop'>
-                                <a href='" . URL_ROOT . "'>GO TO THE SHOP</a>
+                                <a href='" . URL_ROOT . "'>Mua hàng</a>
                             </div>    
                         </div>
                     </div>
@@ -85,18 +85,18 @@
                     </div>
                     <div class='offcanvas-footer'>
                         <div class='totalcart'>
-                            <h3>Total:</h3>
+                            <h3>Tổng:</h3>
                             <p>" .currency_format(getTotalCart()). "</p>
                         </div>
                         <div class='checkoutcart'>
                             <div class='checkoutitem view'>
                                 <a href='" . URL_ROOT . "/cart/shoppingcart'>
-                                    VIEW CART
+                                    Xem giỏ hàng
                                 </a>
                             </div>
                             <div class='checkoutitem'>
-                                <a href='#'>
-                                    CHECK OUT
+                                <a href='".URL_ROOT."/checkout/checkout'>
+                                    Thanh toán
                                 </a>
                             </div>
                         </div>
