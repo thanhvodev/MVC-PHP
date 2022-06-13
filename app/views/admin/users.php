@@ -21,7 +21,7 @@
     }
 ?>
 
-<h1 class='text-center mb-5' style='color: #ff871d'>Quản lý thành viên</h1>
+<h1 class='text-center mb-3' style='color: #ff871d'>Quản lý thành viên</h1>
 <?php
     require_once APP_ROOT . '/views/components/user-overall.php';
 ?>
