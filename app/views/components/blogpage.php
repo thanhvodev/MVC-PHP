@@ -163,7 +163,3 @@
     }
     echo "</div>"
 ?>
-
-
-<div class="ourblog mt-5">E V E N T S</div>
-<div class="horizontalline"></div>

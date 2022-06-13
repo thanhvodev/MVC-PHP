@@ -145,6 +145,10 @@ while ($i < $start + $perpage && $i < count($data['products'])) {
         }
     </script>
 </table>
+
+
+
+
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center mt-3">
         <?php if ($curpage != $startpage) { ?>

@@ -22,7 +22,7 @@
                             <a href="<?php echo URL_ROOT . "/about/about"; ?>">Thông tin</a>
                         </div>
                         <div class="item">
-                            <a href="<?php echo URL_ROOT . "/blogs"; ?>">Sự kiện</a>
+                            <a href="<?php echo URL_ROOT . "/events"; ?>">Sự kiện</a>
                         </div>
                         <div class="item">
                             <a href="<?php echo URL_ROOT . "/blogs"; ?>">Blog</a>
