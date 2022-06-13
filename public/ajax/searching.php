@@ -15,7 +15,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     
 $target = $_POST['data'];
 
-$sql = "SELECT DISTINCT PRODUCTIMAGE.ID, NAME, IMAGE FROM PRODUCT RIGHT JOIN PRODUCTIMAGE ON PRODUCT.ID = PRODUCTIMAGE.ID WHERE NAME LIKE '%$target%'";
+$sql = "SELECT DISTINCT PRODUCTIMAGE.ID, NAME, IMAGE, CHOOSE FROM PRODUCT RIGHT JOIN PRODUCTIMAGE ON PRODUCT.ID = PRODUCTIMAGE.ID WHERE NAME LIKE '%$target%' and CHOOSE = 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

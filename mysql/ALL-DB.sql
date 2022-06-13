@@ -54,7 +54,7 @@ INSERT INTO `blog` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VA
 -- Cấu trúc bảng cho bảng `events`
 --
 
-CREATE TABLE `events` (
+CREATE TABLE `event` (
   `ID` int(10) UNSIGNED NOT NULL,
   `TITLE` varchar(255) DEFAULT NULL,
   `IMAGE` text DEFAULT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `events` (
 -- Đang đổ dữ liệu cho bảng `events`
 --
 
-INSERT INTO `events` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VALUES
+INSERT INTO `event` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VALUES
 (1, 'Mừng khai trương', 'http://www.elleman.vn/wp-content/uploads/2017/04/13/Nuoc-hoa-nam-cho-phong-gym-1.jpg', 'Tiếp cận với các thương hiệu thể dục trong ngành thực phẩm, đặc biệt là những thương hiệu muốn mở rộng thị trường và tổ chức hội chợ thực phẩm tốt cho sức khỏe và thể dục. Tương tự như một hội chợ ẩm thực nhưng không có những chú chó ngô chiên giòn và kẹo bông, thay vào đó là các món protein lắc và kem làm từ trái cây thơm ngon 🎊🎊🎊🎉🎉🎉🎉', '2022-03-09 15:18:25', 'Ken'),
 (2, 'Sale lớn lên đến 70%', 'https://leep.imgix.net/2020/08/lan-dau-tap-gym-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1', 'Tiếp cận với các thương hiệu thể dục trong ngành thực phẩm, đặc biệt là những thương hiệu muốn mở rộng thị trường và tổ chức hội chợ thực phẩm tốt cho sức khỏe và thể dục. Tương tự như một hội chợ ẩm thực nhưng không có những chú chó ngô chiên giòn và kẹo bông, thay vào đó là các món protein lắc và kem làm từ trái cây thơm ngon 🎊🎊🎊🎉🎉🎉🎉', '2022-03-09 22:34:55', 'Ken'),
 (3, 'Gym miễn phí cho mọi người', 'https://thethaodonga.com/wp-content/uploads/2022/01/anh-tap-gym-nu-dep-7.png', 'Tiếp cận với các thương hiệu thể dục trong ngành thực phẩm, đặc biệt là những thương hiệu muốn mở rộng thị trường và tổ chức hội chợ thực phẩm tốt cho sức khỏe và thể dục. Tương tự như một hội chợ ẩm thực nhưng không có những chú chó ngô chiên giòn và kẹo bông, thay vào đó là các món protein lắc và kem làm từ trái cây thơm ngon 🎊🎊🎊🎉🎉🎉🎉', '2022-03-09 22:34:55', 'Ken'),
@@ -335,30 +335,33 @@ CREATE TABLE `productimage` (
   `IMAGE` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE `productimage`
+ADD `choose` boolean
+
 --
 -- Đang đổ dữ liệu cho bảng `productimage`
 --
 
-INSERT INTO `productimage` (`ID`, `IMAGE`) VALUES
-(1, 'https://product.hstatic.net/200000378871/product/granola_bbe831e4e311455eb78b407c490ffeec_master.jpg'),
-(1, 'https://product.hstatic.net/200000378871/product/upload_70fa01d5b0b0439f940808f9dcd3a6f7_master.jpg'),
-(1, 'https://product.hstatic.net/200000378871/product/vua_yen_mach0299_fn_143c28faedb1459a9eb5b10726ea2274_master.jpg'),
-(2, 'https://aromagarden.net/wp-content/uploads/2020/06/banh-biscotti-cela.jpg '),
-(3, 'https://image.made-in-china.com/202f0j00hRpUqEAIaeuj/2-Piece-Set-Seamless-Gym-Clothes-Women-Workout-Clothing-Yoga-Set-Sports-Suit-Female-Fitness-Clothing.jpg'),
-(4, 'https://cdn11.bigcommerce.com/s-b12o4d3w60/images/stencil/1280x1280/products/1595/2140/FM-FMATNBRSF_BLU_2__46644.1601379296.jpg?c=2'),
-(5, 'https://sc04.alicdn.com/kf/Hbecce8deef424ee786dd036a5a3acbdab.jpg '),
-(6, 'https://product.hstatic.net/1000085429/product/alnatura_500gr_1024x1024.jpg '),
-(7, 'https://cf.shopee.ph/file/4b0e13e075cdbf2b4d2f16993b79f906 '),
-(8, 'https://product.hstatic.net/200000378871/product/2_f12a454485c04f15b9da4ed19780f4c0_master.png'),
-(8, 'https://product.hstatic.net/200000378871/product/upload_11068af392f24e3fa285af2d854aa02b_master.jpg'),
-(9, 'https://product.hstatic.net/200000378871/product/6_2b88e106856b4ba8b914f27c1aeff4e3_master.png'),
-(9, 'https://product.hstatic.net/200000378871/product/upload_dc4effffb36e4e218f5ac38d5923e3f5_master.jpg'),
-(10, 'https://taycat.com.vn/wp-content/uploads/2021/09/nui-gao-lut-500g.jpg'),
-(11, 'https://product.hstatic.net/200000378871/product/11_e4503316b519487b9db051b19b68fe55_master.png'),
-(11, 'https://product.hstatic.net/200000378871/product/upload_1d9dff67d71a4573b7e7d457cfb0133c_master.jpg'),
-(12, 'https://product.hstatic.net/200000378871/product/15_9bf3ffee5b034ad8b781113c44a1caaa_master.png'),
-(12, 'https://product.hstatic.net/200000378871/product/upload_7824561b430a4a64a6147f8584867c87_master.jpg'),
-(13, 'https://cf.shopee.vn/file/9705609b4d5431791a1302c5986cdaf5');
+INSERT INTO `productimage` (`ID`, `IMAGE`, `choose`) VALUES
+(1, 'https://product.hstatic.net/200000378871/product/granola_bbe831e4e311455eb78b407c490ffeec_master.jpg',true),
+(1, 'https://product.hstatic.net/200000378871/product/upload_70fa01d5b0b0439f940808f9dcd3a6f7_master.jpg',0),
+(1, 'https://product.hstatic.net/200000378871/product/vua_yen_mach0299_fn_143c28faedb1459a9eb5b10726ea2274_master.jpg',0),
+(2, 'https://aromagarden.net/wp-content/uploads/2020/06/banh-biscotti-cela.jpg ',1),
+(3, 'https://image.made-in-china.com/202f0j00hRpUqEAIaeuj/2-Piece-Set-Seamless-Gym-Clothes-Women-Workout-Clothing-Yoga-Set-Sports-Suit-Female-Fitness-Clothing.jpg',1),
+(4, 'https://cdn11.bigcommerce.com/s-b12o4d3w60/images/stencil/1280x1280/products/1595/2140/FM-FMATNBRSF_BLU_2__46644.1601379296.jpg?c=2',1),
+(5, 'https://sc04.alicdn.com/kf/Hbecce8deef424ee786dd036a5a3acbdab.jpg ',1),
+(6, 'https://product.hstatic.net/1000085429/product/alnatura_500gr_1024x1024.jpg ',1),
+(7, 'https://cf.shopee.ph/file/4b0e13e075cdbf2b4d2f16993b79f906 ',1),
+(8, 'https://product.hstatic.net/200000378871/product/2_f12a454485c04f15b9da4ed19780f4c0_master.png',1),
+(8, 'https://product.hstatic.net/200000378871/product/upload_11068af392f24e3fa285af2d854aa02b_master.jpg',0),
+(9, 'https://product.hstatic.net/200000378871/product/6_2b88e106856b4ba8b914f27c1aeff4e3_master.png',1),
+(9, 'https://product.hstatic.net/200000378871/product/upload_dc4effffb36e4e218f5ac38d5923e3f5_master.jpg',0),
+(10, 'https://taycat.com.vn/wp-content/uploads/2021/09/nui-gao-lut-500g.jpg',1),
+(11, 'https://product.hstatic.net/200000378871/product/11_e4503316b519487b9db051b19b68fe55_master.png',0),
+(11, 'https://product.hstatic.net/200000378871/product/upload_1d9dff67d71a4573b7e7d457cfb0133c_master.jpg',0),
+(12, 'https://product.hstatic.net/200000378871/product/15_9bf3ffee5b034ad8b781113c44a1caaa_master.png',1),
+(12, 'https://product.hstatic.net/200000378871/product/upload_7824561b430a4a64a6147f8584867c87_master.jpg',0),
+(13, 'https://cf.shopee.vn/file/9705609b4d5431791a1302c5986cdaf5',1);
 
 -- --------------------------------------------------------
 
