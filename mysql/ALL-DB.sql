@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 09, 2022 lúc 05:44 AM
+-- Thời gian đã tạo: Th6 13, 2022 lúc 06:02 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.28
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `gymnasium`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `banner`
+--
+
+CREATE TABLE `banner` (
+  `ID` int(11) UNSIGNED NOT NULL,
+  `TITLE` text DEFAULT NULL,
+  `DESCRIPTION` text DEFAULT NULL,
+  `IMAGES` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `banner`
+--
+
+INSERT INTO `banner` (`ID`, `TITLE`, `DESCRIPTION`, `IMAGES`) VALUES
+(5, 'Thực phẩm chức năng', 'Yến mạch, gạo lứt, bột whey cho người tập gym', 'https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/277226830_2328796287268260_1506921978437053854_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=XumtNGh0vtsAX_b-5Wg&_nc_ht=scontent.fhan3-2.fna&oh=00_AT9tpxNdH2tI7rlwYHpm0VQrAequHJswyTu7nsYVQt_4Xg&oe=62AD34B3'),
+(6, 'Dụng cụ tập luyện', 'Chuyên dụng cụ tập luyện tại nhà', 'https://cdn.shopify.com/s/files/1/0554/5784/1199/files/show1_07c2209f-e281-44cf-acc3-b1e75a1c82e9.png?v=1639556134');
 
 -- --------------------------------------------------------
 
@@ -51,7 +72,7 @@ INSERT INTO `blog` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `events`
+-- Cấu trúc bảng cho bảng `event`
 --
 
 CREATE TABLE `event` (
@@ -64,7 +85,7 @@ CREATE TABLE `event` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `events`
+-- Đang đổ dữ liệu cho bảng `event`
 --
 
 INSERT INTO `event` (`ID`, `TITLE`, `IMAGE`, `CONTENT`, `TIMESTAMP`, `WRITER`) VALUES
@@ -198,17 +219,18 @@ CREATE TABLE `orders` (
 --
 -- Đang đổ dữ liệu cho bảng `orders`
 --
-INSERT INTO `orders`(`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES 
-(1,1,'Whey Protein x 1, Protein Bar x 1','Success','300.000 VND','2022-02-15'),
-(2,2,'Bánh Biscotti Trà Xanh x 1','Success','250.000 VND','2021-01-05'),
-(3,3,'Ngũ cốc ăn kiêng Granola x 1','Success','107.000 VND','2020-12-02'),
-(4,4,'Bánh Biscotti Cela x 1','Success','188.000 VND','2022-03-11'),
-(5,5,'Whey Protein x 1, Fitness Mad Light Blue x 1','Success','300.000 VND','2019-10-25'),
-(6,6,'Muối hồng Himalaya x 1','Success','250.000 VND','2018-01-01'),
-(7,7,'Set Seamless Clothes x 1','Success','249.000 VND','2019-02-02'),
-(8,8,'Resistance Band x 1','Success','250.000 VND','2020-03-03'),
-(9,9,'Bánh Biscotti Cela x 3','Success','564.000 VND','2021-04-04'),
-(10,10,'Protein Bar x 2, Set Seamless Clothes x 1','Success','549.000 VND','2022-05-05');
+
+INSERT INTO `orders` (`ID`, `USERID`, `PRODUCT_NAMES`, `STATUS_O`, `TOTAL`, `CREATED`) VALUES
+(1, 1, 'Whey Protein x 1, Protein Bar x 1', 'Success', '300.000 VND', '2022-02-15'),
+(2, 2, 'Bánh Biscotti Trà Xanh x 1', 'Success', '250.000 VND', '2021-01-05'),
+(3, 3, 'Ngũ cốc ăn kiêng Granola x 1', 'Success', '107.000 VND', '2020-12-02'),
+(4, 4, 'Bánh Biscotti Cela x 1', 'Success', '188.000 VND', '2022-03-11'),
+(5, 5, 'Whey Protein x 1, Fitness Mad Light Blue x 1', 'Success', '300.000 VND', '2019-10-25'),
+(6, 6, 'Muối hồng Himalaya x 1', 'Success', '250.000 VND', '2018-01-01'),
+(7, 7, 'Set Seamless Clothes x 1', 'Success', '249.000 VND', '2019-02-02'),
+(8, 8, 'Resistance Band x 1', 'Success', '250.000 VND', '2020-03-03'),
+(9, 9, 'Bánh Biscotti Cela x 3', 'Success', '564.000 VND', '2021-04-04'),
+(10, 10, 'Protein Bar x 2, Set Seamless Clothes x 1', 'Success', '549.000 VND', '2022-05-05');
 
 -- --------------------------------------------------------
 
@@ -322,7 +344,8 @@ INSERT INTO `productcategory` (`ID`, `PRODUCTID`, `CATEGORY`, `PRICE`, `QUANTITY
 (20, 11, '750g', 188000, 129),
 (21, 12, '350g', 99000, 100),
 (22, 13, '100g', 50000, 120),
-(23, 13, '230g', 75000, 100);
+(23, 13, '230g', 75000, 100),
+(24, 1, '1kg', 40000, 20);
 
 -- --------------------------------------------------------
 
@@ -332,36 +355,34 @@ INSERT INTO `productcategory` (`ID`, `PRODUCTID`, `CATEGORY`, `PRICE`, `QUANTITY
 
 CREATE TABLE `productimage` (
   `ID` int(11) NOT NULL,
-  `IMAGE` varchar(255) NOT NULL
+  `IMAGE` varchar(255) NOT NULL,
+  `choose` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-ALTER TABLE `productimage`
-ADD `choose` boolean
 
 --
 -- Đang đổ dữ liệu cho bảng `productimage`
 --
 
 INSERT INTO `productimage` (`ID`, `IMAGE`, `choose`) VALUES
-(1, 'https://product.hstatic.net/200000378871/product/granola_bbe831e4e311455eb78b407c490ffeec_master.jpg',true),
-(1, 'https://product.hstatic.net/200000378871/product/upload_70fa01d5b0b0439f940808f9dcd3a6f7_master.jpg',0),
-(1, 'https://product.hstatic.net/200000378871/product/vua_yen_mach0299_fn_143c28faedb1459a9eb5b10726ea2274_master.jpg',0),
-(2, 'https://aromagarden.net/wp-content/uploads/2020/06/banh-biscotti-cela.jpg ',1),
-(3, 'https://image.made-in-china.com/202f0j00hRpUqEAIaeuj/2-Piece-Set-Seamless-Gym-Clothes-Women-Workout-Clothing-Yoga-Set-Sports-Suit-Female-Fitness-Clothing.jpg',1),
-(4, 'https://cdn11.bigcommerce.com/s-b12o4d3w60/images/stencil/1280x1280/products/1595/2140/FM-FMATNBRSF_BLU_2__46644.1601379296.jpg?c=2',1),
-(5, 'https://sc04.alicdn.com/kf/Hbecce8deef424ee786dd036a5a3acbdab.jpg ',1),
-(6, 'https://product.hstatic.net/1000085429/product/alnatura_500gr_1024x1024.jpg ',1),
-(7, 'https://cf.shopee.ph/file/4b0e13e075cdbf2b4d2f16993b79f906 ',1),
-(8, 'https://product.hstatic.net/200000378871/product/2_f12a454485c04f15b9da4ed19780f4c0_master.png',1),
-(8, 'https://product.hstatic.net/200000378871/product/upload_11068af392f24e3fa285af2d854aa02b_master.jpg',0),
-(9, 'https://product.hstatic.net/200000378871/product/6_2b88e106856b4ba8b914f27c1aeff4e3_master.png',1),
-(9, 'https://product.hstatic.net/200000378871/product/upload_dc4effffb36e4e218f5ac38d5923e3f5_master.jpg',0),
-(10, 'https://taycat.com.vn/wp-content/uploads/2021/09/nui-gao-lut-500g.jpg',1),
-(11, 'https://product.hstatic.net/200000378871/product/11_e4503316b519487b9db051b19b68fe55_master.png',0),
-(11, 'https://product.hstatic.net/200000378871/product/upload_1d9dff67d71a4573b7e7d457cfb0133c_master.jpg',0),
-(12, 'https://product.hstatic.net/200000378871/product/15_9bf3ffee5b034ad8b781113c44a1caaa_master.png',1),
-(12, 'https://product.hstatic.net/200000378871/product/upload_7824561b430a4a64a6147f8584867c87_master.jpg',0),
-(13, 'https://cf.shopee.vn/file/9705609b4d5431791a1302c5986cdaf5',1);
+(1, 'https://product.hstatic.net/200000378871/product/granola_bbe831e4e311455eb78b407c490ffeec_master.jpg', 1),
+(1, 'https://product.hstatic.net/200000378871/product/upload_70fa01d5b0b0439f940808f9dcd3a6f7_master.jpg', 0),
+(1, 'https://product.hstatic.net/200000378871/product/vua_yen_mach0299_fn_143c28faedb1459a9eb5b10726ea2274_master.jpg', 0),
+(2, 'https://aromagarden.net/wp-content/uploads/2020/06/banh-biscotti-cela.jpg ', 1),
+(3, 'https://image.made-in-china.com/202f0j00hRpUqEAIaeuj/2-Piece-Set-Seamless-Gym-Clothes-Women-Workout-Clothing-Yoga-Set-Sports-Suit-Female-Fitness-Clothing.jpg', 1),
+(4, 'https://cdn11.bigcommerce.com/s-b12o4d3w60/images/stencil/1280x1280/products/1595/2140/FM-FMATNBRSF_BLU_2__46644.1601379296.jpg?c=2', 1),
+(5, 'https://sc04.alicdn.com/kf/Hbecce8deef424ee786dd036a5a3acbdab.jpg ', 1),
+(6, 'https://product.hstatic.net/1000085429/product/alnatura_500gr_1024x1024.jpg ', 1),
+(7, 'https://cf.shopee.ph/file/4b0e13e075cdbf2b4d2f16993b79f906 ', 1),
+(8, 'https://product.hstatic.net/200000378871/product/2_f12a454485c04f15b9da4ed19780f4c0_master.png', 1),
+(8, 'https://product.hstatic.net/200000378871/product/upload_11068af392f24e3fa285af2d854aa02b_master.jpg', 0),
+(9, 'https://product.hstatic.net/200000378871/product/6_2b88e106856b4ba8b914f27c1aeff4e3_master.png', 1),
+(9, 'https://product.hstatic.net/200000378871/product/upload_dc4effffb36e4e218f5ac38d5923e3f5_master.jpg', 0),
+(10, 'https://taycat.com.vn/wp-content/uploads/2021/09/nui-gao-lut-500g.jpg', 1),
+(11, 'https://product.hstatic.net/200000378871/product/11_e4503316b519487b9db051b19b68fe55_master.png', 0),
+(11, 'https://product.hstatic.net/200000378871/product/upload_1d9dff67d71a4573b7e7d457cfb0133c_master.jpg', 0),
+(12, 'https://product.hstatic.net/200000378871/product/15_9bf3ffee5b034ad8b781113c44a1caaa_master.png', 1),
+(12, 'https://product.hstatic.net/200000378871/product/upload_7824561b430a4a64a6147f8584867c87_master.jpg', 0),
+(13, 'https://cf.shopee.vn/file/9705609b4d5431791a1302c5986cdaf5', 1);
 
 -- --------------------------------------------------------
 
@@ -411,15 +432,21 @@ INSERT INTO `user` (`ID`, `EMAIL`, `PASSWORD`, `USERNAME`, `PHONENUM`, `ADDRESS`
 --
 
 --
+-- Chỉ mục cho bảng `banner`
+--
+ALTER TABLE `banner`
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
 -- Chỉ mục cho bảng `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `events`
+-- Chỉ mục cho bảng `event`
 --
-ALTER TABLE `events`
+ALTER TABLE `event`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -488,15 +515,21 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
   MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `events`
+-- AUTO_INCREMENT cho bảng `event`
 --
-ALTER TABLE `events`
+ALTER TABLE `event`
   MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -521,7 +554,7 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `paymentinfo`
@@ -539,7 +572,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT cho bảng `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

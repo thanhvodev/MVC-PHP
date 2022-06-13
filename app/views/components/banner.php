@@ -13,7 +13,7 @@
             $i = 1;
                 echo "
                 <div class='carousel-item active'>
-                    <img src='".$data['banner'][0]->IMAGES."' alt='' class='d-block' style='width:100vw; height: 100vh; min-width: 800px;'>
+                    <img src='".$data['banner'][0]->IMAGES."' alt='' class='d-block' style='width: 100vw; height: 90vh; min-width: 800px;'>
                     <div class='carousel-caption banner'>
                         <h3>".$data['banner'][0]->TITLE."</h3>
                         <p>".$data['banner'][0]->DESCRIPTION."</p>
@@ -23,7 +23,7 @@
             while ($i < count($data['banner'])) {
                 echo "
                 <div class='carousel-item'>
-                    <img src='".$data['banner'][$i]->IMAGES."' alt='' class='d-block' style='width:100vw; height: 100vh; min-width: 800px;'>
+                    <img src='".$data['banner'][$i]->IMAGES."' alt='' class='d-block' style='width:100vw; height: 90vh; min-width: 800px;'>
                     <div class='carousel-caption banner'>
                         <h3>".$data['banner'][$i]->TITLE."</h3>
                         <p>".$data['banner'][$i]->DESCRIPTION."</p>

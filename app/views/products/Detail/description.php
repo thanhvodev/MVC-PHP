@@ -76,11 +76,29 @@
                         </a>
                         ";
                     } else {
-                        echo "
-                        <button type='submit' name='addcartqty' class='btn btn-choose'>Thêm vào giỏ hàng</button>
-                        ";
+                        if (isset($_SESSION["user_id"])) {
+                            echo "
+                            <button type='submit' name='addcartqty' class='btn btn-choose'>Thêm vào giỏ hàng</button>
+                            ";
+                        } else {
+                            echo "
+                            <button type='button' name='addcartqty' data-bs-toggle='modal' data-bs-target='#mustLogin' class='btn btn-choose'>Thêm vào giỏ hàng</button>
+                            ";
+                        }
                     }
                 ?>
+                <div class="modal fade" id="mustLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p style="color: #ff871d; font-size: 18px; text-align: center">Vui lòng đăng nhập trước khi mua hàng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- <button type="button" name='addcart' class="btn btn-choose">Mua ngay</button> -->
             </form>
         </div>

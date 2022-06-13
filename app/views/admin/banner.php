@@ -96,7 +96,7 @@
             <td>
             <div class='row d-flex justify-content-center'>
                 <div class='col-lg-6 col-12'>
-                    <button onclick='setDataModify(0)' data-bs-toggle='modal' data-bs-target='#modifyBanner' class='btn btn-success' style='background-color: #1cc88a !important; border-color: #1cc88a !important'>Sửa<i class='bi bi-pencil-square'></i></button>
+                    <button onclick='setDataModify(".$i.")' data-bs-toggle='modal' data-bs-target='#modifyBanner' class='btn btn-success' style='background-color: #1cc88a !important; border-color: #1cc88a !important'>Sửa<i class='bi bi-pencil-square'></i></button>
                 </div>
                 <div class='col-lg-6 col-12'>
                     <form method='POST'>
