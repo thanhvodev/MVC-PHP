@@ -183,4 +183,11 @@ class Admin extends Controller
         $data = ["page" => "blogevent", "blogs" => $blogData, "events" => $eventData];
         $this->render('admin/index', $data);
     }
+
+    public function banner() {
+        $data = [
+            "page" => "banner",
+        ];
+        $this->render('admin/index', $data);
+    }   
 }

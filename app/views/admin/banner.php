@@ -1,0 +1,1 @@
+<h1 class='text-center mb-3' style='color: #ff871d'>Quản lý banner</h1>

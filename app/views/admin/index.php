@@ -30,17 +30,16 @@ require APP_ROOT . '/views/inc/head.php';
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="<?php echo URL_ROOT ?>/admin/banner">
                         <i class="bi bi-info-circle"></i>
-                        <span class="title">Quản lý thông tin</span>
+                        <span class="title">Quản lý banner</span>
                     </a>
                 </li>
-                <li class="list">
-                    <a href="#">
-                        <i class="bi bi-box-arrow-left" id="log_out"></i>
-                        <span class="title">Đăng xuất</span>
-                    </a>
-                </li>
+                <form action="<?php echo URL_ROOT; ?>/users/logout" method='post'>
+                        <button style="border-radius: 20px; width: 200px; color: #ff871d; margin: 20px 20px;" id='logoutbtn' type='submit' value='Đăng xuất'>
+                            <span class="title">Đăng xuất</span>
+                        </button>
+                    </form>
             </ul>
         </div>
         <div class="content">
@@ -66,7 +65,9 @@ require APP_ROOT . '/views/inc/head.php';
                 require_once APP_ROOT . '/views/admin/products.php';
             } else if ($data['page'] == 'blogevent') {
                 require_once APP_ROOT . '/views/admin/blogevent.php';
-            } 
+            } else if ($data['page'] == "banner") {
+                require_once APP_ROOT . '/views/admin/banner.php';
+            }
             ?>
         </div>
     </div>

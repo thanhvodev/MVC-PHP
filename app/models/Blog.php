@@ -9,7 +9,7 @@ class Blog {
 
     public function getBlogList()
     {
-        $this->db->query('SELECT * FROM BLOG');
+        $this->db->query('SELECT * FROM blog');
         // $this->db->bind(':id', $id);
         $row = $this->db->fetchAll();
         return $row;
@@ -17,7 +17,7 @@ class Blog {
 
     public function getBlog($id)
     {
-        $this->db->query('SELECT * FROM BLOG WHERE ID = :id');
+        $this->db->query('SELECT * FROM blog WHERE ID = :id');
         $this->db->bind(':id', $id);
         $row = $this->db->fetch();
         return $row;

@@ -1,0 +1,389 @@
+#banner .title {
+    padding: 150px 0 130px;
+    background-image : url(./assest/show.webp);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+}
+
+#banner .title h2 {
+    font-family: Jost;
+    font-size: 46px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+}
+
+
+#banner .link {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 16px;
+
+}
+#banner .link p:hover {
+    cursor: pointer;
+    color: #ff871d;
+}
+
+#about {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width :100%;
+}
+
+#about .about_one {
+    display: flex;
+    flex-direction: row;
+}
+#about .left {
+    width: 50%;
+    margin-left: 32px;
+    margin-right: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} 
+
+#about .right {
+    width: 50%;
+    margin-left: 24px;
+    margin-right: 32px;
+}
+
+
+#about img {
+    width: 100%;
+    transition: transform .5s;
+}
+#about img:hover {
+
+    -ms-transform: scale(0.9); /* IE 9 */
+    -webkit-transform: scale(0.9); /* Safari 3-8 */
+    transform: scale(0.9);
+}
+#about .about_page_one {
+    display: flex;
+    flex-direction:row;
+}
+#about .about_page_two {
+    margin-top: 80px;
+    display: flex;
+    flex-direction:row-reverse;
+}
+
+#about .subtitle h4:before {
+    display: inline-block;
+    content: "";
+    width: 45px;
+    height: 2px;
+    background: #ff871d;
+    margin-right: 18px;
+    position: relative;
+    top: -3px;
+}
+
+#about .subtitle h4{
+    font-size: 18px;
+    color: #969696;
+    font-family: Jost;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 3.2px;
+}
+#about .title h1{
+    font-size: 40px;
+    color: #000000;
+    font-family: Jost;
+    font-weight: 500;
+    line-height: 43px;
+    font-style: normal;
+    position: relative;
+    margin-bottom: 20px;
+}
+#about .content p {
+    line-height: 1.6;
+    font-size: 15px;
+    color: #969696;
+    font-family: Jost;
+    font-weight: 400;
+    margin-top: 2rem;
+    text-align: justify;
+}
+#about_two {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+#about_two .container {
+    background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/files/about.png?v=1640061923);
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+#about_two .item {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+#about_two .item div{
+    padding-top: 40px;
+}
+
+#about_two .item i {
+    width: 100px;
+    height: 100px;
+}
+#about_two .title {
+    position: relative;
+}
+#about_two .title h1:before {    
+    position: absolute;
+    bottom: -11px;
+    content: "";
+    background: #fff;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 1px;
+    
+}
+#about_three {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#about_three .member{
+    display: flex;
+    flex-direction: row ;
+
+}
+#about_three .title {
+    text-align: center;
+
+}
+#about_three .title h1{
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    font-size: 55px;
+}
+#about_three .title p{
+    position: relative;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #171616;
+    font-family: Jost;
+    font-weight: 400;
+    margin-top: 2rem;
+
+}
+#about_three .title p:before {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 2px;
+    background: #ff871d;
+}
+#about_three .card {
+    margin-top: 24px;
+    text-align: center;
+    width :33%;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+#about_three .card:first-child {
+    margin-left: 32px;
+
+}
+#about_three .card:last-child {
+margin-right: 32px;
+}
+#about_three .card .position h4 {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #969696;
+    font-family: Jost;
+    font-weight: 400;
+}
+
+#about_three .card h2 {
+    margin-top: 12px;
+
+}
+#about_three .img:first-child {
+    background-image: url(https://cdn.shopify.com/s/files/1/0554/5784/1199/files/about1.jpg?v=1640061470);
+    background-size: cover;
+    height: 395px;
+}
+
+
+/* #about_three .img:nth-child(2) {
+    background-image: url(./assest/about1.jpg);
+
+}
+#about_three .img:last-child {
+    background-image: url(./assest/about3.jpg);
+
+} */
+
+
+#about_three .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(31, 31, 31, 0.85);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#about_three  .content *{
+    transform: translateY(-70%);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+#about_three .social-link{
+    display: flex;
+    flex-direction: row;
+}
+#about_three .social-link {
+    padding-inline-start: 0;
+
+}
+#about_three .social-link li{
+    cursor: pointer;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 42px;
+    text-align: center;
+    background: #fff;
+    color: #969696;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#about_three .social-link li:hover{
+background-color: #ff871d;
+color: #fff;
+}
+#about_three ul, #about_three li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#about_three .img:hover .content{
+    opacity: 1;
+
+}
+
+#about_three .img:hover .content *{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+#about_three .card h2:hover {
+color:#ff871d;
+cursor: pointer;
+}
+#about_four {background-color: #c7c5c5;}
+#about_four .contact {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+#about_four .info, #about_four .mail {
+    width:50%;
+    margin: 24px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#about_four span {
+    font-family: Jost;
+    letter-spacing: 4.8px;
+    font-weight: 600;
+    font-size: 35px !important;
+}
+
+#about_four strong {
+    font-weight: 900;
+}
+#about_four .info  .text{
+    border-left: 1px solid #fff;
+    padding-left: 25px;
+    margin-left: 25px;
+}
+
+#about_four .mail{
+    display: flex;
+    justify-content: center;
+}
+
+#about_four .input {
+    width: 60%;
+}
+
+
+#about_four .logo {
+    padding-right: 40px;
+}
+
+#about_four .mail input {
+    display: block;
+    width: 100%;
+    height: 60px;
+    padding: 6px 14px;
+    font-size: 18px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #cfd3cc;
+    border-radius: 2px;
+    margin: 0;
+    }
+    
+#about_four .mail .btn {
+    width:25%;
+    display: block;
+    padding: 6px 14px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    height: 60px;
+    text-align: center;
+    user-select: none;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #000;
+}
+
+
+#about_four .mail .s-margin-left {
+    margin-left: 0px;
+}

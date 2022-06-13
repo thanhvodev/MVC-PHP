@@ -36,6 +36,8 @@ require APP_ROOT . '/views/inc/head.php';
             require_once APP_ROOT . '/views/checkout/checkoutsuccess.php';
         }  elseif ($data['page'] == 'message') {
             require_once APP_ROOT . '/views/users/message.php';
+        } elseif ($data['page'] == 'about') {
+            require_once APP_ROOT . '/views/about/about.php';
         }
 
         ?>

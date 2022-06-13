@@ -9,7 +9,8 @@ class Event {
 
     public function getEventList()
     {
-        $this->db->query('SELECT * FROM EVENT');
+        // $this->db->query('SELECT * FROM EVENT');
+        $this->db->query('SELECT * FROM events');
         // $this->db->bind(':id', $id);
         $row = $this->db->fetchAll();
         return $row;
@@ -17,7 +18,7 @@ class Event {
 
     public function getEvent($id)
     {
-        $this->db->query('SELECT * FROM EVENT WHERE ID = :id');
+        $this->db->query('SELECT * FROM events WHERE ID = :id');
         $this->db->bind(':id', $id);
         $row = $this->db->fetch();
         return $row;

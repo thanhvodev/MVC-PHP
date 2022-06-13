@@ -21,6 +21,20 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
 }
 ?>
 
+<div class="modal fade" id="mustLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="color: #ff871d; font-size: 18px; text-align: center">Vui lòng đăng nhập trước khi mua hàng</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="product-container">
     <div class="row d-flex justify-content-center">
         <?php
@@ -38,7 +52,7 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
 
                             <div class="groupbtnProduct">
                                 <form role='form' method='post' action="<?php echo URL_ROOT; ?>/cart/shoppingcart">
-                                    <input type='hidden' name='Id' required value="<?php echo $res[$i]["ID"]; ?>" />
+                                <input type='hidden' name='Id' required value="<?php echo $res[$i]["ID"]; ?>" />
                                     <input type='hidden' name='Name' required value="<?php echo $res[$i]["Name"]; ?>" />
                                     <input type='hidden' name='Price' required value="<?php echo $res[$i]["Price"]; ?>" />
                                     <input type='hidden' name='Image' required value="<?php echo $res[$i]["Image"]; ?>" />
@@ -51,11 +65,19 @@ while ($i < $start + $perpage && $i < count($data["List"])) {
                                         </button>
                                         ";
                                     } else {
-                                        echo "
-                                        <button type='submit' name='addcart' class='circular-btn'>
-                                            <i class='fas fa-cart-plus'></i>
-                                        </button>
-                                        ";
+                                        if (isset($_SESSION['user_id'])) {
+                                            echo "
+                                            <button type='submit' name='addcart' class='circular-btn'>
+                                                <i class='fas fa-cart-plus'></i>
+                                            </button>
+                                            ";
+                                        } else {
+                                            echo "
+                                            <button name='' class='circular-btn' type='button' data-bs-toggle='modal' data-bs-target='#mustLogin'>
+                                                <i class='fas fa-cart-plus'></i>
+                                            </button>
+                                            ";
+                                        }
                                     }
                                     ?>
                                 </form>
