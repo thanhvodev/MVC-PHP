@@ -30,9 +30,9 @@ require APP_ROOT . '/views/inc/head.php';
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="<?php echo URL_ROOT ?>/admin/banner">
                         <i class="bi bi-info-circle"></i>
-                        <span class="title">Quản lý thông tin</span>
+                        <span class="title">Quản lý banner</span>
                     </a>
                 </li>
                 <form action="<?php echo URL_ROOT; ?>/users/logout" method='post'>
@@ -63,6 +63,8 @@ require APP_ROOT . '/views/inc/head.php';
                 require_once APP_ROOT . '/views/admin/message.php';
             } else if ($data['page'] == 'products') {
                 require_once APP_ROOT . '/views/admin/products.php';
+            } else if ($data['page'] == "banner") {
+                require_once APP_ROOT . '/views/admin/banner.php';
             }
             ?>
         </div>

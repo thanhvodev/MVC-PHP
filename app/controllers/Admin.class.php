@@ -172,4 +172,12 @@ class Admin extends Controller
         $data = ["feedback" => $feedback, "page" => "products", "name" => $name, "img" => $img];
         $this->render('admin/index', $data);
     }
+
+
+    public function banner() {
+        $data = [
+            "page" => "banner",
+        ];
+        $this->render('admin/index', $data);
+    }   
 }
