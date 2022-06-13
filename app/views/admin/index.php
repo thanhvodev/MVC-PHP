@@ -35,12 +35,11 @@ require APP_ROOT . '/views/inc/head.php';
                         <span class="title">Quản lý thông tin</span>
                     </a>
                 </li>
-                <li class="list">
-                    <a href="#">
-                        <i class="bi bi-box-arrow-left" id="log_out"></i>
-                        <span class="title">Đăng xuất</span>
-                    </a>
-                </li>
+                <form action="<?php echo URL_ROOT; ?>/users/logout" method='post'>
+                        <button style="border-radius: 20px; width: 200px; color: #ff871d; margin: 20px 20px;" id='logoutbtn' type='submit' value='Đăng xuất'>
+                            <span class="title">Đăng xuất</span>
+                        </button>
+                    </form>
             </ul>
         </div>
         <div class="content">

@@ -19,7 +19,7 @@
                             </ul>
                         </div>
                         <div class="item">
-                            <a href="/">About Us</a>
+                            <a href="<?php echo URL_ROOT . "/about/about"; ?>">About Us</a>
                         </div>
                         <div class="item">
                             <a href="<?php echo URL_ROOT . "/blogs"; ?>">Event</a>
@@ -38,9 +38,9 @@
                     <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
                         <div class="box-logo">GYMNASIUM</div>
                     </a>
-                    <a style="cursor: pointer;" href="<?php echo URL_ROOT; ?>">
+                    <!-- <a style="cursor: pointer;" href="">
                         <div class="hiddenbox">GYM</div>
-                    </a>
+                    </a> -->
                 </div>
 
                 <div class="col-5 right">

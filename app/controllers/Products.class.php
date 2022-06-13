@@ -35,6 +35,7 @@
                 $res = $this->productModel->getNameTypeDes($option);
                 if ($res) {
                     $data = [
+                        "Id" => $option,
                         "page" => "productdetail",
                         "Name" => $res->NAME,
                         "Type" => $res->TYPE,
@@ -42,7 +43,8 @@
                         "Images" => $this->productModel->getImage($option),
                         "Category" => $this->productModel->getCategory($option),
                         "Feedbacks" => $this->productModel->getFeedback($option),
-                        "Point" => $this->productModel->getRatingPoint($option)
+                        "Point" => $this->productModel->getRatingPoint($option),
+                        "Price" => $this->productModel->getCategory($option)[0],
                     ];
                     $this->render('index', $data);
                     if($_SERVER['REQUEST_METHOD'] == 'POST'){

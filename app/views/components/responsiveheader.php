@@ -13,47 +13,79 @@
                 <button type="button" class="active">
                     <i style="margin-right: 20px;" class="fad fa-bars"></i> MENU
                 </button>
+
+                <?php
+                    if (isset($_SESSION['user_id'])) {
+                        echo "
+                        <button type='button'>
+                            <a href='".URL_ROOT."/users/profile'>
+                                <i style='margin-right: 20px;' class='far fa-user'></i> USER
+                            </a>
+                        </button>
+                        ";
+                    } else {
+                        echo "
+                        <button data-bs-toggle='modal' data-bs-target='#LoginModal' type='button'>
+                            <i style='margin-right: 20px;' class='far fa-user'></i> LOGIN
+                        </button>
+                        ";
+                    }
+                ?>
                 
-                <button type="button" onClick={handleBackToLogin}>
-                    <i style="margin-right: 20px;" class="far fa-user"></i> LOGIN
-                </button>
                 
-                <!-- <button type="button">
-                    <a href="#">
-                    <i style="margin-right: 20px;" class="far fa-user"></i> USER
-                    </a>
-                </button> -->
+                
+                
                 
             </div>
 
-            <div class="links">
-                <a to="/">
+            <div class="links" style="overflow: hidden">
+                <a href=<?= URL_ROOT ?>>
                 <button type="button">Home</button>
                 </a>
-                <a to="/">
-                <button type="button">
-                    Products
-                </button>
+                <a class="dropdown-toggle" href="#" role="button" id="productDropDown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button">
+                        Products
+                    </button>
                 </a>
-                <a to="/">
+
+                <ul class="dropdown-menu" aria-labelledby="productDropDown" id="contentproductDropDown">
+                    <li class="dropdown-itembox"><a class="dropdown-item"
+                        href="<?php echo URL_ROOT ?>/products/detail/food">Foods</a></li>
+                    <li class="dropdown-itembox"><a class="dropdown-item"
+                        href="<?php echo URL_ROOT ?>/products/detail/equipment">Equipments</a></li>
+                </ul>
+
+
+                <a href="<?php echo URL_ROOT . "/about/about"; ?>">
                 <button type="button">
                     About Us
                 </button>
                 </a>
-                <a to="/">
+                <a href="<?php echo URL_ROOT . "/blogs"; ?>">
                 <button type="button">
                     Events
                 </button>
                 </a>
-                <a to="/">
+                <a href="<?php echo URL_ROOT . "/blogs"; ?>">
                 <button type="button">Blog</button>
                 </a>
             </div>
 
             
-            <button type="button" id="logoutbtn">
-                <AiOutlineLogout size={25} /> LOGOUT
-            </button>
+            <?php 
+                if(isset($_SESSION['user_id'])) {
+                    echo "
+                    <form action='".URL_ROOT."/users/logout' method='post'>
+                        <button id='logoutbtn' type='submit' value='Đăng xuất'>
+                            <AiOutlineLogout size={25} /> LOGOUT
+                        </button>
+                    </form>
+                    ";
+                } else {
+                    echo "";
+                }
+            ?>
 
         </div>
         <div class="offcanvas-footer">

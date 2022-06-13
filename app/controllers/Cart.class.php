@@ -67,6 +67,21 @@ class Cart extends Controller
             ];
         }
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addcartqty'])) {
+            $Id = $_POST['Id'];
+            $Name = $_POST['Name'];
+            $Price = $_POST['Price'];
+            $Image = $_POST['Image'];
+            $Point = $_POST['Point'];
+            $QTY = intval($_POST['QTY']);
+            $Product = ['Id' => $Id, 'Name' => $Name, 'Price' => $Price, 'Image' => $Image, 'Point' => $Point, 'QTY' => $QTY];
+            $this->addToSession($Product);
+            $data = [
+                'cart' => $_SESSION['cart'],
+                'page' => 'shoppingcart'
+            ];
+        }
+
         $this->render('index', $data);
     }
 

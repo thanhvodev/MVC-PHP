@@ -121,7 +121,7 @@ require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
                             <h6>Transport fee</h6>
                             <p>
                                 <?php
-                                echo currency_format(45000);
+                                echo "0 VND";
                                 ?>
                             </p>
                         </div>
@@ -130,7 +130,7 @@ require_once APP_ROOT . '/views/products/Detail/formatCurrency.php';
                             <h6>Total Payment</h6>
                             <p>
                                 <?php
-                                echo currency_format(getTotalCart() + 45000);
+                                echo currency_format(getTotalCart());
                                 ?>
                             </p>
                         </div>

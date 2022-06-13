@@ -4,6 +4,19 @@
 
 ?>
 
+<div class="modal fade" id="mustLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="color: #ff871d; font-size: 18px; text-align: center">Vui lòng đăng nhập trước khi mua hàng</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container image-slider">
     <?php
@@ -33,11 +46,20 @@
                                             </button>
                                             ";
                                         } else {
-                                            echo "
-                                            <button type='submit' name='addcart' class='circular-btn'>
-                                                <i class='fas fa-cart-plus'></i>
-                                            </button>
-                                            ";
+
+                                            if (isset($_SESSION['user_id'])) {
+                                                echo "
+                                                <button type='submit' name='addcart' class='circular-btn'>
+                                                    <i class='fas fa-cart-plus'></i>
+                                                </button>
+                                                ";
+                                            } else {
+                                                echo "
+                                                <button name='' class='circular-btn' type='button' data-bs-toggle='modal' data-bs-target='#mustLogin'>
+                                                    <i class='fas fa-cart-plus'></i>
+                                                </button>
+                                                ";
+                                            }
                                         }
                             echo "  </form>
 

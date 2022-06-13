@@ -28,11 +28,19 @@
                                             </button>
                                             ";
                                         } else {
-                                            echo "
-                                            <button type='submit' name='addcart' class='circular-btn'>
-                                                <i class='fas fa-cart-plus'></i>
-                                            </button>
-                                            ";
+                                            if (isset($_SESSION['user_id'])) {
+                                                echo "
+                                                <button type='submit' name='addcart' class='circular-btn'>
+                                                    <i class='fas fa-cart-plus'></i>
+                                                </button>
+                                                ";
+                                            } else {
+                                                echo "
+                                                <button name='' class='circular-btn' type='button' data-bs-toggle='modal' data-bs-target='#mustLogin'>
+                                                    <i class='fas fa-cart-plus'></i>
+                                                </button>
+                                                ";
+                                            }
                                         }
                             echo "  </form>
 
