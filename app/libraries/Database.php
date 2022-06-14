@@ -12,10 +12,6 @@
 		private $dbHandler;
 		private $error;
 		
-		/**
-		 * Database constructor.
-		 * Établi la connection à la bdd
-		 */
 		public function __construct() {
 			$conn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
 			$options = array(

@@ -592,13 +592,6 @@ ALTER TABLE `orderbill`
   ADD CONSTRAINT `orderbill_ibfk_1` FOREIGN KEY (`USERID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `orderitem`
---
-ALTER TABLE `orderitem`
-  ADD CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`ORDERID`) REFERENCES `orderbill` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`CATEGORYID`) REFERENCES `productcategory` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Các ràng buộc cho bảng `paymentinfo`
 --
 ALTER TABLE `paymentinfo`
